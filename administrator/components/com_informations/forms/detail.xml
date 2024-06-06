@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addfieldprefix="Informations\Component\Informations\Administrator\Field">
+  <fieldset>
+    <field name="id" type="text" readonly="true" class="readonly" default="0" description="JGLOBAL_FIELD_ID_DESC"/>
+    <field name="state" default="1" type="list" label="JSTATUS" description="JFIELD_PUBLISHED_DESC" class="inputbox" size="1">
+      <option value="1">JPUBLISHED</option>
+      <option value="0">JUNPUBLISHED</option>
+      <option value="2">JARCHIVED</option>
+      <option value="-2">JTRASHED</option>
+    </field>
+    <field name="ordering"/>
+    <field name="checked_out" type="hidden" filter="unset"/>
+    <field name="checked_out_time" type="hidden" filter="unset"/>
+    <field name="created_by" type="createdby" default="0" label="JGLOBAL_FIELD_CREATED_BY_LABEL" description="JGLOBAL_FIELD_CREATED_BY_DESC" hidden="true" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_CREATED_BY"/>
+    <field name="modified_by" type="modifiedby" default="0" label="JGLOBAL_FIELD_MODIFIED_BY_LABEL" description="JGLOBAL_FIELD_MODIFIED_BY_DESC" hidden="true" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_MODIFIED_BY"/>
+    <field name="slogan" filter="safehtml" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_SLOGAN" description="COM_INFORMATIONS_FORM_DESC_DETAIL_SLOGAN" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_SLOGAN"/>
+    <field name="address_1" filter="safehtml" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_ADDRESS_1" description="COM_INFORMATIONS_FORM_DESC_DETAIL_ADDRESS_1" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_ADDRESS_1"/>
+    <field name="address_2" filter="safehtml" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_ADDRESS_2" description="COM_INFORMATIONS_FORM_DESC_DETAIL_ADDRESS_2" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_ADDRESS_2"/>
+    <field name="hotline" filter="safehtml" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_HOTLINE" description="COM_INFORMATIONS_FORM_DESC_DETAIL_HOTLINE" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_HOTLINE"/>
+    <field name="telephone" filter="safehtml" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_TELEPHONE" description="COM_INFORMATIONS_FORM_DESC_DETAIL_TELEPHONE" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_TELEPHONE"/>
+    <field name="logo" type="file" label="COM_INFORMATIONS_FORM_LBL_DETAIL_LOGO" description="COM_INFORMATIONS_FORM_DESC_DETAIL_LOGO" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_LOGO"/>
+    <field name="email_ktx" validate="email" type="email" label="COM_INFORMATIONS_FORM_LBL_DETAIL_EMAIL_KTX" description="COM_INFORMATIONS_FORM_DESC_DETAIL_EMAIL_KTX" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_EMAIL_KTX"/>
+    <field name="website" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_WEBSITE" description="COM_INFORMATIONS_FORM_DESC_DETAIL_WEBSITE" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_WEBSITE"/>
+    <field name="facebook" filter="safehtml" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_FACEBOOK" description="COM_INFORMATIONS_FORM_DESC_DETAIL_FACEBOOK" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_FACEBOOK"/>
+    <field name="zalo" filter="safehtml" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_ZALO" description="COM_INFORMATIONS_FORM_DESC_DETAIL_ZALO" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_ZALO"/>
+    <field name="twitter" filter="safehtml" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_TWITTER" description="COM_INFORMATIONS_FORM_DESC_DETAIL_TWITTER" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_TWITTER"/>
+    <field name="instagram" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_INSTAGRAM" description="COM_INFORMATIONS_FORM_DESC_DETAIL_INSTAGRAM" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_INSTAGRAM"/>
+    <field name="students" label="COM_INFORMATIONS_FORM_LBL_DETAIL_STUDENTS" description="COM_INFORMATIONS_FORM_DESC_DETAIL_STUDENTS" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_STUDENTS"/>
+    <field name="scholarship" label="COM_INFORMATIONS_FORM_LBL_DETAIL_SCHOLARSHIP" description="COM_INFORMATIONS_FORM_DESC_DETAIL_SCHOLARSHIP" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_SCHOLARSHIP"/>
+    <field name="rooms" label="COM_INFORMATIONS_FORM_LBL_DETAIL_ROOMS" description="COM_INFORMATIONS_FORM_DESC_DETAIL_ROOMS" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_ROOMS"/>
+    <field name="tour_video" accept="mp4,mov,avi,flv,wmv" type="file" label="COM_INFORMATIONS_FORM_LBL_DETAIL_TOUR_VIDEO" description="COM_INFORMATIONS_FORM_DESC_DETAIL_TOUR_VIDEO" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_TOUR_VIDEO"/>
+    <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
+  </fieldset>
+  <fieldset name="accesscontrol">
+    <field name="asset_id" type="hidden" filter="unset"/>
+    <field name="rules" type="rules" label="JFIELD_RULES_LABEL" translate_label="false" filter="rules" validate="rules" class="inputbox" component="com_informations" section="detail"/>
+  </fieldset>
+</form>

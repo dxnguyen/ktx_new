@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field name="search" type="text" description="COM_EVENTS_SEARCH_FILTER_SUBMIT"
+               label="COM_USERS_FILTER_SEARCH_DESC"
+               class="js-stools-search-string" />
+
+        <field name="state"
+               type="status"
+               label="COM_EVENTS_FILTER_STATE"
+               description="COM_EVENTS_FILTER_STATE_DESC"
+               onchange="this.form.submit();"
+        >
+            <option value="">JOPTION_SELECT_PUBLISHED</option>
+        </field>
+
+        <field name="start_date.from" label="COM_EVENTS_EVENTS_START_DATE_FILTER_FROM" type="calendar" onchange="this.form.submit();" filter="safehtml" class="inputbox" showtime="false" translateformat="false" hint="COM_EVENTS_EVENTS_START_DATE_FILTER_FROM"/>
+<field name="start_date.to" label="COM_EVENTS_EVENTS_START_DATE_FILTER_TO" type="calendar" onchange="this.form.submit();" filter="safehtml" class="inputbox" showtime="false" translateformat="false" hint="COM_EVENTS_EVENTS_START_DATE_FILTER_TO"/>
+<field name="end_date.from" label="COM_EVENTS_EVENTS_END_DATE_FILTER_FROM" type="calendar" onchange="this.form.submit();" filter="safehtml" class="inputbox" showtime="false" translateformat="false" hint="COM_EVENTS_EVENTS_END_DATE_FILTER_FROM"/>
+<field name="end_date.to" label="COM_EVENTS_EVENTS_END_DATE_FILTER_TO" type="calendar" onchange="this.form.submit();" filter="safehtml" class="inputbox" showtime="false" translateformat="false" hint="COM_EVENTS_EVENTS_END_DATE_FILTER_TO"/>
+
+
+    </fields>
+
+    <fields name="list">
+
+        <field name="fullordering"
+               type="list"
+               label="COM_EVENTS_LIST_FULL_ORDERING"
+               description="COM_EVENTS_LIST_FULL_ORDERING_DESC"
+               onchange="this.form.submit();"
+               default="a.id DESC"
+        >
+            <option value="">JGLOBAL_SORT_BY</option>
+            <option value="a.id ASC">COM_EVENTS_ID_ASC</option><option value="a.id DESC">COM_EVENTS_ID_DESC</option><option value="a.state ASC">COM_EVENTS_STATE_ASC</option><option value="a.state DESC">COM_EVENTS_STATE_DESC</option><option value="a.ordering ASC">COM_EVENTS_ORDERING_ASC</option><option value="a.ordering DESC">COM_EVENTS_ORDERING_DESC</option><option value="a.title ASC">COM_EVENTS_TITLE_ASC</option><option value="a.title DESC">COM_EVENTS_TITLE_DESC</option><option value="a.image ASC">COM_EVENTS_IMAGE_ASC</option><option value="a.image DESC">COM_EVENTS_IMAGE_DESC</option><option value="a.image_link ASC">COM_EVENTS_IMAGE_LINK_ASC</option><option value="a.image_link DESC">COM_EVENTS_IMAGE_LINK_DESC</option><option value="a.start_date ASC">COM_EVENTS_START_DATE_ASC</option><option value="a.start_date DESC">COM_EVENTS_START_DATE_DESC</option><option value="a.end_date ASC">COM_EVENTS_END_DATE_ASC</option><option value="a.end_date DESC">COM_EVENTS_END_DATE_DESC</option><option value="a.created_date ASC">COM_EVENTS_CREATED_DATE_ASC</option><option value="a.created_date DESC">COM_EVENTS_CREATED_DATE_DESC</option>
+
+        </field>
+
+       <field name="limit"
+               type="limitbox"
+               label="COM_EVENTS_LIST_LIMIT"
+               description="COM_EVENTS_LIST_LIMIT_DESC"
+               class="input-mini"
+               default="25"
+               onchange="this.form.submit();"
+        />
+
+    </fields>
+
+</form>

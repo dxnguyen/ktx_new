@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_events",
+  "version": "CVS: 1.0.0",
+  "license": "GNU General Public License version 2 or later; see LICENSE.txt",
+  "assets": [
+    {
+      "name": "com_events.admin",
+      "type": "style",
+      "uri": "com_events/admin.css"
+    },
+    {
+      "name": "com_events.admin",
+      "type": "script",
+      "uri": "com_events/admin.js",
+      "dependencies": [
+        "jquery"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+        "name": "com_events.list",
+        "type": "style",
+        "uri": "com_events/list.css"
+    }
+  ]
+}

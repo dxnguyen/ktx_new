@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="044b139e-d0aa-4492-8280-95ff40062e0f" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="D:\xampp8\php\php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2gD9NymI1JTX2h6gn0XLJt26P59" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/KTX_P.CNTTDL/projects/ktx/themes/demoktx&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\KTX_P.CNTTDL\projects\ktx\themes\demoktx" />
+      <recent name="D:\KTX_P.CNTTDL\projects\ktx\themes\demoktx\templates\jl_double_pro\images" />
+      <recent name="D:\KTX_P.CNTTDL\projects\ktx\themes\demoktx\templates\jl_double_pro" />
+      <recent name="D:\KTX_P.CNTTDL\projects\ktx\themes\demoktx\templates\jl_double_pro\custom" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\KTX_P.CNTTDL\projects\ktx\themes\demoktx\templates\jl_double_pro\js" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="demoktx" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="demoktx" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="044b139e-d0aa-4492-8280-95ff40062e0f" name="Changes" comment="" />
+      <created>1715221246213</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715221246213</updated>
+      <workItem from="1715221247207" duration="6925000" />
+      <workItem from="1715291830345" duration="2686000" />
+      <workItem from="1715300128445" duration="1012000" />
+      <workItem from="1715301785798" duration="2144000" />
+      <workItem from="1715391915725" duration="23607000" />
+      <workItem from="1715445193581" duration="1133000" />
+      <workItem from="1715487566378" duration="2976000" />
+      <workItem from="1715503623294" duration="8179000" />
+      <workItem from="1715551097514" duration="4473000" />
+      <workItem from="1715561586252" duration="18116000" />
+      <workItem from="1715638680681" duration="781000" />
+      <workItem from="1715646114104" duration="10395000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
