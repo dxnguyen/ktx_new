@@ -188,6 +188,8 @@ $statusModules = LayoutHelper::render('status', ['modules' => 'status']);
 
 <style>
     a[target=_blank]:before { content: none; }
+    .header .logo img, .header .logo svg { height: 50px; width: auto; }
+    .menu-dashboard{ display: none;}
 </style>
 </body>
 </html>

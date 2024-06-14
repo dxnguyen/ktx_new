@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>mod_menutop</name>
+	<creationDate>2024-06-06</creationDate>
+	<copyright>Copyright (C) 2024. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<author>nguyen dinh</author>
+	<authorEmail>vb.dinhxuannguyen@gmail.com</authorEmail>
+	<authorUrl></authorUrl>
+	<version>1.0.0</version>
+	<description></description>
+	<namespace path="src">Joomla\Module\Menutop</namespace>
+	<files>
+		<filename>mod_menutop.xml</filename>
+		<filename module="mod_menutop">mod_menutop.php</filename>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+		<folder>css</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/mod_menutop.ini</language>
+		<language tag="en-GB">language/en-GB/mod_menutop.sys.ini</language>
+	</languages>
+	<!-- Generated with the ComponentGenerator.com -->
+</extension>

@@ -80,7 +80,7 @@ class Document
      * @var    string
      * @since  1.7.0
      */
-    public $_generator = 'Joomla! - Open Source Content Management';
+    public $_generator = '';
 
     /**
      * Document modified date

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>mod_slideshows</name>
+	<creationDate>2024-06-06</creationDate>
+	<copyright>Copyright (C) 2024. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<author>nguyen dinh</author>
+	<authorEmail>vb.dinhxuannguyen@gmail.com</authorEmail>
+	<authorUrl>https://componentgenerator.com</authorUrl>
+	<version>1.0.0</version>
+	<description></description>
+	<namespace path="src">Joomla\Module\Slideshows</namespace>
+	<files>
+		<filename>mod_slideshows.xml</filename>
+		<filename module="mod_slideshows">mod_slideshows.php</filename>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+		<folder>css</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/mod_slideshows.ini</language>
+		<language tag="en-GB">language/en-GB/mod_slideshows.sys.ini</language>
+	</languages>
+	<!-- Generated with the ComponentGenerator.com -->
+</extension>

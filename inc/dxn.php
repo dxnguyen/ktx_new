@@ -20,7 +20,7 @@ class Dxn
         $db = \Joomla\CMS\Factory::getDbo();
         $query = $db->getQuery(true);
         $query->select('*')
-            ->from($db->quoteName('#__gernerals'))
+            ->from($db->quoteName('#__informations'))
             ->where('id = 1');
         $db->setQuery($query);
         $result = $db->loadObject();

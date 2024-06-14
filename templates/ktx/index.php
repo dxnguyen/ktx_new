@@ -6,14 +6,12 @@
  * @copyright   (C) 2017 Open Source Matters, Inc. <https://www.joomla.org>
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
-
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
-
 /** @var Joomla\CMS\Document\HtmlDocument $this */
 
 $app   = Factory::getApplication();
@@ -38,11 +36,14 @@ $pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
 // Color Theme
 $paramsColorName = $this->params->get('colorName', 'colors_standard');
 $assetColorName  = 'theme.' . $paramsColorName;
-$wa->registerAndUseStyle($assetColorName, '<?php echo $template_path;?>media/templates/site/ktx/css/global/' . $paramsColorName . '.css');
+$wa->registerAndUseStyle($assetColorName, 'media/templates/site/ktx/css/global/' . $paramsColorName . '.css');
 
 // Use a font scheme if set in the template style options
 $paramsFontScheme = $this->params->get('useFontScheme', false);
 $fontStyles       = '';
+
+$activeTemplate = $app->getTemplate(true)->template;
+$template_path  = JURI::root().'templates/'.$activeTemplate.'/';
 
 if ($paramsFontScheme) {
     if (stripos($paramsFontScheme, 'https://') === 0) {
@@ -90,8 +91,8 @@ if ($this->params->get('logoFile')) {
     $logo = HTMLHelper::_('image', 'logo.svg', $sitename, ['class' => 'logo d-inline-block', 'loading' => 'eager', 'decoding' => 'async'], true, 0);
 }
 
-$hasClass = '';
 
+$hasClass = '';
 if ($this->countModules('sidebar-left', true)) {
     $hasClass .= ' has-sidebar-left';
 }
@@ -110,7 +111,10 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 // Defer fontawesome for increased performance. Once the page is loaded javascript changes it to a stylesheet.
 $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
 
-$template_path = JURI::root().'templates/ktx/';
+// get infoweb
+$dxn     = new Dxn();
+$infoweb = $dxn->getInfoweb();
+
 ?>
 <!DOCTYPE html>
 <html lang="en-GB" dir="ltr">
@@ -121,12 +125,9 @@ $template_path = JURI::root().'templates/ktx/';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-
     <meta charset="utf-8">
-    <meta name="description"
-          content="Minix is a featured-packed template perfect for the creative agency or freelancer.">
-    <meta name="generator" content="Joomla! - Open Source Content Management">
-    <title>Home</title>
+    <meta name="description" content="<?php echo $app->getConfig()->get('MetaDesc');?>">
+    <jdoc:include type="head" />
 
     <link href="<?php echo $template_path;?>media/com_convertforms/css/convertformsa7fc.css?2f978bcf04dcc23579c9dffe3871c4e8" rel="stylesheet"/>
     <link href="<?php echo $template_path;?>templates/jl_double_pro/css/jluikit.min.css" rel="stylesheet"/>
@@ -144,495 +145,9 @@ $template_path = JURI::root().'templates/ktx/';
     <link href="<?php echo $template_path;?>templates/jl_double_pro/custom/common.css" rel="stylesheet"/>
 
     <link rel="icon" href="favicon-32x32.png" type="image/png">
-    <style>
-        #cf_2 .cf-btn:hover {
-            background-color: #153fd6 !important;
-            color: #ffffff !important;
-        }
-    </style>
-    <style>.convertforms {
-            --color-primary: #4285F4;
-            --color-success: #0F9D58;
-            --color-danger: #d73e31;
-            --color-warning: #F4B400;
-            --color-default: #444;
-            --color-grey: #ccc;
-
-        }
-    </style>
-    <style>#cf_2 {
-            --font: Arial;
-            --background-color: rgba(255, 255, 255, 1);
-            --border-radius: 0px;
-            --control-gap: 10px;
-            --label-color: #161616;
-            --label-size: 15px;
-            --label-weight: 400;
-            --input-color: #666666;
-            --input-placeholder-color: #66666670;
-            --input-text-align: left;
-            --input-background-color: #ffffff;
-            --input-border-color: #69727d;
-            --input-border-radius: 0px;
-            --input-size: 15px;
-            --input-padding: 12px 10px;
-
-        }
-    </style>
-    <style>.cf-field-hp {
-            display: none;
-            position: absolute;
-            left: -9000px;
-        }</style>
-    <style>
-        #cf_1 .cf-btn:after {
-            border-radius: 5px
-        }
-    </style>
-    <style>#cf_1 {
-            --font: Arial;
-            --background-color: rgba(255, 255, 255, 1);
-            --border-radius: 0px;
-            --control-gap: 10px;
-            --label-color: #888888;
-            --label-size: 13px;
-            --label-weight: 400;
-            --input-color: #333333;
-            --input-placeholder-color: #33333370;
-            --input-text-align: left;
-            --input-background-color: #f6f6f6;
-            --input-border-color: #ffffff;
-            --input-border-radius: 0px;
-            --input-size: 14px;
-            --input-padding: 13px 20px;
-
-        }
-    </style>
-    <style>html {
-            height: auto;
-        }</style>
-    <style>.jl-header-overlay {
-            /*position: absolute;*/
-            z-index: 980;
-            left: 0;
-            right: 0;
-        }
-
-        #jlnavbar-5523-particle .jl-navbar-container:not(.jl-navbar-transparent) {
-            background-color: #ffffff;
-        }
-
-        #jlnavbar-5523 .jl-logo {
-            color: #ffffff;
-        }
-
-        #jlnavbar-5523.tm-header .jl-light .jl-navbar-nav > li > a, #jlnavbar-5523.tm-header .jl-light .jl-search-toggle, #jlnavbar-5523.tm-header .jl-light .jl-navbar-toggle {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        #jlnavbar-5523.tm-header .jl-light .jl-search-toggle:hover, #jlnavbar-5523.tm-header .jl-light .jl-search-toggle:focus, #jlnavbar-5523.tm-header .jl-light .jl-navbar-toggle:hover, #jlnavbar-5523.tm-header .jl-light .jl-navbar-toggle:focus {
-            color: #ffffff;
-        }
-
-        #jlnavbar-5523.tm-header .jl-light .jl-navbar-nav > li:hover > a, #jlnavbar-5523.tm-header .jl-light .jl-navbar-nav > li > a:focus, #jlnavbar-5523.tm-header .jl-light .jl-navbar-nav > li > a[aria-expanded="true"] {
-            color: #ffffff;
-        }
-
-        #jlnavbar-5523.tm-header .jl-light .jl-navbar-nav > li > a:active, #jlnavbar-5523.tm-header .jl-light .jl-navbar-nav > li.jl-active > a {
-            color: #ffffff;
-        }</style>
-    <style>
-        .jlfeaturebox-3349 .tm-icon {
-            font-size: 40px;
-        }</style>
-    <style>
-        .jlsimplecounter-5893 .jl-counter-icon {
-            /*font-size: 35px;*/
-        }
-    </style>
-    <style>
-        .tm-votes .voted {
-            color: #f2b827;
-        }
-    </style>
-    <style>
-        .tm-video-item {
-            position: relative
-        }
-
-        .jl-light .tm-video-player .btn-video {
-            background-color: rgba(255, 255, 255, .15);
-            color: rgba(255, 255, 255, .5);
-        }
-
-        .jl-light .tm-video-player .btn-video:before {
-            border-color: rgba(255, 255, 255, 0.65)
-        }
-
-        .btn-video {
-            text-align: center;
-            height: 60px;
-            width: 60px;
-            z-index: 1;
-            font-size: 17px;
-            color: #fff;
-            border: 0;
-            border-radius: 100%;
-            display: inline-block;
-            position: relative
-        }
-
-        .btn-video i {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20px
-        }
-
-        .btn-video:hover {
-            color: #fff
-        }
-
-        .btn-video .ripple, .btn-video .ripple:before, .btn-video .ripple:after {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            -ms-border-radius: 50%;
-            transform: translate(-50%, -50%);
-            -ms-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
-            -o-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
-            -webkit-animation: ripple 3s infinite;
-            animation: ripple 3s infinite
-        }
-
-        .tm-video-player {
-            position: relative;
-            line-height: 1
-        }
-
-        .tm-video-player .btn-video {
-            transition: all .5s ease;
-            -moz-transition: all .5s ease;
-            -webkit-transition: all .5s ease;
-            -ms-transition: all .5s ease;
-            -o-transition: all .5s ease
-        }
-
-        .tm-video-player .btn-video:before {
-            content: "";
-            position: absolute;
-            left: -8px;
-            top: -8px;
-            right: -8px;
-            bottom: -8px;
-            border: 1px solid rgba(0, 0, 0, 0.3);
-            border-radius: 50%
-        }
-
-        .tm-video-player .btn-video:hover {
-            background: #fff;
-        }
-
-        .tm-video-item:hover .btn-video {
-            background: #fff
-        }
-
-        .btn-video .ripple:before {
-            -webkit-animation-delay: .9s;
-            animation-delay: .9s;
-            content: "";
-            position: absolute
-        }
-
-        .btn-video .ripple:after {
-            -webkit-animation-delay: .6s;
-            animation-delay: .6s;
-            content: "";
-            position: absolute
-        }
-
-        @-webkit-keyframes ripple {
-            70% {
-                box-shadow: 0 0 0 40px rgba(255, 255, 255, 0)
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0)
-            }
-        }
-
-        @keyframes ripple {
-            70% {
-                box-shadow: 0 0 0 40px rgba(255, 255, 255, 0)
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0)
-            }
-        }
-
-        .tm-video-player .btn-video {
-            background-color: #ff0000; /*#2d2d32;*/
-            color: #ffffff;
-        }
-
-        .btn-video:hover {
-            color: #ffffff;
-        }
-
-        .tm-video-player .btn-video:hover {
-            background-color: #0c2d66;
-        }
-
-        .tm-video-item:hover .btn-video i {
-            color: #ffffff;
-        }
-    </style>
-    <style>
-        .jlfeaturebox-8648 .tm-icon {
-            font-size: 34px;
-        }</style>
-    <style>
-        .tm-tg-switch-label {
-            position: relative;
-            display: inline-block;
-            width: 65px;
-            height: 31px;
-            vertical-align: middle;
-            margin: 0 20px
-        }
-
-        .tm-tg-slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #101828;
-            transition: .4s
-        }
-
-        .tm-tg-slider:before {
-            position: absolute;
-            content: "";
-            height: 21px;
-            width: 21px;
-            left: 5px;
-            bottom: 5px;
-            background-color: #F2F4F7;
-            border-radius: 50%;
-            transition: .4s
-        }
-
-        .tm-tg-switch + .tm-tg-slider {
-            background-color: #cdd5e0
-        }
-
-        .tm-tg-switch:checked + .tm-tg-slider {
-            background-color: #d2d2d2
-        }
-
-        .tm-tg-switch:checked + .tm-tg-slider:before, button.tm-tg-slider[aria-expanded="false"]:before {
-            transform: translateX(34px)
-        }
-
-        .tm-tg-slider.tm-tg-round {
-            border-radius: 500px
-        }
-
-        .tm-tg-slider.tm-tg-round:before {
-            -webkit-border-radius: 50%;
-            border-radius: 50%
-        }
-
-        .tm-tg-switch:checked + .tm-tg-slider {
-            background-color: #4fbe79
-        }
-
-        .tm-tg-slider:before {
-            background-color: #fff
-        }
-
-        .tm-tg-switch-label .tm-tg-switch {
-            opacity: 0;
-            width: 0;
-            height: 0
-        }
-
-        #jlcontenttoggle-9247 .tm-tg-slider:before {
-            background-color: #000000;
-        }
-
-        #jlcontenttoggle-9247 .tm-tg-slider.tm-tg-round {
-            background-color: #ffffff;
-        }
-
-        #jlcontenttoggle-9247 .jl-table {
-            border: none;
-        }
-    </style>
-    <style>
-        .jlfeaturebox-8790 .tm-icon {
-            color: #1c1c1c;
-            font-size: 20px;
-        }
-
-        .jlfeaturebox-8790 .el-title {
-            font-size: 17px;
-        }
-
-        .jlfeaturebox-8790 .jl-icon-box .tm-icon {
-            height: 45px;
-            width: 45px;
-            background-color: #ffffff;
-            vertical-align: middle;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease-in-out;
-        }
-    </style>
-    <style>
-        .jlpricingtable2-5126 .tm-price-table_featured {
-            position: absolute;
-            top: 0;
-            left: auto;
-            right: 0;
-            -webkit-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-            width: 150px;
-            overflow: hidden;
-            height: 150px;
-        }
-
-        .jlpricingtable2-5126 .tm-price-table_featured-inner {
-            text-align: center;
-            left: 0;
-            width: 200%;
-            -webkit-transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
-            -ms-transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
-            transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
-            margin-top: 35px;
-            font-size: 13px;
-            line-height: 2;
-            color: #fff;
-        }
-
-        #jlpricingtable2-5126 .tm-price-table_featured-inner {
-            background-color: #72ae41;
-            color: #ffffff;
-        }
-
-        #jlpricingtable2-5126 .tm-price-header {
-            padding-top: 20px;
-            padding-right: 25px;
-            padding-bottom: 20px;
-            padding-left: 25px;
-        }
-
-        #jlpricingtable2-5126 .tm-feature-list {
-            padding-right: 25px;
-            padding-left: 25px;
-        }
-
-        #jlpricingtable2-5126 .tm-price-button {
-            padding-top: 20px;
-            padding-right: 25px;
-            padding-bottom: 20px;
-            padding-left: 25px;
-        }
-
-        .period {
-            margin-left: -5px;
-        }</style>
-    <style>
-        .jlpricingtable2-8399 .tm-price-table_featured {
-            position: absolute;
-            top: 0;
-            left: auto;
-            right: 0;
-            -webkit-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-            width: 150px;
-            overflow: hidden;
-            height: 150px;
-        }
-
-        .jlpricingtable2-8399 .tm-price-table_featured-inner {
-            text-align: center;
-            left: 0;
-            width: 200%;
-            -webkit-transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
-            -ms-transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
-            transform: translateY(-50%) translateX(-50%) translateX(35px) rotate(-45deg);
-            margin-top: 35px;
-            font-size: 13px;
-            line-height: 2;
-            color: #fff;
-        }
-
-        #jlpricingtable2-8399 .tm-price-table_featured-inner {
-            background-color: #72ae41;
-            color: #ffffff;
-        }
-
-        #jlpricingtable2-8399 .tm-price-header {
-            padding-top: 20px;
-            padding-right: 25px;
-            padding-bottom: 20px;
-            padding-left: 25px;
-        }
-
-        #jlpricingtable2-8399 .tm-feature-list {
-            padding-right: 25px;
-            padding-left: 25px;
-        }
-
-        #jlpricingtable2-8399 .tm-price-button {
-            padding-top: 20px;
-            padding-right: 25px;
-            padding-bottom: 20px;
-            padding-left: 25px;
-        }
-
-        .period {
-            margin-left: -5px;
-        }</style>
-    <style>
-    </style>
-    <style>
-        .jlaccordion-5730 .jl-accordion-title {
-            background-color: #ffffff;
-            padding: 15px;
-        }
-    </style>
-    <style>
-        #mapmodule-jlopenstreetmap-218 {
-            height: 550px;
-            z-index: 1;
-        }
-    </style>
-    <style>
-        .jlcalltoaction-8325 .tm-description {
-            color: #ffffff;
-        }
-    </style>
-    <style>
-        #jldivider-9642-particle .jl-hr,
-        #jldivider-9642-particle hr {
-            border-top: 1px solid #e5e5e5;
-        }
-    </style>
 
     <script src="<?php echo $template_path;?>media/system/js/core.mind6dc.js?ee06c8994b37d13d4ad21c573bbffeeb9465c0e2"></script>
-    <script src="<?php echo $template_path;?>media/system/js/keepalive-es5.min544d.js?4eac3f5b0c42a860f0f438ed1bea8b0bdddb3804" defer
-            nomodule></script>
+    <script src="<?php echo $template_path;?>media/system/js/keepalive-es5.min544d.js?4eac3f5b0c42a860f0f438ed1bea8b0bdddb3804" defer nomodule></script>
     <script src="<?php echo $template_path;?>media/system/js/keepalive.mind58a.js?9f10654c2f49ca104ca0449def6eec3f06bd19c0" type="module"></script>
     <script src="<?php echo $template_path;?>media/vendor/jquery/js/jquery.min8a0c.js?3.7.1"></script>
     <script src="<?php echo $template_path;?>media/legacy/js/jquery-noconflict.min02ca.js?647005fc12b79b3ca2bb30c059899d5994e3e34d"></script>
@@ -652,93 +167,10 @@ $template_path = JURI::root().'templates/ktx/';
 <body class="gantry site com_gantry5 view-custom no-layout no-task dir-ltr itemid-288 outline-39 g-default g-style-preset1">
 
 <div id="g-page-surround">
-    <section id="g-header-topbar" class="nomarginall nopaddingall">
-        <div class="box-menu-topbar jl-navbar-container jl-navbar-transparent jl-light">
-            <div class="jl-container container-mb" style="display: none;">
-                <div class="hotline-mb size-100">
-                    <!--<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.64881 8.35429C10.6406 11.3453 11.3193 7.88504 13.2242 9.78861C15.0607 11.6246 16.1162 11.9924 13.7894 14.3185C13.498 14.5528 11.6462 17.3707 5.13845 10.8647C-1.37011 4.358 1.44619 2.50433 1.68048 2.21296C4.0129 -0.119616 4.3744 0.942037 6.21087 2.778C8.11577 4.68237 4.65699 5.36331 7.64881 8.35429Z" fill="currentColor"></path>
-                    </svg>-->
-                    <span style="float:left; line-height: 13px; color: #ffffff;">Tổng đài:</span>
-                    <ul class="phone-list">
-                        <li><a href="tel:0902 298 300" class="" title="0902 298 300">
-                                <span>0902 298 300</span>
-                            </a></li>
-                        <li><a href="tel:0912.298.300" class="" title="0912.298.300">
-                                <span>0912.298.300</span>
-                            </a></li>
-                        <li><a href="tel:0914.298.300" class="" title="0914.298.300">
-                                <span>0914.298.300</span>
-                            </a></li>
-                        <li><a href="tel:" class="" title="">
-                                <span></span>
-                            </a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="jl-container box-top-bar">
-                <div class="size-20 boxlang hidden-phone"><a id="Vn" href="#"><span
-                                class="hidden-phone">Tiếng Anh</span> <img src="<?php echo $template_path;?>templates/en.svg"></a></div>
-                <div class="size-60" style="display: flex; align-items: center;">
-                    <div class="hotline hidden-phone">
-                        <!--<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.64881 8.35429C10.6406 11.3453 11.3193 7.88504 13.2242 9.78861C15.0607 11.6246 16.1162 11.9924 13.7894 14.3185C13.498 14.5528 11.6462 17.3707 5.13845 10.8647C-1.37011 4.358 1.44619 2.50433 1.68048 2.21296C4.0129 -0.119616 4.3744 0.942037 6.21087 2.778C8.11577 4.68237 4.65699 5.36331 7.64881 8.35429Z" fill="currentColor"></path>
-                        </svg>-->
-                        <span style="float:left; line-height: 13px; color: #ff0000;">Tổng đài:</span>
-                        <ul class="phone-list">
-                            <li><a href="tel:1900 055 559" class="" title="1900 055 559">
-                                    <span>1900 055 559</span>
-                                </a></li>
-                            <li><a href="tel:1900 055 559" class="" title="1900 055 559">
-                                    <span>1900 055 559</span>
-                                </a></li>
-                            <li><a href="tel:1900 055 559" class="" title="1900 055 559">
-                                    <span>1900 055 559</span>
-                                </a></li>
-                            <li><a href="tel:1900 055 559" class="" title="1900 055 559">
-                                    <span>1900 055 559</span>
-                                </a></li>
 
-
-                        </ul>
-                    </div>
-                    <ul class="top-menus">
-                        <li><a href="#">Hỗ trợ đăng ký phòng ở</a></li>
-                        <li><a href="#">Việc làm</a></li>
-                        <li><a href="#">Tham quan trực tuyến</a></li>
-                        <!--<li><a href="#">Liên hệ</a></li>-->
-                    </ul>
-
-                </div>
-                <div class="">
-                    <a class="lang-mb" id="" href="#"> <img src="<?php echo $template_path;?>templates/en.svg"> </a>
-                </div>
-                <div class="size-20 hidden-phone hidden@s">
-                    <form id="searchHome" action="" method="post">
-                        <input type="text" value="" nane="keyword" class="keyword"/>
-                        <button id="searchBtn" type="submit" class="btn-sm"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <script>
-            $(document).ready(function ($) {
-                var typed = new Typed('#searchHome .keyword', {
-                    strings: ["Tiếp nhận sinh viên", "Khám sức khỏe", "phòng ở sinh viên",],
-                    typeSpeed: 100,
-                    startDelay: 0,
-                    backSpeed: 60,
-                    backDelay: 2000,
-                    loop: true,
-                    attr: 'placeholder',
-                    bindInputFocusEvents: true,
-                    cursorChar: "|",
-                    contentType: 'html'
-                });
-
-            });
-        </script>
-    </section>
+    <?php if ($this->countModules('topbar')) : ?>
+            <jdoc:include type="modules" name="topbar" style="" />
+    <?php endif; ?>
 
     <section id="g-g-top-bar" class="nomarginall nopaddingall">
         <div class="g-grid">
@@ -746,105 +178,11 @@ $template_path = JURI::root().'templates/ktx/';
                 <div jl-sticky media="@m" cls-active="jl-navbar-sticky"
                      cls-inactive="jl-navbar-transparent jl-light" sel-target=".jl-navbar-container">
                     <div class="jl-container">
-                        <nav class="jl-navbar navbar navbar-expand-lg">
 
-                            <!-- <div class="jl-navbar-left">-->
-                            <a class="jl-navbar-item jl-logo" href="https://ktx.vnuhcm.edu.vn"
-                               title="Trung tâm Quản lý Ký túc xá ĐHQG-HCM" aria-label="Back to the homepage"
-                               rel="home">
-                                <img src="<?php echo $template_path;?>templates/logo_ktx.png"/>
+                        <?php if ($this->countModules('menu')) : ?>
+                            <jdoc:include type="modules" name="menu" style="" />
+                        <?php endif; ?>
 
-                            </a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                    aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
-                            </button>
-
-                            <!--    </div>-->
-
-                            <div class="jl-navbar-right collapse navbar-collapse" id="navbarSupportedContent">
-
-                                <ul class="jl-navbar-nav navbar-nav me-auto">
-
-                                    <li class="item-type-url item-1267 nav-item">
-                                        <a href="#g-slideshow" class="nav-link">
-                                            Trang chủ
-                                        </a>
-                                    </li>
-
-                                    <li class="item-type-url item-1268 nav-item dropdown">
-                                        <a href="#g-hero" class="nav-link dropdown-toggle" role="button"
-                                           data-bs-toggle="dropdown" aria-expanded="false">
-                                            Giới thiệu
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Giới thiệu chung</a></li>
-                                            <li><a class="dropdown-item" href="#">Cơ cấu tổ chức</a></li>
-                                            <li><a class="dropdown-item" href="#">Cơ sở vật chất</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="item-type-url item-1269 nav-item dropdown">
-                                        <a href="#g-above" class="nav-link dropdown-toggle" role="button"
-                                           data-bs-toggle="dropdown" aria-expanded="false">
-                                            Đăng ký nội trú
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Hướng dẫn/Biểu mẫu</a></li>
-                                            <li><a class="dropdown-item" href="#">Đăng ký nội trú</a></li>
-                                            <li><a class="dropdown-item" href="#">Câu hỏi thường gặp</a></li>
-                                            <li><a class="dropdown-item" href="#">Thông báo</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="item-type-url item-1270 nav-item dropdown">
-                                        <a href="#g-feature" class="nav-link dropdown-toggle" role="button"
-                                           data-bs-toggle="dropdown" aria-expanded="false">
-                                            Tin tức và sự kiện
-                                        </a>
-                                        <ul class="dropdown-menu dropdown">
-                                            <li><a class="dropdown-item" href="#">Tin quan trọng</a></li>
-                                            <li><a class="dropdown-item" href="#">Sự kiện</a></li>
-                                            <li><a class="dropdown-item" href="#">Hoạt động đoàn thể</a></li>
-                                            <li><a class="dropdown-item" href="#">Video poscast</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="item-type-url item-1271 nav-item dropdown">
-                                        <a href="#g-container-main" class="nav-link dropdown-toggle" role="button"
-                                           data-bs-toggle="dropdown" aria-expanded="false">
-                                            Thông báo
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Thông báo quan trọng</a></li>
-                                            <li><a class="dropdown-item" href="#">Thông báo nội trú</a></li>
-                                            <li><a class="dropdown-item" href="#">Thư mời chào giá</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="item-type-url item-1272 nav-item dropdown">
-                                        <a href="#g-bottom" class="nav-link dropdown-toggle" role="button"
-                                           data-bs-toggle="dropdown" aria-expanded="false">
-                                            Liên kết
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Đại học quốc gia TP.HCM</a></li>
-                                            <li><a class="dropdown-item" href="#">Công đoàn</a></li>
-                                            <li><a class="dropdown-item" href="#">Trang sinh viên</a></li>
-                                        </ul>
-                                    </li>
-
-
-                                    <li class="item-type-url item-1273 nav-item">
-                                        <a href="#g-bottom" class="nav-link">
-                                            Liên hệ
-                                        </a>
-
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -858,213 +196,19 @@ $template_path = JURI::root().'templates/ktx/';
 
     </section>
 
-    <section id="g-slideshow" class="nomarginall nopaddingall">
-        <div class="g-grid">
+    <jdoc:include type="message" />
 
-            <div class="g-block size-100 jl-light">
-                <div id="jlslideshow-7035-particle" class="g-content g-particle">
-                    <div class="jlslideshow-7035" jl-slideshow="minHeight: 450; maxHeight: 760;" onplay="true">
-                        <div class="jl-position-relative">
-                            <ul class="jl-slideshow-items">
-                                <li class="tm-item">
-                                    <img src="<?php echo $template_path;?>templates/banners/ktx-1.jpg" width="1920" height="760" class="tm-image slider-img" alt="" jl-cover loading="lazy">
+    <?php if ($this->countModules('slideshow')) : ?>
+        <jdoc:include type="modules" name="slideshow" style="" />
+    <?php endif; ?>
 
-                                    <!--<div class="jl-position-cover"
-                                         style="background-color:rgba(56, 67, 86, 0.85)"></div>-->
+    <?php if ($this->countModules('stastics')) : ?>
+        <jdoc:include type="modules" name="stastics" style="" />
+    <?php endif; ?>
 
-
-                                    <!-- <div class="jl-position-cover jl-flex jl-flex-left jl-flex-middle jl-container jl-section">
-
-                                         <div class="jl-panel jl-width-2xlarge el-content-wrapper jl-margin-remove-first-child">
-
-                                             <div class="tm-meta jl-text-uppercase jl-margin-top jl-text-meta">
-                                                 Startup Business Planning
-                                             </div>
-
-
-                                             <h3 class="tm-title jl-margin-remove-bottom jl-margin-top jl-heading-small">
-                                                 Digital Marketing Services
-                                             </h3>
-
-
-                                             <div class="tm-content jl-panel jl-margin-top jl-text-lead">
-                                                 Our goal is to make it as easy as possible for you to walk away with the
-                                                 solution that suits your needs perfectly.
-                                             </div>
-
-
-                                             <div class="jl-margin-top">
-                                                 <a target="_self" href="#"
-                                                    class="jl-button jl-button-primary jl-button-large" jl-scroll>Read
-                                                     more <span class="fas fa-angle-double-right"
-                                                                aria-hidden="true"></span></a>
-                                             </div>
-
-                                         </div>
-
-                                     </div>-->
-
-
-                                </li>
-                                <li class="tm-item">
-
-
-                                    <img src="<?php echo $template_path;?>templates/banners/ktx-2.jpg" width="1920" height="760" class="tm-image slider-img" alt="" jl-cover loading="lazy">
-
-
-                                    <!--<div class="jl-position-cover"
-                                         style="background-color:rgba(56, 67, 86, 0.85)"></div>
-
-
-                                    <div class="jl-position-cover jl-flex jl-flex-left jl-flex-middle jl-container jl-section">
-
-                                        <div class="jl-panel jl-width-2xlarge el-content-wrapper jl-margin-remove-first-child">
-
-                                            <div class="tm-meta jl-text-uppercase jl-margin-top jl-text-meta">
-                                                Startup Business Planning
-                                            </div>
-
-
-                                            <h3 class="tm-title jl-margin-remove-bottom jl-margin-top jl-heading-small">
-                                                Better design for your digital products.
-                                            </h3>
-
-
-                                            <div class="tm-content jl-panel jl-margin-top jl-text-lead">
-                                                Our goal is to make it as easy as possible for you to walk away with the
-                                                solution that suits your needs perfectly.
-                                            </div>
-
-
-                                            <div class="jl-margin-top">
-                                                <a target="_self" href="#"
-                                                   class="jl-button jl-button-primary jl-button-large" jl-scroll>Read
-                                                    more <span class="fas fa-angle-double-right"
-                                                               aria-hidden="true"></span></a>
-                                            </div>
-
-                                        </div>
-
-                                    </div>-->
-
-
-                                </li>
-                            </ul>
-                            <div class="jl-visible@s">
-                                <a class="tm-slidenav jl-icon jl-position-medium jl-position-center-left" href="#"
-                                   jl-slidenav-previous jl-slideshow-item="previous"></a>
-                                <a class="tm-slidenav jl-icon jl-position-medium jl-position-center-right" href="#"
-                                   jl-slidenav-next jl-slideshow-item="next"></a>
-                            </div>
-                            <div class="jl-position-bottom-center jl-position-medium jl-visible@s">
-                                <ul class="tm-nav jl-slideshow-nav jl-dotnav jl-flex-center" jl-margin>
-                                    <li jl-slideshow-item="0">
-                                        <a href="#">
-                                            Digital Marketing Services
-                                        </a>
-                                    </li>
-                                    <li jl-slideshow-item="1">
-                                        <a href="#">
-                                            Better design for your digital products.
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <header id="g-header" class="jl-section">
-        <div class="jl-container">
-            <div class="g-grid">
-                <div class="g-block size-100 jl-light">
-                    <div id="jlsimplecounter-5893-particle" class="g-content g-particle">
-                        <div class="jlsimplecounter-5893 jl-child-width-1-1 jl-child-width-1-1@s jl-child-width-1-3@m jl-grid-small jl-flex-center jl-flex-middle"
-                             jl-grid>
-                            <div>
-                                <div class="jl-panel">
-                                    <div class="jl-child-width-expand" jl-grid>
-                                        <div class="jl-width-1-3@m">
-                                            <div class="jl-counter-icon jl-h3">
-                                                <i class="fa fa-users" aria-hidden="true"></i>
-                                            </div>
-                                        </div>
-                                        <div class="jl-margin-remove-first-child counting-number">
-                                            <div class="el-counter jl-h3 jl-margin-small-top jl-margin-remove-bottom">
-                                                <div class="tm-counter-number jl-inline" data-refresh-interval="50"
-                                                     data-speed="5000" data-from="0" data-to="34000"
-                                                     data-refresh-interval="50"></div>
-                                                <div id="jlsimplecounter-5893" class="jl-inline indicator">+</div>
-                                            </div>
-                                            <div class="tm-counter-title jl-text-lead jl-margin-small-top">Sinh viên nội
-                                                trú
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="jl-panel building">
-                                    <div class="jl-child-width-expand" jl-grid>
-                                        <div class="jl-width-1-3@m">
-                                            <div class="jl-counter-icon jl-h3">
-                                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                            </div>
-
-                                        </div>
-                                        <div class="jl-margin-remove-first-child counting-number">
-                                            <div class="el-counter jl-h3 jl-margin-small-top jl-margin-remove-bottom">
-
-                                                <div class="tm-counter-number jl-inline" data-refresh-interval="50"
-                                                     data-speed="5000" data-from="0" data-to="1234"
-                                                     data-refresh-interval="50"></div>
-                                                <!--<div id="jlsimplecounter-5893" class="jl-inline indicator">+</div> 47-->
-
-                                            </div>
-                                            <div class="tm-counter-title jl-text-lead jl-margin-small-top">Suất học
-                                                bổng
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="jl-panel">
-                                    <div class="jl-child-width-expand" jl-grid>
-                                        <div class="jl-width-1-3@m">
-                                            <div class="jl-counter-icon jl-h3">
-                                                <i class="fa fa-bed" aria-hidden="true"></i>
-                                            </div>
-
-                                        </div>
-                                        <div class="jl-margin-remove-first-child counting-number">
-                                            <div class="el-counter jl-h3 jl-margin-small-top jl-margin-remove-bottom">
-
-                                                <div class="tm-counter-number jl-inline" data-refresh-interval="50"
-                                                     data-speed="5000" data-from="0" data-to="6700"
-                                                     data-refresh-interval="50"></div>
-                                                <div id="jlsimplecounter-5893" class="jl-inline indicator">+</div>
-
-                                            </div>
-                                            <div class="tm-counter-title jl-text-lead jl-margin-small-top">Phòng ở</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <!--<main>
+        <jdoc:include type="component" />
+    </main>-->
 
     <section id="g-showcase" class="jl-section">
         <div class="jl-container">
@@ -1073,14 +217,7 @@ $template_path = JURI::root().'templates/ktx/';
                     <div id="jlcard-4831-particle" class="g-content g-particle g-showcase-text-box">
                         <div class="jlcard-4831 jl-panel">
                             <div class="jl-child-width-expand jl-flex-middle" jl-grid>
-                                <!--<div class="jl-width-1-2@m">
 
-
-                                    <img class="viewImg" src="<?php echo $template_path;?>templates/jl_double_pro/custom/images/how-we-work.jpg" width="960"
-                                         height="755" class="tm-image" alt="" loading="lazy">
-
-
-                                </div>-->
                                 <div class="jl-margin-remove-first-child">
                                     <!--<div class="tm-meta jl-text-meta jl-text-primary jl-margin-top jl-text-uppercase">
                                         Why choose us
@@ -1149,11 +286,6 @@ $template_path = JURI::root().'templates/ktx/';
                         <div class="jlheading-3361 tm-secondary-font">
                             <h3 class="news-title tm-title jl-margin-remove-bottom jl-text-bold jl-h2">Tin tức - <span
                                         class="title-red">Sự kiện</span></h3>
-                            <!--<div class="tm-description jl-text-lead jl-margin-top">
-                                We are providing branding strategy
-                                core services to our global customers
-                            </div>-->
-
                         </div>
                     </div>
                 </div>
@@ -2114,7 +1246,7 @@ $template_path = JURI::root().'templates/ktx/';
                                     class="title-red"> Khách hàng</span></h2>
                     </div>
                     <div id="jlcarousel-9721-particle" class="g-content g-particle">
-                        <div id="jlcarousel-9721" class="jlcarousel-9721 client-boxed" jl-slider="">
+                        <div id="jlcarousel-9721" class="jlcarousel-9721 client-boxed" jl-slider="animation: {fade, slide}; autoplay: true; autoplay-interval: 5000">
                             <div class="jl-position-relative jl-visible-toggle">
                                 <ul class="jl-slider-items jl-grid">
                                     <li class="tm-item jl-width-1-2 jl-width-1-3@s jl-width-1-5@m">

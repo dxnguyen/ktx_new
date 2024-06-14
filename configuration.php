@@ -4,7 +4,7 @@ class JConfig {
 	public $offline_message = 'This site is down for maintenance.<br />Please check back again soon.';
 	public $display_offline_message = 1;
 	public $offline_image = '';
-	public $sitename = 'KTX';
+	public $sitename = 'Trung tâm Quản ý Ký túc xá';
 	public $editor = 'tinymce';
 	public $captcha = '0';
 	public $list_limit = 20;
@@ -28,7 +28,7 @@ class JConfig {
 	public $live_site = '';
 	public $secret = 'JydjHgiChOuwYm38';
 	public $gzip = false;
-	public $error_reporting = 'default';
+	public $error_reporting = 'maximum';
 	public $helpurl = 'https://help.joomla.org/proxy?keyref=Help{major}{minor}:{keyref}&lang={langcode}';
 	public $offset = 'Asia/Ho_Chi_Minh';
 	public $mailonline = true;
@@ -46,7 +46,7 @@ class JConfig {
 	public $cache_handler = 'file';
 	public $cachetime = 15;
 	public $cache_platformprefix = false;
-	public $MetaDesc = '';
+	public $MetaDesc = 'Trung tâm quản lý Ký túc xá ĐHQG - HCM';
 	public $MetaAuthor = true;
 	public $MetaVersion = false;
 	public $robots = '';
@@ -56,7 +56,7 @@ class JConfig {
 	public $unicodeslugs = false;
 	public $feed_limit = 10;
 	public $feed_email = 'none';
-	public $log_path = 'D:\\xampp8\\htdocs\\ktx\\administrator/logs';
+	public $log_path = 'D:\\xampp8\\htdocs\\ktx_new\\administrator/logs';
 	public $tmp_path = 'D:\\xampp8\\htdocs\\ktx/tmp';
 	public $lifetime = 15;
 	public $session_handler = 'database';

@@ -30,7 +30,7 @@ if (!file_exists(JPATH_LIBRARIES . '/vendor/autoload.php') || !is_dir(JPATH_ROOT
 }
 
 require_once JPATH_BASE . '/includes/framework.php';
-
+require_once JPATH_BASE . '/inc/dxn.php';
 // Set profiler start time and memory usage and mark afterLoad in the profiler.
 JDEBUG && \Joomla\CMS\Profiler\Profiler::getInstance('Application')->setStart($startTime, $startMem)->mark('afterLoad');
 

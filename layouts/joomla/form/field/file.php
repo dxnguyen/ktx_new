@@ -66,4 +66,4 @@ $maxSize = HTMLHelper::_('number.bytes', Utility::getMaxUploadSize());
     <?php echo $dataAttribute; ?>
     <?php echo !empty($onchange) ? ' onchange="' . $onchange . '"' : ''; ?>
     <?php echo $required ? ' required' : ''; ?>><br>
-    <?php echo Text::sprintf('JGLOBAL_MAXIMUM_UPLOAD_SIZE_LIMIT', $maxSize); ?>
+    <?php //echo Text::sprintf('JGLOBAL_MAXIMUM_UPLOAD_SIZE_LIMIT', $maxSize); ?>
