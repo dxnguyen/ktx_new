@@ -17,5 +17,6 @@ use Joomla\CMS\Factory;
 $document = Factory::getDocument();
 $document->addStyleSheet('modules/mod_statstics/css/default.css');
 
+$delayTime = $params->get('delayTime');
 $list  = StatsticsHelper::getList();
 require ModuleHelper::getLayoutPath('mod_statstics');

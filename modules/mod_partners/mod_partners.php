@@ -17,4 +17,5 @@ use Joomla\CMS\Factory;
 $document = Factory::getDocument();
 $document->addStyleSheet('modules/mod_partners/css/default.css');
 
+$list = PartnersHelper:: getList();
 require ModuleHelper::getLayoutPath('mod_partners');

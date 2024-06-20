@@ -17,4 +17,5 @@ use Joomla\CMS\Factory;
 $document = Factory::getDocument();
 $document->addStyleSheet('modules/mod_news/css/default.css');
 
+$list = NewsHelper::getList($params);
 require ModuleHelper::getLayoutPath('mod_news');

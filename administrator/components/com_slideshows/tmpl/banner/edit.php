@@ -47,7 +47,7 @@ HTMLHelper::_('bootstrap.tooltip');
                     </div>
                 </div>
 
-				<?php echo $this->form->renderField('type'); ?>
+				<?php //echo $this->form->renderField('type'); ?>
 				<?php echo $this->form->renderField('image_link'); ?>
 				<?php //echo $this->form->renderField('description'); ?>
 				<?php //echo $this->form->renderField('created_date'); ?>

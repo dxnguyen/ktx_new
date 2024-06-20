@@ -47,7 +47,7 @@ class BannersModel extends ListModel
 				'modified_by', 'a.modified_by',
 				'title', 'a.title',
 				'image', 'a.image',
-				'type', 'a.type',
+				/*'type', 'a.type',*/
 				'image_link', 'a.image_link',
 				'description', 'a.description',
 				'created_date', 'a.created_date',
@@ -176,11 +176,11 @@ class BannersModel extends ListModel
 			{
 				$query->where('a.id = ' . (int) substr($search, 3));
 			}
-			else
+			/*else
 			{
 				$search = $db->Quote('%' . $db->escape($search, true) . '%');
 				$query->where('( a.title LIKE ' . $search . '  OR  a.type LIKE ' . $search . ' )');
-			}
+			}*/
 		}
 		
 		// Add the list ordering clause.

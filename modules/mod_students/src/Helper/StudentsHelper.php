@@ -10,9 +10,21 @@
 namespace Joomla\Module\Students\Site\Helper;
 
 // No direct access
+use Joomla\CMS\Factory;
+
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
 class StudentsHelper
 {
-	// Add your custom code here
+    public static function getList() {
+        $db    = Factory::getDbo();
+        $query = $db->getQuery(true)
+            ->select('*')
+            ->from($db->quoteName('#__comments', 'c'))
+            ->where($db->quoteName('c.state') . ' = 1')
+            ->order($db->quoteName('c.ordering'));
+        $db->setQuery($query);
+
+        return $db->loadObjectList();
+    }
 }

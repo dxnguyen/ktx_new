@@ -21,14 +21,17 @@
     <field name="logo" type="file" label="COM_INFORMATIONS_FORM_LBL_DETAIL_LOGO" description="COM_INFORMATIONS_FORM_DESC_DETAIL_LOGO" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_LOGO"/>
     <field name="email_ktx" validate="email" type="email" label="COM_INFORMATIONS_FORM_LBL_DETAIL_EMAIL_KTX" description="COM_INFORMATIONS_FORM_DESC_DETAIL_EMAIL_KTX" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_EMAIL_KTX"/>
     <field name="website" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_WEBSITE" description="COM_INFORMATIONS_FORM_DESC_DETAIL_WEBSITE" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_WEBSITE"/>
+    <field name="ktx_online" type="text" label="Website tham quan online" description="" hint="abc.example.com"/>
     <field name="facebook" filter="safehtml" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_FACEBOOK" description="COM_INFORMATIONS_FORM_DESC_DETAIL_FACEBOOK" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_FACEBOOK"/>
-    <field name="zalo" filter="safehtml" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_ZALO" description="COM_INFORMATIONS_FORM_DESC_DETAIL_ZALO" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_ZALO"/>
-    <field name="twitter" filter="safehtml" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_TWITTER" description="COM_INFORMATIONS_FORM_DESC_DETAIL_TWITTER" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_TWITTER"/>
-    <field name="instagram" type="text" label="COM_INFORMATIONS_FORM_LBL_DETAIL_INSTAGRAM" description="COM_INFORMATIONS_FORM_DESC_DETAIL_INSTAGRAM" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_INSTAGRAM"/>
+    <field name="zalo" filter="safehtml" type="text" label="Google Plus" description="" hint="Google Plus"/>
+    <field name="twitter" filter="safehtml" type="text" label="Twitter" description="COM_INFORMATIONS_FORM_DESC_DETAIL_TWITTER" hint="Twitter"/>
+    <field name="instagram" type="text" label="Youtube" description="" hint="Youtube"/>
     <field name="students" label="COM_INFORMATIONS_FORM_LBL_DETAIL_STUDENTS" description="COM_INFORMATIONS_FORM_DESC_DETAIL_STUDENTS" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_STUDENTS"/>
     <field name="scholarship" label="COM_INFORMATIONS_FORM_LBL_DETAIL_SCHOLARSHIP" description="COM_INFORMATIONS_FORM_DESC_DETAIL_SCHOLARSHIP" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_SCHOLARSHIP"/>
     <field name="rooms" label="COM_INFORMATIONS_FORM_LBL_DETAIL_ROOMS" description="COM_INFORMATIONS_FORM_DESC_DETAIL_ROOMS" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_ROOMS"/>
     <field name="tour_video" accept="mp4,mov,avi,flv,wmv" type="file" label="COM_INFORMATIONS_FORM_LBL_DETAIL_TOUR_VIDEO" description="COM_INFORMATIONS_FORM_DESC_DETAIL_TOUR_VIDEO" hint="COM_INFORMATIONS_FORM_LBL_DETAIL_TOUR_VIDEO"/>
+    <field name="video_ktx" type="text" label="Video KTX (Youtube ID)" description="" hint="Youtube ID"/>
+    <field name="experience_text" type="editor" label="Nội dung giới thiệu" filter="JComponentHelper::filterText" buttons="true" />
     <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
   </fieldset>
   <fieldset name="accesscontrol">

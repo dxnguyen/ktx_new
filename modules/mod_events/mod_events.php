@@ -17,4 +17,5 @@ use Joomla\CMS\Factory;
 $document = Factory::getDocument();
 $document->addStyleSheet('modules/mod_events/css/default.css');
 
+$list = EventsHelper::getList();
 require ModuleHelper::getLayoutPath('mod_events');

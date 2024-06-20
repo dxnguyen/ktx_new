@@ -29,7 +29,7 @@ defined('_JEXEC') or die('Restricted access');
                                     <div class="jl-margin-remove-first-child counting-number">
                                         <div class="el-counter jl-h3 jl-margin-small-top jl-margin-remove-bottom">
                                             <div class="tm-counter-number jl-inline" data-refresh-interval="50"
-                                                 data-speed="5000" data-from="0" data-to="<?php echo $list->students;?>"
+                                                 data-speed="<?php echo $delayTime;?>" data-from="0" data-to="<?php echo $list->students;?>"
                                                  data-refresh-interval="50"></div>
                                             <div id="jlsimplecounter-5893" class="jl-inline indicator">+</div>
                                         </div>
@@ -55,7 +55,7 @@ defined('_JEXEC') or die('Restricted access');
                                         <div class="el-counter jl-h3 jl-margin-small-top jl-margin-remove-bottom">
 
                                             <div class="tm-counter-number jl-inline" data-refresh-interval="50"
-                                                 data-speed="5000" data-from="0" data-to="<?php echo $list->scholarship;?>"
+                                                 data-speed="<?php echo $delayTime;?>" data-from="0" data-to="<?php echo $list->scholarship;?>"
                                                  data-refresh-interval="50"></div>
 
                                         </div>
@@ -76,7 +76,7 @@ defined('_JEXEC') or die('Restricted access');
                                     <div class="jl-margin-remove-first-child counting-number">
                                         <div class="el-counter jl-h3 jl-margin-small-top jl-margin-remove-bottom">
                                             <div class="tm-counter-number jl-inline" data-refresh-interval="50"
-                                                 data-speed="5000" data-from="0" data-to="<?php echo $list->rooms;?>"
+                                                 data-speed="<?php echo $delayTime;?>" data-from="0" data-to="<?php echo $list->rooms;?>"
                                                  data-refresh-interval="50"></div>
                                             <div id="jlsimplecounter-5893" class="jl-inline indicator">+</div>
                                         </div>

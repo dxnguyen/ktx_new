@@ -10,9 +10,22 @@
 namespace Joomla\Module\Events\Site\Helper;
 
 // No direct access
+use Joomla\CMS\Factory;
+
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
 class EventsHelper
 {
-	// Add your custom code here
+    public static function getList() {
+        $db    = Factory::getDbo();
+        $query = $db->getQuery(true)
+            ->select('*')
+            ->from($db->quoteName('#__events', 'e'))
+            ->where($db->quoteName('e.state') . ' = 1')
+            ->order($db->quoteName('e.created_date'))
+            ->setLimit(4);
+        $db->setQuery($query);
+
+        return $db->loadObjectList();
+    }
 }

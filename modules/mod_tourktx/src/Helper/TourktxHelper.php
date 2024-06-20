@@ -10,9 +10,13 @@
 namespace Joomla\Module\Tourktx\Site\Helper;
 
 // No direct access
+use Joomla\CMS\Factory;
+
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
 class TourktxHelper
 {
-	// Add your custom code here
+    public static function getList() {
+
+    }
 }

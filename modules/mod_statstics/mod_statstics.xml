@@ -17,9 +17,24 @@
 		<folder>tmpl</folder>
 		<folder>css</folder>
 	</files>
+
 	<languages>
 		<language tag="en-GB">language/en-GB/mod_statstics.ini</language>
 		<language tag="en-GB">language/en-GB/mod_statstics.sys.ini</language>
 	</languages>
-	<!-- Generated with the ComponentGenerator.com -->
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+						name="delayTime"
+						type="text"
+						label="Thời gian đếm"
+						description="Thời gian đếm để hoàn thành số liệu"
+						showon=""
+				/>
+			</fieldset>
+
+		</fields>
+	</config>
 </extension>

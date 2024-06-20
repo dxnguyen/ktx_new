@@ -10,7 +10,10 @@
 namespace Joomla\Module\Statstics\Site\Helper;
 
 // No direct access
+use Joomla\CMS\Application\CMSApplication;
 use Joomla\CMS\Factory;
+
+use Joomla\Registry\Registry;
 
 defined( '_JEXEC' ) or die( 'Restricted access' );
 

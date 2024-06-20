@@ -349,7 +349,7 @@ class Dxn
             if (count($matches[1]) > 0) {
                 $first_img = $matches [1][0];
             } else {
-                $first_img = TEMPLATE_PATH . 'images/no-image.png';
+                $first_img = '/uploads/no-image.jpg';
             }
             return $first_img;
         }

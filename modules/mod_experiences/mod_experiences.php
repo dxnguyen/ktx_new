@@ -17,4 +17,7 @@ use Joomla\CMS\Factory;
 $document = Factory::getDocument();
 $document->addStyleSheet('modules/mod_experiences/css/default.css');
 
+$dxn      = new Dxn();
+$sInfoweb = $dxn->getSession('sInfoweb');
+
 require ModuleHelper::getLayoutPath('mod_experiences');

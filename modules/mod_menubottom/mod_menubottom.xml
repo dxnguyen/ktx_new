@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>mod_menubottom</name>
+	<creationDate>2024-06-17</creationDate>
+	<copyright>Copyright (C) 2024. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<author>nguyen dinh</author>
+	<authorEmail>vb.dinhxuannguyen@gmail.com</authorEmail>
+	<authorUrl>https://componentgenerator.com</authorUrl>
+	<version>1.0.0</version>
+	<description></description>
+	<namespace path="src">Joomla\Module\Menubottom</namespace>
+	<files>
+		<filename>mod_menubottom.xml</filename>
+		<filename module="mod_menubottom">mod_menubottom.php</filename>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+		<folder>css</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/mod_menubottom.ini</language>
+		<language tag="en-GB">language/en-GB/mod_menubottom.sys.ini</language>
+	</languages>
+	<!-- Generated with the ComponentGenerator.com -->
+</extension>

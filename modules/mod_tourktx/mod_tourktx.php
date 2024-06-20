@@ -17,4 +17,8 @@ use Joomla\CMS\Factory;
 $document = Factory::getDocument();
 $document->addStyleSheet('modules/mod_tourktx/css/default.css');
 
+$dxn      = new Dxn();
+$sInfoweb = $dxn->getSession('sInfoweb');
+
+//$list  = TourktxHelper::getList();
 require ModuleHelper::getLayoutPath('mod_tourktx');

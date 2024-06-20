@@ -21,5 +21,22 @@
 		<language tag="en-GB">language/en-GB/mod_news.ini</language>
 		<language tag="en-GB">language/en-GB/mod_news.sys.ini</language>
 	</languages>
-	<!-- Generated with the ComponentGenerator.com -->
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+						name="catids"
+						type="sql"
+						label="Chọn danh mục hiển thị bài viết (có thể chọn nhiều)"
+						multiple="true"
+						layout="joomla.form.field.list-fancy-select"
+						query="select id, title from #__categories where published=1 and parent_id=12 order by title ASC"
+						key_field="id"
+						value_field="title"
+						class="multipleAuthorAliases"
+				/>
+			</fieldset>
+		</fields>
+	</config>
 </extension>

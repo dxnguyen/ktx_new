@@ -33,6 +33,10 @@ HTMLHelper::_('bootstrap.tooltip');
 		<div class="col-md-12 form-horizontal">
 			<fieldset class="adminform">
 				<legend><?php echo Text::_('COM_INFORMATIONS_FIELDSET_DETAIL'); ?></legend>
+                <div class="control-group" style="margin-top: 70px;">
+                    <div class="control-label"><hr style="color: #0c2d66; height: 2px;"/></div>
+                    <div class="controls" style="color: #0c2d66;"><strong>THÔNG TIN CHUNG</strong></div>
+                </div>
 				<?php echo $this->form->renderField('slogan'); ?>
 				<?php echo $this->form->renderField('address_1'); ?>
 				<?php echo $this->form->renderField('address_2'); ?>
@@ -50,16 +54,37 @@ HTMLHelper::_('bootstrap.tooltip');
                         <?php endif; ?>
                     </div>
                 </div>
-
 				<?php echo $this->form->renderField('email_ktx'); ?>
-				<?php echo $this->form->renderField('website'); ?>
+                <?php echo $this->form->renderField('website'); ?>
+
+                <div class="control-group" style="margin-top: 70px;">
+                    <div class="control-label"><hr style="color: #0c2d66; height: 2px;"/></div>
+                    <div class="controls" style="color: #0c2d66;"><strong>MẠNG XÃ HỘI</strong></div>
+                </div>
 				<?php echo $this->form->renderField('facebook'); ?>
 				<?php echo $this->form->renderField('zalo'); ?>
 				<?php echo $this->form->renderField('twitter'); ?>
 				<?php echo $this->form->renderField('instagram'); ?>
+
+                <div class="control-group" style="margin-top: 70px;">
+                    <div class="control-label"><hr style="color: #0c2d66; height: 2px;"/></div>
+                    <div class="controls" style="color: #0c2d66;"><strong>SỐ LIỆU THỐNG KÊ</strong></div>
+                </div>
 				<?php echo $this->form->renderField('students'); ?>
 				<?php echo $this->form->renderField('scholarship'); ?>
 				<?php echo $this->form->renderField('rooms'); ?>
+
+                <div class="control-group" style="margin-top: 70px;">
+                    <div class="control-label"><hr style="color: #0c2d66; height: 2px;"/></div>
+                    <div class="controls" style="color: #0c2d66;"><strong>THAM QUAN KTX</strong></div>
+                </div>
+                <?php echo $this->form->renderField('video_ktx'); ?>
+                <?php echo $this->form->renderField('ktx_online');?>
+
+                <div class="control-group" style="margin-top: 70px;">
+                    <div class="control-label"><hr style="color: #0c2d66; height: 2px;"/></div>
+                    <div class="controls" style="color: #0c2d66;"><strong>TRẢI NGHIỆM KTX</strong></div>
+                </div>
 				<?php echo $this->form->renderField('tour_video'); ?>
 				<?php if (!empty($this->item->tour_video)) : ?>
                     <div class="control-group">
@@ -71,6 +96,8 @@ HTMLHelper::_('bootstrap.tooltip');
                     </div>
 
 				<?php endif; ?>
+                <?php echo $this->form->renderField('experience_text'); ?>
+
 				<?php if ($this->state->params->get('save_history', 1)) : ?>
 					<div class="control-group">
 						<div class="control-label"><?php echo $this->form->getLabel('version_note'); ?></div>

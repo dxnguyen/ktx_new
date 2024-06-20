@@ -78,9 +78,9 @@ if (!empty($saveOrder))
 						<th class='left'>
 							<?php echo HTMLHelper::_('searchtools.sort',  'COM_SLIDESHOWS_BANNERS_IMAGE', 'a.image', $listDirn, $listOrder); ?>
 						</th>
-						<th class='left'>
-							<?php echo HTMLHelper::_('searchtools.sort',  'COM_SLIDESHOWS_BANNERS_TYPE', 'a.type', $listDirn, $listOrder); ?>
-						</th>
+						<!--<th class='left'>
+							<?php /*echo HTMLHelper::_('searchtools.sort',  'COM_SLIDESHOWS_BANNERS_TYPE', 'a.type', $listDirn, $listOrder); */?>
+						</th>-->
 						<th class='left'>
 							<?php echo HTMLHelper::_('searchtools.sort',  'COM_SLIDESHOWS_BANNERS_IMAGE_LINK', 'a.image_link', $listDirn, $listOrder); ?>
 						</th>
@@ -167,9 +167,9 @@ if (!empty($saveOrder))
 										echo $item->image;
 									endif; ?>
 							</td>
-							<td>
-								<?php echo $item->type; ?>
-							</td>
+							<!--<td>
+								<?php /*echo $item->type; */?>
+							</td>-->
 							<td>
 								<?php echo $item->image_link; ?>
 							</td>

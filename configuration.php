@@ -27,8 +27,8 @@ class JConfig {
 	public $force_ssl = 0;
 	public $live_site = '';
 	public $secret = 'JydjHgiChOuwYm38';
-	public $gzip = false;
-	public $error_reporting = 'maximum';
+	public $gzip = true;
+	public $error_reporting = 'default';
 	public $helpurl = 'https://help.joomla.org/proxy?keyref=Help{major}{minor}:{keyref}&lang={langcode}';
 	public $offset = 'Asia/Ho_Chi_Minh';
 	public $mailonline = true;
@@ -51,7 +51,7 @@ class JConfig {
 	public $MetaVersion = false;
 	public $robots = '';
 	public $sef = true;
-	public $sef_rewrite = false;
+	public $sef_rewrite = true;
 	public $sef_suffix = false;
 	public $unicodeslugs = false;
 	public $feed_limit = 10;

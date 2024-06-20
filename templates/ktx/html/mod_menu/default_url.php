@@ -26,19 +26,13 @@ if ($item->anchor_rel) {
     $attributes['rel'] = $item->anchor_rel;
 }
 
-if ($item->hasChildren()) {
+if ($item->parent) {
     $attributes['class'] = "nav-link dropdown-toggle";
     $attributes['role']  = "button";
     $attributes['data-bs-toggle'] = "dropdown";
     $attributes['aria-expanded'] = "false";
 } else {
-    if ($item->parent_id !== 0) {
-        $attributes['class'] = "dropdown-item";
-    }
-
-    if (!$item->parent) {
-        $attributes['class'] = "nav-link";
-    }
+    $attributes['class'] = "nav-link dropdown-item";
 }
 
 

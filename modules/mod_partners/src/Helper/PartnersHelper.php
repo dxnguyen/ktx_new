@@ -10,9 +10,21 @@
 namespace Joomla\Module\Partners\Site\Helper;
 
 // No direct access
+use Joomla\CMS\Factory;
+
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
 class PartnersHelper
 {
-	// Add your custom code here
+    public static function getList() {
+        $db    = Factory::getDbo();
+        $query = $db->getQuery(true)
+            ->select('*')
+            ->from($db->quoteName('#__partners', 'p'))
+            ->where($db->quoteName('p.state') . ' = 1')
+            ->order($db->quoteName('p.ordering'));
+        $db->setQuery($query);
+
+        return $db->loadObjectList();
+    }
 }

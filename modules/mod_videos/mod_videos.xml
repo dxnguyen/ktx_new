@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>mod_videos</name>
+	<creationDate>2024-06-20</creationDate>
+	<copyright>Copyright (C) 2024. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<author>nguyen dinh</author>
+	<authorEmail>vb.dinhxuannguyen@gmail.com</authorEmail>
+	<authorUrl></authorUrl>
+	<version>1.0.0</version>
+	<description></description>
+	<namespace path="src">Joomla\Module\Videos</namespace>
+	<files>
+		<filename>mod_videos.xml</filename>
+		<filename module="mod_videos">mod_videos.php</filename>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+		<folder>css</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/mod_videos.ini</language>
+		<language tag="en-GB">language/en-GB/mod_videos.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+						name="catid"
+						type="sql"
+						label="Chọn danh mục tiêu điểm hiển thị bài viết"
+						multiple="false"
+						layout="joomla.form.field.list-fancy-select"
+						query="select id, title from #__categories where published=1 order by title ASC"
+						key_field="id"
+						value_field="title"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

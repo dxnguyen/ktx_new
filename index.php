@@ -11,7 +11,7 @@
 
 // Define the application's minimum supported PHP version as a constant so it can be referenced within the application.
 define('JOOMLA_MINIMUM_PHP', '7.2.5');
-
+date_default_timezone_set("Asia/Ho_Chi_Minh");
 if (version_compare(PHP_VERSION, JOOMLA_MINIMUM_PHP, '<')) {
     die(
         str_replace(
@@ -27,6 +27,5 @@ if (version_compare(PHP_VERSION, JOOMLA_MINIMUM_PHP, '<')) {
  * define() is used rather than "const" to not error for PHP 5.2 and lower
  */
 define('_JEXEC', 1);
-
 // Run the application - All executable code should be triggered through this file
 require_once dirname(__FILE__) . '/includes/app.php';

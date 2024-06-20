@@ -17,4 +17,5 @@ use Joomla\CMS\Factory;
 $document = Factory::getDocument();
 $document->addStyleSheet('modules/mod_students/css/default.css');
 
+$list = StudentsHelper::getList();
 require ModuleHelper::getLayoutPath('mod_students');

@@ -1,19 +1,13 @@
 <?php
-
 /**
- * @package     Joomla.Site
- * @subpackage  mod_footer
- *
- * @copyright   (C) 2006 Open Source Matters, Inc. <https://www.joomla.org>
+ * @version     1.0.0
+ * @package     mod_footer_1.0.0_j4x
+ * @copyright   Copyright (C) 2024. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @author      nguyen dinh <vb.dinhxuannguyen@gmail.com> - https://componentgenerator.com
  */
 
-defined('_JEXEC') or die;
-
-use Joomla\CMS\Language\Text;
-
+//No direct access
+defined('_JEXEC') or die('Restricted access');
 ?>
-<div class="mod-footer">
-    <div class="footer1"><?php echo $lineone; ?></div>
-    <div class="footer2"><?php echo Text::_('MOD_FOOTER_LINE2'); ?></div>
-</div>
+Your content here
