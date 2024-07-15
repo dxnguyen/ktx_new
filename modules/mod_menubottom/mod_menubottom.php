@@ -17,5 +17,7 @@ use Joomla\CMS\Factory;
 $document = Factory::getDocument();
 $document->addStyleSheet('modules/mod_menubottom/css/default.css');
 
-$list = MenubottomHelper::getList();
+$listMenuAbout = MenubottomHelper::getListMenuAbout();
+$listMenuDepartment = MenubottomHelper::getListMenuDepartment();
+$listMenuBql = MenubottomHelper::getListMenuBql();
 require ModuleHelper::getLayoutPath('mod_menubottom');

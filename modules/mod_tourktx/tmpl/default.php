@@ -27,20 +27,19 @@ defined('_JEXEC') or die('Restricted access');
                                     Tham quan <span class="title-red">Ký túc xá</span>
                                 </h3>
                                 <div class="tm-content jl-panel jl-margin-medium-top">
-                                    <p class="btn-tqonline-text"><a href="<?php echo '//'.$sInfoweb->ktx_online;?>" target="_blank">
+                                    <p class="btn-tqonline-text"><a href="<?php echo '\/\/'.$sInfoweb->ktx_online;?>" target="_blank">
                                             <button class="tham-quan-btn jl-button-primary jl-button">THAM QUAN ONLINE
                                                 <i class="fas fa-arrow-right"></i></button>
                                         </a></p>
                                     <div id="module-jlvideo-213-particle" class="g-particle">
                                         <div id="module-jlvideo-213" class="module-jlvideo-213 jl-width-medium">
                                             <div class="tm-video-item">
-                                                <div class="video-view-box jl-child-width-expand jl-flex-middle jl-grid"
-                                                     jl-grid>
+                                                <div class="video-view-box jl-child-width-expand jl-flex-middle jl-grid" jl-grid>
                                                     <div class="jl-width-1-4">
                                                         <div class="tm-video-player">
                                                             <div class="btn-video-wrap">
-                                                                <a class="btn-video jl-icon-button class="youtube-id"
-                                                                   href="#module-jlvideo-213" jl-toggle
+                                                                <a class="btn-video jl-icon-button youtube-id" data-id="<?php echo $sInfoweb->video_ktx;?>"
+                                                                   href="#"
                                                                    aria-label="Open Video"><i class="jl-icon"
                                                                                               jl-icon="play; ratio: 2">
                                                                         <svg width="40" height="40" viewBox="0 0 20 20"
@@ -57,13 +56,11 @@ defined('_JEXEC') or die('Restricted access');
                                                     </div>
                                                 </div>
 
-                                                <div id="module-jlvideo-213" class="jl-flex-top" jl-modal>
+                                                <!--<div id="module-jlvideo-213" class="jl-flex-top" jl-modal>
                                                     <div class="jl-modal-dialog jl-width-auto jl-margin-auto-vertical">
                                                         <button class="jl-modal-close-outside" type="button" jl-close></button>
-                                                        <!--<video src="</?php echo $template_path;?>templates/ktx_video.mp4"
-                                                               controls jl-video></video>-->
-                                                        <iframe jl-video width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $sInfoweb->video_ktx;?>" frameborder="0" allowfullscreen></iframe>
-                                                </div>
+                                                        <iframe jl-video width="100%" height="100%" src="https://www.youtube.com/embed/<?php /*echo $sInfoweb->video_ktx;*/?>" frameborder="0" allowfullscreen></iframe>
+                                                </div>-->
                                             </div>
                                         </div>
                                     </div>

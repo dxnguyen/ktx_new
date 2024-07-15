@@ -121,7 +121,7 @@ ul.dropdown-menu li:hover a{ background: none; }
 #jlnavbar-5523.tm-header .jl-light .jl-navbar-nav > li > a:active, #jlnavbar-5523.tm-header .jl-light .jl-navbar-nav > li.jl-active > a{/* color: #0c2d66 !important;*/}
 .jl-navbar-right ul li a, .jl-navbar-sticky ul li a { color: #ffffff !important; }
 /*.jl-navbar .jl-navbar-transparent .jl-navbar-right ul li a { text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; }*/
-.jl-navbar-right ul li a:hover, .jl-navbar-right ul li.active a { color: #ff0000 !important; }
+.jl-navbar-right ul li a:hover, .jl-navbar-right ul li.active > a { color: #ff0000 !important; }
 #g-header { margin-top: 0px; }
 #g-header:before {
     position: absolute;
@@ -151,14 +151,14 @@ ul.dropdown-menu li:hover a{ background: none; }
 .tham-quan-btn:hover { background-color: #ff0000; }
 
 .jl-overlay { padding: 5px;}
-.news-items .jl-position-medium {
+.news-items .jl-position-medium, .relate-articles .jl-position-medium, .item-list .jl-position-medium {
     width:100%;
     margin: 0px;
     --jl-position-margin-offset: 0px;
     opacity: 0.8;
 }
 
-.news-items .tm-title{ text-align: center; padding: 0 5px 5px 5px;}
+.news-items .tm-title, .relate-articles .tm-title, .item-list .tm-title{ text-align: center; padding: 0 5px 5px 5px;}
 .news-items .tm-item:hover .tm-title{padding-bottom: 0;}
 .bg-gradient-cold {
     background: none !important; /*linear-gradient(135deg, #ff0000 0%, #2F93CC 70%) !important;*/

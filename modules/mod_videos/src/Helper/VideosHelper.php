@@ -17,15 +17,8 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 class VideosHelper
 {
     public static function getList(&$params) {
-        $catids = $params->get('catids');
-
-        if ($catids) {
-            $results = array();
-            foreach ($catids as $item) {
-                $itemList = self::getItems($item);
-                $results[$item] = $itemList;
-            }
-        }
+        $catid   = $params->get('right_cat_id');
+        $results = self::getItems($catid);
 
         return $results;
     }
@@ -43,7 +36,20 @@ class VideosHelper
             ->where($db->quoteName('c.state') . ' = 1')
             ->where($db->quoteName('c.catid'). '=' . $db->quote($catid))
             ->order($db->quoteName('c.ordering'))
-            ->setLimit(6);
+            ->setLimit(7);
+        $db->setQuery($query);
+
+        return $db->loadObjectList();
+    }
+
+    public static function getVideos() {
+        $db    = Factory::getDbo();
+        $query = $db->getQuery(true)
+            ->select('*')
+            ->from($db->quoteName('#__videos', 'v'))
+            ->where($db->quoteName('v.state') . ' = 1')
+            ->order($db->quoteName('v.ordering'))
+            ->setLimit(7);
         $db->setQuery($query);
 
         return $db->loadObjectList();

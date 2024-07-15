@@ -47,6 +47,7 @@ class NewsHelper
             ->select('c.title')
             ->select('c.images')
             ->select('c.alias')
+            ->select('c.language')
             ->select('cat.title AS cat_title')
             ->select('cat.alias AS cat_alias')
             ->from($db->quoteName('#__content', 'c'))

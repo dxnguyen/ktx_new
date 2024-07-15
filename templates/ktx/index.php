@@ -31,7 +31,12 @@ $task     = $input->getCmd('task', '');
 $itemid   = $input->getCmd('Itemid', '');
 $sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
 $menu     = $app->getMenu()->getActive();
+$activeMenu = $app->getMenu()->getActive()->id;
 $pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
+
+$homeMenuId = $app->getMenu()->getDefault()->id;
+$isHome = ($activeMenu == $homeMenuId);
+
 
 // Color Theme
 $paramsColorName = $this->params->get('colorName', 'colors_standard');
@@ -168,7 +173,6 @@ $dxn->setSession('sInfoweb', $infoweb);
 <body class="gantry site com_gantry5 view-custom no-layout no-task dir-ltr itemid-288 outline-39 g-default g-style-preset1">
 
 <div id="g-page-surround">
-
     <?php if ($this->countModules('topbar')) : ?>
             <jdoc:include type="modules" name="topbar" style="" />
     <?php endif; ?>
@@ -189,8 +193,10 @@ $dxn->setSession('sInfoweb', $infoweb);
             </div>
             <div class="g-block size-100 jl-hidden@m">
                 <form id="searchHome" action="" method="post">
-                    <input type="text" value="" nane="keyword" class="keyword"/>
+                    <input type="text" value="" name="jform[keyword]" class="keyword"/>
                     <button id="searchBtn" type="submit" class="btn-sm"><i class="fa fa-search"></i></button>
+                    <input type="hidden" name="option" value="com_homepage" />
+                    <input type="hidden" name="task" value="search.search" />
                 </form>
             </div>
         </div>
@@ -198,66 +204,7 @@ $dxn->setSession('sInfoweb', $infoweb);
 
     <jdoc:include type="message" />
 
-    <!-- Show module slideshow -->
-    <?php if ($this->countModules('slideshow')) : ?>
-        <jdoc:include type="modules" name="slideshow" style="" />
-    <?php endif; ?>
-
-    <!-- Show module số liệu thống kê -->
-    <?php if ($this->countModules('stastics')) : ?>
-        <jdoc:include type="modules" name="stastics" style="" />
-    <?php endif; ?>
-
-    <!-- Show module Tham quan ktx  -->
-    <?php if ($this->countModules('tourktx')) : ?>
-        <jdoc:include type="modules" name="tourktx" style="" />
-    <?php endif; ?>
-    <!--<main>
-        <jdoc:include type="component" />
-    </main>-->
-
-    <!-- News -->
-    <section id="g-above" class="jl-section-xsmall">
-        <div class="jl-container">
-            <jdoc:include type="component" />
-        </div>
-    </section>
-
-    <!-- Show module Trải nghiệm KTX  -->
-    <?php if ($this->countModules('experience')) : ?>
-        <jdoc:include type="modules" name="experience" style="" />
-    <?php endif; ?>
-
-    <!-- Video -->
-    <?php if ($this->countModules('videos')) : ?>
-        <jdoc:include type="modules" name="videos" style="" />
-    <?php endif; ?>
-    <!-- End video -->
-
-    <!-- sự kiện sắp diễn ra -->
-    <?php if ($this->countModules('eventcoming')) : ?>
-        <jdoc:include type="modules" name="eventcoming" style="" />
-    <?php endif; ?>
-
-    <!-- Sinh viên review -->
-    <?php if ($this->countModules('comments')) : ?>
-        <jdoc:include type="modules" name="comments" />
-    <?php endif; ?>
-
-    <!-- Đối tác - Chiến lược -->
-    <?php if ($this->countModules('partner')) : ?>
-        <jdoc:include type="modules" name="partner" />
-    <?php endif; ?>
-
-    <!-- Campus -->
-    <?php if ($this->countModules('campus')) : ?>
-        <jdoc:include type="modules" name="campus" />
-    <?php endif; ?>
-
-    <!-- Campus -->
-    <?php if ($this->countModules('menubottom')) : ?>
-        <jdoc:include type="modules" name="menubottom" />
-    <?php endif; ?>
+    <jdoc:include type="component" />
 
     <section id="g-copyright">
         <div class="jl-container">
@@ -310,7 +257,6 @@ $dxn->setSession('sInfoweb', $infoweb);
 <!-- go to top -->
 <button id="back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 <!-- end -->
-
 
 <!-- Html popup Video -->
 <!-- Popup modal -->
@@ -375,6 +321,7 @@ $dxn->setSession('sInfoweb', $infoweb);
             let videoUrl = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
             iframe.src = videoUrl;
             popup.style.display = 'block';
+            return false;
         });
         // Loop through each element and add an event listener
          /*linkElement.addEventListener('click', function() {

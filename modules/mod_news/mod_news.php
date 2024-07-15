@@ -13,6 +13,15 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\Module\News\Site\Helper\NewsHelper;
 use Joomla\CMS\Factory;
+/*
+use Joomla\CMS\Router\RouterBase;
+use Joomla\Module\News\Site\Router;
+
+    $router = Router::ModNewsRouter();
+
+    $app = Factory::getApplication();
+    $app->getRouter()->attachBuildRule([$router, 'build']);
+    $app->getRouter()->attachParseRule([$router, 'parse']);*/
 
 $document = Factory::getDocument();
 $document->addStyleSheet('modules/mod_news/css/default.css');

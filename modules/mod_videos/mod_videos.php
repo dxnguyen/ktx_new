@@ -17,4 +17,7 @@ use Joomla\CMS\Factory;
 $document = Factory::getDocument();
 $document->addStyleSheet('modules/mod_videos/css/default.css');
 
+$list   = VideosHelper::getList($params);
+$videos = VideosHelper::getVideos();
+
 require ModuleHelper::getLayoutPath('mod_videos');

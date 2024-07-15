@@ -5,6 +5,8 @@ return [
 	'Comments\\Component\\Comments\\Site\\' => [JPATH_SITE . '/components/com_comments/src'],
 	'Events\\Component\\Events\\Administrator\\' => [JPATH_ADMINISTRATOR . '/components/com_events/src'],
 	'Events\\Component\\Events\\Site\\' => [JPATH_SITE . '/components/com_events/src'],
+	'Homepage\\Component\\Homepage\\Administrator\\' => [JPATH_ADMINISTRATOR . '/components/com_homepage/src'],
+	'Homepage\\Component\\Homepage\\Site\\' => [JPATH_SITE . '/components/com_homepage/src'],
 	'Informations\\Component\\Informations\\Administrator\\' => [JPATH_ADMINISTRATOR . '/components/com_informations/src'],
 	'Informations\\Component\\Informations\\Site\\' => [JPATH_SITE . '/components/com_informations/src'],
 	'Joomla\\Component\\Actionlogs\\Administrator\\' => [JPATH_ADMINISTRATOR . '/components/com_actionlogs/src'],

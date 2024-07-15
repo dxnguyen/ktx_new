@@ -35,6 +35,15 @@ if ($item->id == $active_id) {
     }
 }
 
+    if ($item->parent) {
+        $attributes['class'] = "nav-link dropdown-toggle";
+        $attributes['role']  = "button";
+        $attributes['data-bs-toggle'] = "dropdown";
+        $attributes['aria-expanded'] = "false";
+    } else {
+        $attributes['class'] = "nav-link dropdown-item";
+    }
+
 $linktype = $item->title;
 
 if ($item->menu_icon) {

@@ -25,10 +25,11 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
+
 				<field
-						name="catid"
+						name="right_cat_id"
 						type="sql"
-						label="Chọn danh mục tiêu điểm hiển thị bài viết"
+						label="Chọn danh mục tiêu điểm"
 						multiple="false"
 						layout="joomla.form.field.list-fancy-select"
 						query="select id, title from #__categories where published=1 order by title ASC"

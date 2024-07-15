@@ -16,15 +16,66 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 
 class MenubottomHelper
 {
-    public static function getList() {
-        $db    = Factory::getDbo();
+    public static function getListMenuAbout() {
+        $app         = Factory::getApplication();
+        $menuManager = $app->getMenu();
+        $menuType    = 'menu-about';
+        $menuItems   = $menuManager->getItems('menutype', $menuType);
+
+        return $menuItems;
+        /*$db    = Factory::getDbo();
         $query = $db->getQuery(true)
-            ->select('*')
-            ->from($db->quoteName('#__slideshows', 's'))
-            ->where($db->quoteName('s.state') . ' = 1')
-            ->order($db->quoteName('s.ordering'));
+            ->select('m.title')
+            ->select('m.link')
+            ->select('m.browserNav')
+            ->from($db->quoteName('#__menu', 'm'))
+            ->where($db->quoteName('m.published') . ' = 1')
+            ->where($db->quoteName('m.menutype') . ' = "menu-about"');
+            //->order($db->quoteName('m.ordering'));
         $db->setQuery($query);
 
-        return $db->loadObjectList();
+        return $db->loadObjectList();*/
     }
+
+    public static function getListMenuDepartment() {
+        $app         = Factory::getApplication();
+        $menuManager = $app->getMenu();
+        $menuType    = 'menu-department';
+        $menuItems   = $menuManager->getItems('menutype', $menuType);
+
+        return $menuItems;
+
+
+        /*$db    = Factory::getDbo();
+        $query = $db->getQuery(true)
+            ->select('m.title')
+            ->select('m.link')
+            ->from($db->quoteName('#__menu', 'm'))
+            ->where($db->quoteName('m.published') . ' = 1')
+            ->where($db->quoteName('m.menutype') . ' = "menu-department"');
+        $db->setQuery($query);
+
+        return $db->loadObjectList();*/
+    }
+
+    public static function getListMenuBql() {
+        $app         = Factory::getApplication();
+        $menuManager = $app->getMenu();
+        $menuType    = 'menu-bqlcn';
+        $menuItems   = $menuManager->getItems('menutype', $menuType);
+
+        return $menuItems;
+
+        /*$db    = Factory::getDbo();
+        $query = $db->getQuery(true)
+            ->select('m.title')
+            ->select('m.link')
+            ->from($db->quoteName('#__menu', 'm'))
+            ->where($db->quoteName('m.published') . ' = 1')
+            ->where($db->quoteName('m.menutype') . ' = "menu-bqlcn"');
+        $db->setQuery($query);
+
+        return $db->loadObjectList();*/
+    }
+
 }

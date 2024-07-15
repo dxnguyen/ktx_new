@@ -9,7 +9,7 @@ class JConfig {
 	public $captcha = '0';
 	public $list_limit = 20;
 	public $access = 1;
-	public $debug = false;
+	public $debug = true;
 	public $debug_lang = false;
 	public $debug_lang_const = true;
 	public $dbtype = 'mysqli';
@@ -31,9 +31,9 @@ class JConfig {
 	public $error_reporting = 'default';
 	public $helpurl = 'https://help.joomla.org/proxy?keyref=Help{major}{minor}:{keyref}&lang={langcode}';
 	public $offset = 'Asia/Ho_Chi_Minh';
-	public $mailonline = true;
+	public $mailonline = false;
 	public $mailer = 'mail';
-	public $mailfrom = 'dxnguyen@ktxhcm.edu.vn';
+	public $mailfrom = 'dinhxuannguyen@gmail.com';
 	public $fromname = 'KTX';
 	public $sendmail = '/usr/sbin/sendmail';
 	public $smtpauth = false;
@@ -58,7 +58,7 @@ class JConfig {
 	public $feed_email = 'none';
 	public $log_path = 'D:\\xampp8\\htdocs\\ktx_new\\administrator/logs';
 	public $tmp_path = 'D:\\xampp8\\htdocs\\ktx/tmp';
-	public $lifetime = 15;
+	public $lifetime = 50;
 	public $session_handler = 'database';
 	public $shared_session = false;
 	public $session_metadata = true;
@@ -93,7 +93,7 @@ class JConfig {
 	public $session_redis_server_db = 0;
 	public $session_metadata_for_guest = true;
 	public $frontediting = 1;
-	public $log_everything = 0;
+	public $log_everything = 1;
 	public $log_deprecated = 0;
 	public $log_priorities = array('0' => 'all');
 	public $log_categories = '';

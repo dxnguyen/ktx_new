@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_HOMEPAGE_TITLE_LIST_VIEW_CONTACT" option="View">
+        <message>
+                        <![CDATA[COM_HOMEPAGE_TITLE_LIST_VIEW_CONTACT_DESC]]>
+        </message>
+	</layout>
+	
+</metadata>

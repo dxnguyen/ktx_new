@@ -57,8 +57,9 @@ $infoweb = $dxn->getInfoweb();
                 </div>
                 <ul class="top-menus">
                     <?php   if ($list) :    ?>
-                        <?php   foreach($list as $item) :   ?>
-                                    <li><a href="<?php echo $item->link;?>"><?php echo $item->title;?></a></li>
+                        <?php   foreach($list as $item) : ?>
+                            <?php   $attributes = ($item->browserNav == 1) ? ' target="_blank"' : ''; ?>
+                                    <li><a href="<?php echo $item->link;?>" <?php echo $attributes; ?> ><?php echo $item->title;?></a></li>
                         <?php   endforeach; ?>
                     <?php   endif;  ?>
                 </ul>
@@ -69,8 +70,10 @@ $infoweb = $dxn->getInfoweb();
             </div>
             <div class="size-20 hidden-phone hidden@s">
                 <form id="searchHome" action="" method="post">
-                    <input type="text" value="" nane="keyword" class="keyword"/>
+                    <input type="text" value="" name="jform[keyword]" class="keyword"/>
                     <button id="searchBtn" type="submit" class="btn-sm"><i class="fa fa-search"></i></button>
+                    <input type="hidden" name="option" value="com_homepage" />
+                    <input type="hidden" name="task" value="search.search" />
                 </form>
             </div>
         </div>

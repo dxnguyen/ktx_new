@@ -9,6 +9,13 @@
 
 //No direct access
 defined('_JEXEC') or die('Restricted access');
+    use Joomla\CMS\Helper\ContentHelper;
+    use Joomla\CMS\Router\Route;
+    use Joomla\Component\Content\Site\Helper\RouteHelper;
+
+$featureImage       = json_decode($list[0]->images);
+$featureArticleLink = Route::_(RouteHelper::getArticleRoute($list[0]->id));
+
 ?>
 
 <section id="g-video" class="jl-section-xsmall">
@@ -41,6 +48,7 @@ defined('_JEXEC') or die('Restricted access');
                                     }
                                 </style>
                             </div>
+                            <?php if ($videos) : ?>
                             <div id="col-1979035021" class="col pb-0 medium-6 small-12 large-6">
                                 <div class="col-inner">
                                     <div class="row large-columns-1 medium-columns-1 small-columns-1">
@@ -50,17 +58,16 @@ defined('_JEXEC') or die('Restricted access');
                                                     <div class="box-image">
                                                         <div class="image-zoom image-cover" style="">
                                                             <img id="open-popup" loading="lazy" decoding="async" width="1020"
-                                                                 height="680" src="<?php echo $template_path;?>templates/video.jpg"
+                                                                 height="680" src="/uploads/videos/<?php echo $videos[0]->image;?>"
                                                                  class="attachment-large size-large wp-post-image"
                                                                  alt=""
-                                                                 srcset="<?php echo $template_path;?>templates/video.jpg 1024w, templates/video.jpg 300w, templates/video.jpg 768w, templates/video.jpg 1200w"
-                                                                 sizes="(max-width: 1020px) 100vw, 1020px"></div>
+                                                                 sizes="(max-width: 1020px) 100vw, 1020px">
+                                                        </div>
                                                     </div>
                                                     <div class="box-text text-left">
                                                         <div class="box-text-inner blog-post-inner">
                                                             <h5 class="post-title is-large post-title-main ">
-                                                                <a class="youtube-id" data-id="9tM68iMoxTE" href="#">Ra mắt sổ tay "Chăm sóc sức khỏe tinh
-                                                                    thần cho sinh viên"</a></h5>
+                                                                <a class="youtube-id" data-id="<?php echo $videos[0]->youtube_id;?>" href="#"><?php echo $videos[0]->title;?></a></h5>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -72,101 +79,29 @@ defined('_JEXEC') or die('Restricted access');
                             <div id="col-1655344358" class="col pb-0 medium-6 small-12 large-6">
                                 <div class="col-inner">
                                     <div class="row large-columns-1 medium-columns-1 small-columns-1">
-                                        <div class="col post-item items-box" data-animate="fadeInRight" data-animated="true">
-                                            <div class="col-inner">
-                                                <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
-
-                                                    <div class="box-text text-left">
-                                                        <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large "><a href="#" class="youtube-id" data-id="9tM68iMoxTE">Chiến lược
-                                                                    phát triển ĐHQG-HCM giai đoạn 2021-2030, tầm nhìn
-                                                                    2045</a></h5>
+                                        <?php if ($videos) : ?>
+                                            <?php foreach ($videos as $k=>$value) :
+                                                    if ($k == 0) continue;
+                                                ?>
+                                                <div class="col post-item items-box" data-animate="fadeInRight" data-animated="true">
+                                                    <div class="col-inner">
+                                                        <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
+                                                            <div class="box-text text-left">
+                                                                <div class="box-text-inner blog-post-inner">
+                                                                    <h5 class="post-title is-large "><a href="#" class="youtube-id" data-id="<?php echo $value->youtube_id;?>"><?php echo $value->title;?></a></h5>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col post-item" data-animate="fadeInRight" data-animated="true">
-                                            <div class="col-inner">
-                                                <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
-
-                                                    <div class="box-text text-left">
-                                                        <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large "><a href="#" class="youtube-id" data-id="9tM68iMoxTE">Cẩm nang
-                                                                    sinh viên nội trú năm học 2023-2024</a></h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col post-item" data-animate="fadeInRight" data-animated="true">
-                                            <div class="col-inner">
-                                                <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
-                                                    <!--<div class="box-image" style="width:50%;">
-                                                            <div class="image-zoom image-cover" style="padding-top:51%;">
-                                                                <img loading="lazy" decoding="async" width="300" height="169" src="<?php echo $template_path;?>templates/noiquy.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="<?php echo $template_path;?>templates/noiquy.jpg 300w, templates/noiquy.jpg 1024w, templates/noiquy.jpg 768w, templates/noiquy.jpg 1536w, templates/noiquy.jpg 2048w" sizes="(max-width: 300px) 100vw, 300px">  							  							  						</div>
-                                                        </div>-->
-                                                    <div class="box-text text-left">
-                                                        <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large "><a href="#">Nội quy ký
-                                                                    túc xá</a></h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col post-item" data-animate="fadeInRight" data-animated="true">
-                                            <div class="col-inner">
-                                                <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
-                                                    <!--<div class="box-image" style="width:50%;">
-                                                            <div class="image-zoom image-cover" style="padding-top:51%;">
-                                                                <img loading="lazy" decoding="async" width="300" height="169" src="<?php echo $template_path;?>templates/noiquy.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="<?php echo $template_path;?>templates/noiquy.jpg 300w, templates/noiquy.jpg 1024w, templates/noiquy.jpg 768w, templates/noiquy.jpg 1536w, templates/noiquy.jpg 2048w" sizes="(max-width: 300px) 100vw, 300px">  							  							  						</div>
-                                                        </div>-->
-                                                    <div class="box-text text-left">
-                                                        <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large "><a href="#" class="youtube-id" data-id="9tM68iMoxTE">Hành Trình
-                                                                    của con luôn có Baba và mama</a></h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col post-item" data-animate="fadeInRight" data-animated="true">
-                                            <div class="col-inner">
-                                                <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
-                                                    <!--<div class="box-image" style="width:50%;">
-                                                            <div class="image-zoom image-cover" style="padding-top:51%;">
-                                                                <img loading="lazy" decoding="async" width="300" height="169" src="<?php echo $template_path;?>templates/noiquy.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="<?php echo $template_path;?>templates/noiquy.jpg 300w, templates/noiquy.jpg 1024w, templates/noiquy.jpg 768w, templates/noiquy.jpg 1536w, templates/noiquy.jpg 2048w" sizes="(max-width: 300px) 100vw, 300px">  							  							  						</div>
-                                                        </div>-->
-                                                    <div class="box-text text-left">
-                                                        <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large "><a href="#" class="youtube-id" data-id="9tM68iMoxTE">Học tập làm
-                                                                    theo tấm gương Đạo đức Hồ chí Minh</a></h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col post-item" data-animate="fadeInRight" data-animated="true">
-                                            <div class="col-inner">
-                                                <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
-                                                    <!--<div class="box-image" style="width:50%;">
-                                                            <div class="image-zoom image-cover" style="padding-top:51%;">
-                                                                <img loading="lazy" decoding="async" width="300" height="169" src="<?php echo $template_path;?>templates/noiquy.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="<?php echo $template_path;?>templates/noiquy.jpg 300w, templates/noiquy.jpg 1024w, templates/noiquy.jpg 768w, templates/noiquy.jpg 1536w, templates/noiquy.jpg 2048w" sizes="(max-width: 300px) 100vw, 300px">  							  							  						</div>
-                                                        </div>-->
-                                                    <div class="box-text text-left">
-                                                        <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large "><a href="#" class="youtube-id" data-id="9tM68iMoxTE">Thông tin
-                                                                    cần biết để phòng chống bệnh viêm phổi do virus
-                                                                    nCoV</a></h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
+                            <?php else : ?>
+                                <?php echo '<h3 style="color: #cccccc;">Video đang được cập nhật.</h3>'; ?>
+                            <?php endif; ?>
                         </div>
 
                     </div>
@@ -208,18 +143,20 @@ defined('_JEXEC') or die('Restricted access');
                                                 <div class="box box-normal box-text-bottom box-blog-post has-hover">
                                                     <div class="box-image">
                                                         <div class="image-zoom image-cover" style="">
-                                                            <img loading="lazy" decoding="async" width="1020"
-                                                                 height="680" src="<?php echo $template_path;?>templates/sotay_cssk.jpg"
-                                                                 class="attachment-large size-large wp-post-image"
-                                                                 alt=""
-                                                                 srcset="<?php echo $template_path;?>templates/sotay_cssk.jpg 1024w, templates/sotay_cssk.jpg 300w, templates/sotay_cssk.jpg 768w, templates/sotay_cssk.jpg 1200w"
-                                                                 sizes="(max-width: 1020px) 100vw, 1020px"></div>
+                                                            <a href="<?php echo $featureArticleLink; ?>">
+                                                                <img loading="lazy" decoding="async" width="1020"
+                                                                     height="680" src="<?php echo $featureImage->image_intro; ?>"
+                                                                     class="attachment-large size-large wp-post-image"
+                                                                     alt=""
+                                                                     sizes="(max-width: 1020px) 100vw, 1020px">
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                     <div class="box-text text-left">
                                                         <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large post-title-main "><a
-                                                                        href="#">Ra mắt sổ tay "Chăm sóc sức khỏe tinh
-                                                                    thần cho sinh viên"</a></h5>
+                                                            <h5 class="post-title is-large post-title-main ">
+                                                                <a href="<?php echo $featureArticleLink; ?>"><?php echo $list[0]->title; ?>"</a>
+                                                            </h5>
 
                                                         </div>
                                                     </div>
@@ -232,104 +169,22 @@ defined('_JEXEC') or die('Restricted access');
                             <div id="col-1655344358" class="col pb-0 medium-6 small-12 large-6">
                                 <div class="col-inner">
                                     <div class="row large-columns-1 medium-columns-1 small-columns-1">
+                                        <?php foreach ($list as $key=>$item) :
+                                            if ($key==0) continue;
+                                            $articleUrl = RouteHelper::getArticleRoute($item->id);
+                                        ?>
                                         <div class="col post-item" data-animate="fadeInRight" data-animated="true">
                                             <div class="col-inner">
                                                 <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
-                                                    <!--<div class="box-image" style="width:50%;">
-                                                            <div class="image-zoom image-cover" style="padding-top:51%;">
-                                                                <img loading="lazy" decoding="async" width="300" height="169" src="<?php echo $template_path;?>templates/chienluocdhqg.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="<?php echo $template_path;?>templates/chienluocdhqg.jpg 300w, templates/chienluocdhqg.jpg 1024w, templates/chienluocdhqg.jpg 768w, templates/chienluocdhqg.jpg 1536w, templates/chienluocdhqg.jpg 2048w" sizes="(max-width: 300px) 100vw, 300px">  							  							  						</div>
-                                                        </div>-->
                                                     <div class="box-text text-left">
                                                         <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large "><a href="#">Chiến lược
-                                                                    phát triển ĐHQG-HCM giai đoạn 2021-2030, tầm nhìn
-                                                                    2045</a></h5>
+                                                            <h5 class="post-title is-large "><a href="<?php echo $articleUrl; ?>"><?php echo $item->title; ?></a></h5>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col post-item" data-animate="fadeInRight" data-animated="true">
-                                            <div class="col-inner">
-                                                <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
-                                                    <!--<div class="box-image" style="width:50%;">
-                                                            <div class="image-zoom image-cover" style="padding-top:51%;">
-                                                                <img loading="lazy" decoding="async" width="300" height="169" src="<?php echo $template_path;?>templates/camnang2023.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="<?php echo $template_path;?>templates/camnang2023.jpg 300w, templates/camnang2023.jpg 1024w, templates/camnang2023.jpg 768w, templates/camnang2023.jpg 1536w, templates/camnang2023.jpg 2048w" sizes="(max-width: 300px) 100vw, 300px">  							  							  						</div>
-                                                        </div>-->
-                                                    <div class="box-text text-left">
-                                                        <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large "><a href="#">Cẩm nang
-                                                                    sinh viên nội trú năm học 2023-2024</a></h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col post-item" data-animate="fadeInRight" data-animated="true">
-                                            <div class="col-inner">
-                                                <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
-                                                    <!--<div class="box-image" style="width:50%;">
-                                                            <div class="image-zoom image-cover" style="padding-top:51%;">
-                                                                <img loading="lazy" decoding="async" width="300" height="169" src="<?php echo $template_path;?>templates/noiquy.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="<?php echo $template_path;?>templates/noiquy.jpg 300w, templates/noiquy.jpg 1024w, templates/noiquy.jpg 768w, templates/noiquy.jpg 1536w, templates/noiquy.jpg 2048w" sizes="(max-width: 300px) 100vw, 300px">  							  							  						</div>
-                                                        </div>-->
-                                                    <div class="box-text text-left">
-                                                        <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large "><a href="#">Nội quy ký
-                                                                    túc xá</a></h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col post-item" data-animate="fadeInRight" data-animated="true">
-                                            <div class="col-inner">
-                                                <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
-                                                    <!--<div class="box-image" style="width:50%;">
-                                                            <div class="image-zoom image-cover" style="padding-top:51%;">
-                                                                <img loading="lazy" decoding="async" width="300" height="169" src="<?php echo $template_path;?>templates/noiquy.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="<?php echo $template_path;?>templates/noiquy.jpg 300w, templates/noiquy.jpg 1024w, templates/noiquy.jpg 768w, templates/noiquy.jpg 1536w, templates/noiquy.jpg 2048w" sizes="(max-width: 300px) 100vw, 300px">  							  							  						</div>
-                                                        </div>-->
-                                                    <div class="box-text text-left">
-                                                        <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large "><a href="#">Hành Trình
-                                                                    của con luôn có Baba và mama</a></h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col post-item" data-animate="fadeInRight" data-animated="true">
-                                            <div class="col-inner">
-                                                <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
-                                                    <!--<div class="box-image" style="width:50%;">
-                                                            <div class="image-zoom image-cover" style="padding-top:51%;">
-                                                                <img loading="lazy" decoding="async" width="300" height="169" src="<?php echo $template_path;?>templates/noiquy.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="<?php echo $template_path;?>templates/noiquy.jpg 300w, templates/noiquy.jpg 1024w, templates/noiquy.jpg 768w, templates/noiquy.jpg 1536w, templates/noiquy.jpg 2048w" sizes="(max-width: 300px) 100vw, 300px">  							  							  						</div>
-                                                        </div>-->
-                                                    <div class="box-text text-left">
-                                                        <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large "><a href="#">Học tập làm
-                                                                    theo tấm gương Đạo đức Hồ chí Minh</a></h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col post-item" data-animate="fadeInRight" data-animated="true">
-                                            <div class="col-inner">
-                                                <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
-                                                    <!--<div class="box-image" style="width:50%;">
-                                                            <div class="image-zoom image-cover" style="padding-top:51%;">
-                                                                <img loading="lazy" decoding="async" width="300" height="169" src="<?php echo $template_path;?>templates/noiquy.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="<?php echo $template_path;?>templates/noiquy.jpg 300w, templates/noiquy.jpg 1024w, templates/noiquy.jpg 768w, templates/noiquy.jpg 1536w, templates/noiquy.jpg 2048w" sizes="(max-width: 300px) 100vw, 300px">  							  							  						</div>
-                                                        </div>-->
-                                                    <div class="box-text text-left">
-                                                        <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large "><a href="#">Thông tin
-                                                                    cần biết để phòng chống bệnh viêm phổi do virus
-                                                                    nCoV</a></h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                             </div>

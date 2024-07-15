@@ -195,6 +195,7 @@ class Dxn
                 ->where('catid = ' . $catid)
                 ->where('language = "' . $lang . '"')
                 ->where('id != ' . $id)
+                ->setLimit(6)
                 ->order('ordering ASC');
             $db->setQuery($query);
             $items = $db->loadObjectList();
