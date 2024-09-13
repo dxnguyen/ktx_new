@@ -28,7 +28,7 @@ class JConfig {
 	public $live_site = '';
 	public $secret = 'JydjHgiChOuwYm38';
 	public $gzip = true;
-	public $error_reporting = 'default';
+	public $error_reporting = 'none';
 	public $helpurl = 'https://help.joomla.org/proxy?keyref=Help{major}{minor}:{keyref}&lang={langcode}';
 	public $offset = 'Asia/Ho_Chi_Minh';
 	public $mailonline = false;

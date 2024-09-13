@@ -9,6 +9,9 @@
 
 //No direct access
 defined('_JEXEC') or die('Restricted access');
+
+use Joomla\CMS\Uri\Uri;
+
 ?>
 
 <section id="g-partner" class="jl-section-xsmall">
@@ -30,7 +33,7 @@ defined('_JEXEC') or die('Restricted access');
                                         <li class="tm-item jl-width-1-2 jl-width-1-3@s jl-width-1-5@m">
                                         <div class="jl-cover-container">
                                             <a href="<?php echo $item->image_link;?>" target="_blank"><img
-                                                        src="uploads/partners/<?php echo $item->image;?>"
+                                                        src="<?php echo URI::root()?>uploads/partners/<?php echo $item->image;?>"
                                                         width="500" height="333" class="tm-image jl-transition-opaque"
                                                         alt=""
                                                         loading="lazy"></a>

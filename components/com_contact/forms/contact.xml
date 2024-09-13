@@ -46,7 +46,7 @@
 			type="textarea"
 			label="COM_CONTACT_CONTACT_ENTER_MESSAGE_LABEL"
 			cols="50"
-			rows="10"
+			rows="5"
 			id="contact-message"
 			filter="safehtml"
 			validate="ContactEmailMessage"

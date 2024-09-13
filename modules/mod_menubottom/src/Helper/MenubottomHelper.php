@@ -78,4 +78,15 @@ class MenubottomHelper
         return $db->loadObjectList();*/
     }
 
+    public static function getInfos() {
+        $db    = Factory::getDbo();
+        $query = $db->getQuery(true)
+            ->select('*')
+            ->from($db->quoteName('#__informations'))
+            ->where($db->quoteName('id') . ' = 1');
+        $db->setQuery($query);
+
+        return $db->loadObject();
+    }
+
 }

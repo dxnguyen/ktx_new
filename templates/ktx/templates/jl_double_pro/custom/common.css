@@ -73,6 +73,14 @@ ul.top-menus li:hover a { color: #ff0000; }
 ul.dropdown-menu li:hover a{ background: none; }
 .navbar-toggler:focus { box-shadow: none !important; border-radius: unset; border: none; }
 .g-footer-phone a, .g-footer-email a { color: #ffffff !important; }
+#contact-form legend { text-transform: unset !important; font-weight: normal;}
+#contact-form .form-control { max-width: 300px; }
+#contact-form textarea.form-control { max-width: 400px; }
+#contact-form .dxnred, #contact-form .star { color: #a51f18; font-style: italic; font-weight: normal !important; }
+.view-all { position: absolute; right: 0; }
+
+/** article **/
+.image_fulltext { padding-bottom: 20px; padding-top: 20px; }
 
 @media screen and (min-width:769px) {
     .dropend:hover>.dropdown-menu {
@@ -225,10 +233,12 @@ ul.dropdown-menu li:hover a{ background: none; }
 #g-footer h3.g5-title { color: #ffffff !important; }
 #g-footer ul li a{ color: #ffffff !important; }
 #g-footer p { margin-bottom: 0; padding-bottom: 10px;}
-#g-copyright { background: linear-gradient(184deg, #0c2d66 46%, #ffffff 168%) !important; color: #ffffff; }
+#componentBox { min-height: 75vh; }
+#g-copyright { background: linear-gradient(184deg, #0c2d66 46%, #ffffff 168%) !important; color: #ffffff; /*position: absolute*/; bottom: 0; width: 100%; }
 #g-copyright a { color: #ffffff; }
-.title-red {color: #ff0000; }
-.news-items .tm-title:hover{color: #ff0000;}
+
+.title-red { color: #ff0000; }
+.news-items .tm-title:hover{ color: #ff0000; }
 /** Video trải nghiệm **/
 .banner {
     /*background-color: var(--fs-color-primary);*/
@@ -454,7 +464,8 @@ a.plain {
 #g-video .post-item h5.post-title a{ color: #ffffff;}
 #g-video .post-item h5.post-title a:hover{ color: #ff0000 !important;}
 #g-video .news-title-box { padding-left: 0; }
-#g-video .news-title { padding-bottom: 5px; }
+#g-video .news-title { padding-bottom: 5px;}
+#g-video .g-content { padding-right:0 !important; }
 
 
 /*** Poppup video **/
@@ -927,9 +938,29 @@ a.plain {
     border-top: 1px solid #e5e5e5;
 }
 
+.com-content-article__body {
+    text-align: justify;
+}
+
 /** end index **/
 .nav > li > a { font-size: unset; text-decoration: none; }
 
+.child-menu { position: relative; overflow: hidden; display: flex; }
+.child-item { text-align: center; margin: 10px; border: 2px solid rgba(19,89,149,0.92); padding: 20px; border-radius: 10px; /*width: 100px;*/ }
+.child-item:hover { border-color: #ff0000; }
+.child-item:hover p, .child-item:hover p i { color: #ff0000 !important; }
+.catBox { width: 100%; position: relative; display: flex; }
+.viewAll { float: right; }
+.viewAll #viewAllLink{ font-size: 16px !important;}
+.icon-youtube-play { width: 100%; position: absolute; font-size: 5rem; overflow: hidden; color: #ff0000; opacity: 0.6;}
+.icon-youtube-play:hover { font-size: 6rem; }
+.searchItem { position: relative; overflow: hidden; width: 100%; margin: 20px 0;}
+.searchItem .imgBox, .searchItem .textDes{ position: relative; overflow: hidden; padding: 10px; text-align: justify;}
+.searchItem .imgBox { display: flex; align-items: center; text-align: center;}
+.searchItem .textDes .titleItem a{ color: #0c2d66;}
+.searchItem .textDes .titleItem a:hover{ color: #ff0000;}
+.searchItem .imgBox img:hover{ scale: 1.05;}
+.searchItem .textDes {  border-bottom: 1px solid #0c2d66; }
 @media (min-width: 549px) {
     .pswp__top-bar {
         background-color: transparent !important;

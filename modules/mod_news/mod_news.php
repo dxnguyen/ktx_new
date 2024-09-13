@@ -25,6 +25,6 @@ use Joomla\Module\News\Site\Router;
 
 $document = Factory::getDocument();
 $document->addStyleSheet('modules/mod_news/css/default.css');
-
+$catids = $params->get('catids');
 $list = NewsHelper::getList($params);
 require ModuleHelper::getLayoutPath('mod_news');

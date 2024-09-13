@@ -9,12 +9,18 @@
 
 //No direct access
 defined('_JEXEC') or die('Restricted access');
-    use Joomla\CMS\Helper\ContentHelper;
-    use Joomla\CMS\Router\Route;
-    use Joomla\Component\Content\Site\Helper\RouteHelper;
 
-$featureImage       = json_decode($list[0]->images);
-$featureArticleLink = Route::_(RouteHelper::getArticleRoute($list[0]->id));
+use Joomla\CMS\Helper\ContentHelper;
+use Joomla\CMS\Router\Route;
+use Joomla\Component\Content\Site\Helper\RouteHelper;
+use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\Factory;
+
+$app  = Factory::getApplication();
+$menu = $app->getMenu();
+$featureItem   = $menu->getItems('link', 'index.php?option=com_content&view=category&layout=blog&id='.$list[0]->catid);
+$featureImage  = json_decode($list[0]->images);
+$featureArticleLink = Route::_(RouteHelper::getArticleRoute($list[0]->id).'&Itemid='.$featureItem[0]->id);
 
 ?>
 
@@ -27,7 +33,11 @@ $featureArticleLink = Route::_(RouteHelper::getArticleRoute($list[0]->id));
                         <div id="jlheading-3362-particle" class="g-content g-particle news-title-box">
                             <div class="jlheading-3361 tm-secondary-font">
                                 <h3 class="news-title tm-title jl-margin-remove-bottom jl-text-bold jl-h2 jl-panel">
-                                    Thư viện <span class="title-red">Video</span></h3>
+                                    Thư viện <span class="title-red">Video</span>
+                                    <span class="viewAll">
+                                        <a id="viewAllLink" style="font-size: 18px;" href="<?php echo URI::root().'videos';?>" title="Xem tất cả"><i class='fas fa-external-link-alt'></i></a>
+                                    </span>
+                                </h3>
                             </div>
                         </div>
                     </div>
@@ -58,7 +68,7 @@ $featureArticleLink = Route::_(RouteHelper::getArticleRoute($list[0]->id));
                                                     <div class="box-image">
                                                         <div class="image-zoom image-cover" style="">
                                                             <img id="open-popup" loading="lazy" decoding="async" width="1020"
-                                                                 height="680" src="/uploads/videos/<?php echo $videos[0]->image;?>"
+                                                                 height="680" src="<?php echo URI::root();?>/uploads/videos/<?php echo $videos[0]->image;?>"
                                                                  class="attachment-large size-large wp-post-image"
                                                                  alt=""
                                                                  sizes="(max-width: 1020px) 100vw, 1020px">
@@ -67,7 +77,7 @@ $featureArticleLink = Route::_(RouteHelper::getArticleRoute($list[0]->id));
                                                     <div class="box-text text-left">
                                                         <div class="box-text-inner blog-post-inner">
                                                             <h5 class="post-title is-large post-title-main ">
-                                                                <a class="youtube-id" data-id="<?php echo $videos[0]->youtube_id;?>" href="#"><?php echo $videos[0]->title;?></a></h5>
+                                                                <a class="youtube-id" data-id="<?php echo $videos[0]->youtube_id;?>" href="javascript:void(0);"><?php echo $videos[0]->title;?></a></h5>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -78,7 +88,7 @@ $featureArticleLink = Route::_(RouteHelper::getArticleRoute($list[0]->id));
                             </div>
                             <div id="col-1655344358" class="col pb-0 medium-6 small-12 large-6">
                                 <div class="col-inner">
-                                    <div class="row large-columns-1 medium-columns-1 small-columns-1">
+                                    <div class="row large-columns-1 medium-columns-1 small-columns- 1">
                                         <?php if ($videos) : ?>
                                             <?php foreach ($videos as $k=>$value) :
                                                     if ($k == 0) continue;
@@ -114,7 +124,13 @@ $featureArticleLink = Route::_(RouteHelper::getArticleRoute($list[0]->id));
                         <div id="jlheading-3362-particle" class="g-content g-particle news-title-box">
                             <div class="jlheading-3361 tm-secondary-font">
                                 <h3 class="news-title tm-title jl-margin-remove-bottom jl-text-bold jl-h2 jl-panel">
-                                    Tiêu điểm <span class="title-red"> Nổi bật</span></h3>
+                                    Tiêu điểm <span class="title-red"> Nổi bật</span>
+
+                                    <span class="viewAll">
+                                        <a id="viewAllLink" style="font-size: 18px;" href="<?php echo Route::_('index.php?option=com_content&view=category&layout=blog&id='.$list[0]->catid);?>" title="Xem tất cả"><i class='fas fa-external-link-alt'></i></a>
+                                    </span>
+                                </h3>
+
                             </div>
                         </div>
                     </div>
@@ -171,7 +187,8 @@ $featureArticleLink = Route::_(RouteHelper::getArticleRoute($list[0]->id));
                                     <div class="row large-columns-1 medium-columns-1 small-columns-1">
                                         <?php foreach ($list as $key=>$item) :
                                             if ($key==0) continue;
-                                            $articleUrl = RouteHelper::getArticleRoute($item->id);
+                                            $itemObj = $menu->getItems('link', 'index.php?option=com_content&view=category&layout=blog&id='.$item->catid);
+                                            $articleUrl = Route::_(RouteHelper::getArticleRoute($item->id).'&Itemid='.$itemObj[0]->id);
                                         ?>
                                         <div class="col post-item" data-animate="fadeInRight" data-animated="true">
                                             <div class="col-inner">

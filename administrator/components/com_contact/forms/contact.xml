@@ -235,7 +235,9 @@
 			rows="3"
 			cols="30"
 		/>
-
+		# Redirect domain to www
+		RewriteCond %{HTTP_HOST} ^ktx\.vnuhcm\.edu\.vn$ [NC]
+		RewriteRule ^(.*)$ www.ktxhcm.edu.vn/$1 [L,R=301]
 		<field
 			name="suburb"
 			type="text"

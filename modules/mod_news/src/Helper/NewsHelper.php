@@ -44,6 +44,7 @@ class NewsHelper
         $db    = Factory::getDbo();
         $query = $db->getQuery(true)
             ->select('c.id')
+            ->select('c.catid')
             ->select('c.title')
             ->select('c.images')
             ->select('c.alias')
@@ -54,7 +55,7 @@ class NewsHelper
             ->leftJoin($db->quoteName('#__categories') . ' AS cat ON cat.id = c.catid')
             ->where($db->quoteName('c.state') . ' = 1')
             ->where($db->quoteName('c.catid'). '=' . $db->quote($catid))
-            ->order($db->quoteName('c.ordering'))
+            ->order($db->quoteName('c.created'). ' DESC')
             ->setLimit(6);
         $db->setQuery($query);
 

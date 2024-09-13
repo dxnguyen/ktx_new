@@ -12,6 +12,9 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\Registry\Registry;
+use Joomla\CMS\Router\Route;
+
 /** @var Joomla\CMS\Document\HtmlDocument $this */
 
 $app   = Factory::getApplication();
@@ -119,7 +122,6 @@ $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
 // get infoweb
 $dxn     = new Dxn();
 $infoweb = $dxn->getInfoweb();
-$dxn->setSession('sInfoweb', $infoweb);
 
 ?>
 <!DOCTYPE html>
@@ -192,11 +194,11 @@ $dxn->setSession('sInfoweb', $infoweb);
                 </div>
             </div>
             <div class="g-block size-100 jl-hidden@m">
-                <form id="searchHome" action="" method="post">
+                <form id="searchHome" action="<?php echo @Route::_('index.php?option=com_homepage&view=Search&Itemid=177')?>" method="get">
                     <input type="text" value="" name="jform[keyword]" class="keyword"/>
                     <button id="searchBtn" type="submit" class="btn-sm"><i class="fa fa-search"></i></button>
-                    <input type="hidden" name="option" value="com_homepage" />
-                    <input type="hidden" name="task" value="search.search" />
+                    <!--<input type="hidden" name="option" value="com_homepage" />
+                    <input type="hidden" name="task" value="search.search" />-->
                 </form>
             </div>
         </div>
@@ -204,7 +206,9 @@ $dxn->setSession('sInfoweb', $infoweb);
 
     <jdoc:include type="message" />
 
-    <jdoc:include type="component" />
+    <div id="componentBox" class="jl-section-xsmall">
+    <jdoc:include type="component"/>
+    </div>
 
     <section id="g-copyright">
         <div class="jl-container">
@@ -213,7 +217,7 @@ $dxn->setSession('sInfoweb', $infoweb);
                 <div class="g-block size-50">
                     <div id="branding-2132-particle" class="g-content g-particle">
                         <div class="g-branding ">
-                            Bản quyền© 2024 Trung tâm Quản lý Ký túc xá. <br/>
+                            Bản quyền©2024 thuộc Trung tâm Quản lý Ký túc xá. <br/>
                             Thiết kế và xây dựng bởi <a href="//cntt-dl.ktxhcm.edu.vn/" target="_blank" style="color: #ff8f40;">Phòng Công nghệ thông tin - Dữ liệu</a> .
                         </div>
                     </div>
@@ -264,7 +268,7 @@ $dxn->setSession('sInfoweb', $infoweb);
     <div class="popup-content">
         <span class="close-btn">&times;</span>
         <div class="video-container">
-            <iframe id="youtube-video" width="640" height="360" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe id="youtube-video" src="https://www.youtube.com/embed/9tM68iMoxTE?autoplay=1" width="640" height="360" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
 </div>
@@ -301,7 +305,7 @@ $dxn->setSession('sInfoweb', $infoweb);
 <script type="text/javascript" src="<?php echo $template_path;?>templates/jl_double_pro/js/leaflet-providers.js"></script>
 <script type="text/javascript" src="<?php echo $template_path;?>templates/jl_double_pro/js/typed.min.js"></script>
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!--<script type="text/javascript"
         src="//maps.google.com/maps/api/js?key=AIzaSyCmCmdHIiIjJd8rnkRzTAF2mpOBcNJwXis"></script>-->
 <!----Maps--->
@@ -309,48 +313,28 @@ $dxn->setSession('sInfoweb', $infoweb);
 
     // script.js
     document.addEventListener('DOMContentLoaded', function() {
-        var openPopupBtn = document.getElementById('open-popup');
-        var popup = document.getElementById('video-popup');
-        var closeBtn = document.querySelector('.close-btn');
-        var iframe = document.getElementById('youtube-video');
-        var linkElement = document.querySelector('.youtube-id');
+        $('a.youtube-id').click(function(e) {
+            e.preventDefault();
+            let videoId  = $(this).attr('data-id');
+            $('#youtube-video').attr('src', 'https://www.youtube.com/embed/'+videoId+'?autoplay=1');
 
-
-        $('a.youtube-id').click(function(){
-            let videoId = $(this).attr('data-id');
-            let videoUrl = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
-            iframe.src = videoUrl;
-            popup.style.display = 'block';
-            return false;
-        });
-        // Loop through each element and add an event listener
-         /*linkElement.addEventListener('click', function() {
-             var videoId = this.getAttribute('data-id');
-             //var videoUrl = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
-         });*/
-        //var videoId  = '9tM68iMoxTE';
-
-
-        //var videoId = '9tM68iMoxTE'; // Replace YOUR_VIDEO_ID with the actual video ID
-
-
-        openPopupBtn.addEventListener('click', function() {
-            iframe.src = videoUrl;
-            popup.style.display = 'block';
+            setTimeout(function () {
+                $('#video-popup').fadeIn();
+            }, 200);
         });
 
-        closeBtn.addEventListener('click', function() {
-            popup.style.display = 'none';
-            iframe.src = '';
+        $('.close-btn').on('click', function() {
+            $('#video-popup').fadeOut();
+            $('#youtube-video').attr('src', '');
         });
 
-        // Close the popup when clicking outside the content
-        window.addEventListener('click', function(event) {
-            if (event.target == popup) {
-                popup.style.display = 'none';
-                iframe.src = ''; // Stop the video when popup is closed
+        $(window).on('click', function(e) {
+            if ($(e.target).is('#videoPopup')) {
+                $('#video-popup').fadeOut();
+                $('#youtube-video').attr('src', '');
             }
         });
+
     });
 
     // Button go to top

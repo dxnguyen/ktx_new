@@ -7,6 +7,8 @@
  * @author      nguyen dinh <vb.dinhxuannguyen@gmail.com> - https://componentgenerator.com
  */
 
+use Joomla\CMS\Uri\Uri;
+
 //No direct access
 defined('_JEXEC') or die('Restricted access');
 ?>
@@ -50,7 +52,7 @@ defined('_JEXEC') or die('Restricted access');
                                             <div class="box-image">
                                                 <div class="image-zoom image-cover" style="padding-top:63%;">
                                                     <img loading="lazy" decoding="async" width="1020" height="680"
-                                                         src="/uploads/<?php echo $list[0]->image;?>"
+                                                         src="<?php echo URI::root();?>uploads/<?php echo $list[0]->image;?>"
                                                          class="attachment-large size-large wp-post-image" alt=""
                                                          sizes="(max-width: 1020px) 100vw, 1020px"></div>
                                             </div>
@@ -79,7 +81,7 @@ defined('_JEXEC') or die('Restricted access');
                                                     <div class="box-image" style="width:50%;">
                                                         <div class="image-zoom image-cover" style="padding-top:51%;">
                                                             <img loading="lazy" decoding="async" width="300" height="169"
-                                                                 src="/uploads/<?php echo $item->image;?>"
+                                                                 src="<?php echo URI::root();?>uploads/<?php echo $item->image;?>"
                                                                  class="attachment-medium size-medium wp-post-image" alt=""
                                                                  sizes="(max-width: 300px) 100vw, 300px"></div>
                                                     </div>

@@ -27,7 +27,7 @@ defined('_JEXEC') or die('Restricted access');
                                     Tham quan <span class="title-red">Ký túc xá</span>
                                 </h3>
                                 <div class="tm-content jl-panel jl-margin-medium-top">
-                                    <p class="btn-tqonline-text"><a href="<?php echo '\/\/'.$sInfoweb->ktx_online;?>" target="_blank">
+                                    <p class="btn-tqonline-text"><a href="<?php echo @$sInfoweb->ktx_online;?>" target="_blank">
                                             <button class="tham-quan-btn jl-button-primary jl-button">THAM QUAN ONLINE
                                                 <i class="fas fa-arrow-right"></i></button>
                                         </a></p>
@@ -38,7 +38,7 @@ defined('_JEXEC') or die('Restricted access');
                                                     <div class="jl-width-1-4">
                                                         <div class="tm-video-player">
                                                             <div class="btn-video-wrap">
-                                                                <a class="btn-video jl-icon-button youtube-id" data-id="<?php echo $sInfoweb->video_ktx;?>"
+                                                                <a class="btn-video jl-icon-button youtube-id" data-id="<?php echo @$sInfoweb->video_ktx;?>"
                                                                    href="#"
                                                                    aria-label="Open Video"><i class="jl-icon"
                                                                                               jl-icon="play; ratio: 2">

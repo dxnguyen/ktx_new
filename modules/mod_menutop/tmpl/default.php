@@ -10,6 +10,12 @@
 //No direct access
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\Factory;
+use Joomla\CMS\Router\Route;
+
+$app   = Factory::getApplication();
+$activeTemplate = $app->getTemplate(true)->template;
+$template_path  = JURI::root().'templates/'.$activeTemplate.'/';
 $dxn = new Dxn();
 $infoweb = $dxn->getInfoweb();
 ?>
@@ -69,11 +75,11 @@ $infoweb = $dxn->getInfoweb();
                 <a class="lang-mb" id="" href="#"> <img src="<?php echo $template_path;?>templates/en.svg"> </a>
             </div>
             <div class="size-20 hidden-phone hidden@s">
-                <form id="searchHome" action="" method="post">
+                <form id="searchHome" action="<?php echo @Route::_('index.php?option=com_homepage&view=Search&Itemid=177')?>" method="get">
                     <input type="text" value="" name="jform[keyword]" class="keyword"/>
                     <button id="searchBtn" type="submit" class="btn-sm"><i class="fa fa-search"></i></button>
-                    <input type="hidden" name="option" value="com_homepage" />
-                    <input type="hidden" name="task" value="search.search" />
+                    <!--<input type="hidden" name="option" value="com_homepage" />
+                    <input type="hidden" name="task" value="search.search" />-->
                 </form>
             </div>
         </div>

@@ -42,4 +42,9 @@ class DetailsController extends FormController
 	{
 		return parent::getModel($name, $prefix, array('ignore_request' => true));
 	}
+
+    public function search() {
+
+    }
+
 }

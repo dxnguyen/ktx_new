@@ -12,9 +12,7 @@ defined('_JEXEC') or die('Restricted access');
 
 use Joomla\CMS\Router\Route;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
-
-$dxn = new Dxn();
-$sInfoweb = $dxn->getSession('sInfoweb');
+use Joomla\CMS\Factory;
 
 ?>
 <footer id="g-footer" class="jl-section nopaddingbottom jl-s">
@@ -27,11 +25,11 @@ $sInfoweb = $dxn->getSession('sInfoweb');
                         <div id="jlfooterinfo-7949" class="jlfooterinfo-7949">
                             <div class="tm-content jl-panel jl-margin-remove-top">
                                 <h3 class="g5-title jl-text-emphasis jl-h3 jl-text-uppercase">Liên hệ</h3>
-                                <p><i class="fas fa-map-marker-alt"></i> <strong>Địa chỉ:</strong> <?php echo $sInfoweb->address_1; ?></p>
+                                <p><i class="fas fa-map-marker-alt"></i> <strong>Địa chỉ:</strong> <?php echo @$sInfoweb->address_1; ?></p>
                                 <p class="g-footer-phone"><i class="fas fa-phone-volume"></i> <strong>Điện
-                                        thoại:</strong> <a href="tel:<?php echo $sInfoweb->hotline; ?>"> <?php echo $sInfoweb->hotline; ?></a></p>
+                                        thoại:</strong> <a href="tel:<?php echo @$sInfoweb->hotline; ?>"> <?php echo @$sInfoweb->hotline; ?></a></p>
                                 <p class="g-footer-email"><i class="far fa-envelope"></i> <strong>Email:</strong> <a
-                                            href="mailto:<?php echo $sInfoweb->email_ktx; ?>"><?php echo $sInfoweb->email_ktx; ?></a><!-- hoặc <a
+                                            href="mailto:<?php echo @$sInfoweb->email_ktx; ?>"><?php echo @$sInfoweb->email_ktx; ?></a><!-- hoặc <a
                                             href="mailto:<?php /*echo $sInfoweb->email_ktx; */?>"><?php /*echo $sInfoweb->email_ktx; */?></a>--></p>
                             </div>
                         </div>

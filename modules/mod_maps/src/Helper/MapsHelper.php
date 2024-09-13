@@ -10,9 +10,21 @@
 namespace Joomla\Module\Maps\Site\Helper;
 
 // No direct access
+use Joomla\CMS\Factory;
+
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
 class MapsHelper
 {
-	// Add your custom code here
+    public static function getInfos() {
+        $db    = Factory::getDbo();
+        $query = $db->getQuery(true)
+            ->select('*')
+            ->from($db->quoteName('#__informations'))
+            ->where($db->quoteName('id') . ' = 1');
+        $db->setQuery($query);
+
+        return $db->loadObject();
+    }
+
 }

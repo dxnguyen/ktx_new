@@ -1,38 +1,66 @@
 <?php
-defined('_JEXEC') or die;
+    /**
+     * @version    CVS: 1.0.0
+     * @package    com_homepage
+     * @author     Nguyen Dinh <vb.dinhxuannguyen@gmail.com>
+     * @copyright  2024 Nguyen Dinh
+     * @license    GNU General Public License version 2 or later; see LICENSE.txt
+     */
+// No direct access
+    defined('_JEXEC') or die;
 
-use Joomla\CMS\Helper\ModuleHelper;
+    use \Joomla\CMS\HTML\HTMLHelper;
+    use \Joomla\CMS\Factory;
+    use \Joomla\CMS\Uri\Uri;
+    use \Joomla\CMS\Router\Route;
+    use \Joomla\CMS\Language\Text;
+    use \Joomla\CMS\Layout\LayoutHelper;
+    use \Joomla\CMS\Session\Session;
+    use \Joomla\CMS\User\UserFactoryInterface;
 
-$module = ModuleHelper::getModule('mod_id');
-$dxn = new Dxn();
+    HTMLHelper::_('bootstrap.tooltip');
+    HTMLHelper::_('behavior.multiselect');
+    HTMLHelper::_('formbehavior.chosen', 'select');
 
- ?>
-<div class="jl-container item-list">
- <div class="blog-title"><h2 class="jl-text-uppercase jl-margin-top"><?php echo 'Có '. count($this->search). ' kết quả được tìm thấy.'; ?></h2></div>
- <div class="js-jlfiltergallery-1072 jl-child-width-1-1 jl-child-width-1-2@s jl-child-width-1-3@m jl-grid jl-flex-top jl-flex-wrap-top" jl-grid="masonry: pack;" jl-lightbox="toggle: a[data-type]" jl-scrollspy="target: [jl-scrollspy-class]; cls: jl-animation-slide-bottom-small; delay: false;">
-  <?php foreach ($this->search as $item) : ?>
-   <?php
-   $link = Route::_('index.php?option=com_content&view=article&catid='.$item->catid.'&id='.$item->id);
-   $imgs = json_decode($item->images);
-   ?>
+    $user       = Factory::getApplication()->getIdentity();
+    $userId     = $user->get('id');
+    $listOrder  = $this->state->get('list.ordering');
+    $listDirn   = $this->state->get('list.direction');
 
-   <div data-tag="hoat-dong" class="jl-first-column" style="transform: translate(0px, 0px);">
-    <a class="tm-item jl-inline-clip jl-transition-toggle jl-link-toggle jl-scrollspy-inview" href="<?php echo $link;?>" title="<?php echo $item->title;?>" aria-label="Improve Startup" jl-scrollspy-class="" style="">
-     <img src="<?php echo $imgs->image_intro;?>" width="1024" height="892" class="tm-image jl-transition-scale-up jl-transition-opaque" alt="" loading="lazy">
-     <div class="jl-position-bottom-center jl-position-medium jl-tile-default jl-transition-slide-bottom-small">
-      <div class="jl-overlay jl-margin-remove-first-child">
-       <h3 class="tm-title jl-margin-remove-bottom jl-h5 jl-margin-top"><?php echo $item->title;?></h3>
-      </div>
-     </div>
-    </a>
-   </div>
 
-  <?php endforeach; ?>
+// Import CSS
+    $wa = $this->document->getWebAssetManager();
+    $wa->useStyle('com_homepage.list');
 
-  <div id="" style="width: 100%; clear:both; padding: 10px; text-align: center;">
-   <div class="com-content-category-blog__pagination jl-clearfix">
-    <?php echo $this->pagination->getPagesLinks();?>
-   </div>
-  </div>
- </div>
+    $dxn = new Dxn();
+?>
+<form action="<?php //echo htmlspecialchars(Uri::getInstance()->toString()); ?>" method="post"
+      name="adminForm" id="pageSearchForm">
+    <?php if(!empty($this->filterForm)) { echo LayoutHelper::render('joomla.searchtools.default', array('view' => $this)); } ?>
+    <input type="hidden" name="task" value=""/>
+    <input type="hidden" name="boxchecked" value="0"/>
+    <input type="hidden" name="filter_order" value=""/>
+    <input type="hidden" name="filter_order_Dir" value=""/>
+    <?php echo HTMLHelper::_('form.token'); ?>
+</form>
+<div class="jl-container searchContainer">
+            <h2 style="font-weight: 900; padding: 20px; color: #0a2051;">Kết quả tìm kiếm <!--Tìm thấy <strong style="color: #0a2051;"><?php /*echo count($this->items);*/?></strong> kết quả phù hợp.--></h2>
+                <?php foreach ($this->items as $i => $item) : ?>
+                    <?php
+                    $imgs = json_decode($item->images);
+                    $link = new Uri(Route::_('index.php?option=com_content&view=article&catid=' . $item->catid . '&id=' . $item->id, false));
+                    ?>
+                   <div class="searchItem g-grid">
+                       <div class="g-block size-20 imgBox"><a href="<?php echo $link;?>"><img src="<?php echo $imgs->image_intro; ?>" width="" height=""
+                                                           class="tm-image jl-transition-scale-up jl-transition-opaque" alt="" loading="lazy"></a></div>
+                       <div class="g-block size-80 textDes">
+                           <h4 class="titleItem"><a href="<?php echo $link;?>"><?php echo $item->title?></a></h4>
+                           <p><?php echo $dxn->cutString($item->introtext, 300);?></p>
+                       </div>
+                   </div>
+                <?php endforeach; ?>
+
+            <div class="pagination">
+                <?php echo $this->pagination->getPagesLinks(); ?>
+            </div>
 </div>

@@ -17,6 +17,6 @@ use Joomla\CMS\Factory;
 $document = Factory::getDocument();
 $document->addStyleSheet('modules/mod_maps/css/default.css');
 
-$dxn      = new Dxn();
-$sInfoweb = $dxn->getSession('sInfoweb');
+$sInfoweb = MapsHelper::getInfos();
+
 require ModuleHelper::getLayoutPath('mod_maps');

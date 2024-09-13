@@ -275,6 +275,13 @@ class Dxn
             return $str;
         }
 
+        public function shareFb() {
+            echo '<div class="fb-share-button" data-href="<?php echo JUri::current(); ?>" data-layout="button_count"></div>
+    
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="1q2w3e4r"></script>
+            ';
+        }
+
         function ham_loc_dau($st)
         {
             /*

@@ -22,7 +22,7 @@ class EventsHelper
             ->select('*')
             ->from($db->quoteName('#__events', 'e'))
             ->where($db->quoteName('e.state') . ' = 1')
-            ->order($db->quoteName('e.created_date'))
+            ->order($db->quoteName('e.created_date').' DESC')
             ->setLimit(4);
         $db->setQuery($query);
 

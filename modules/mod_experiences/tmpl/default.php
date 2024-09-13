@@ -9,6 +9,7 @@
 
 //No direct access
 defined('_JEXEC') or die('Restricted access');
+
 ?>
 
 <section id="g-below" class="bg-gradient-cold jl-light">
@@ -32,8 +33,8 @@ defined('_JEXEC') or die('Restricted access');
                             <div class="text-inner text-left">
                                 <h3 class="jl-h2 title-h2"><strong>Trải nghiệm <span
                                             class="title-red">Ký túc xá</span></strong></h3>
-                                <p class="jl-text-justify text-trai-nghiem"> <?php echo $sInfoweb->experience_text;?> </p>
-                                <p><a href="<?php echo '//'.$sInfoweb->ktx_online;?>" target="_blank"
+                                <p class="jl-text-justify text-trai-nghiem"> <?php echo @$sInfoweb->experience_text;?> </p>
+                                <p><a href="<?php echo @$sInfoweb->ktx_online;?>" target="_blank"
                                       class="button secondary lowercase" rel="noopener">
                                         <span>360° Virtual Tour  <i class="fas fa-arrow-right"></i></span>
                                     </a>

@@ -37,150 +37,47 @@ $wa = $this->document->getWebAssetManager();
 $wa->useStyle('com_videos.list');
 ?>
 
-<form action="<?php echo htmlspecialchars(Uri::getInstance()->toString()); ?>" method="post"
-	  name="adminForm" id="adminForm">
-	<?php if(!empty($this->filterForm)) { echo LayoutHelper::render('joomla.searchtools.default', array('view' => $this)); } ?>
-	<div class="table-responsive">
-		<table class="table table-striped" id="detailList">
-			<thead>
-			<tr>
-				
-					<th class=''>
-						<?php echo HTMLHelper::_('grid.sort',  'COM_VIDEOS_VIDEOS_ID', 'a.id', $listDirn, $listOrder); ?>
-					</th>
+    <div class="jl-container video-list">
+        <div class="g-grid">
+            <div class="blog-title"><h2 class="jl-margin-top">Videos</h2></div>
 
-					<th >
-						<?php echo HTMLHelper::_('grid.sort', 'JPUBLISHED', 'a.state', $listDirn, $listOrder); ?>
-					</th>
+            <div id="jlfiltergallery-1072-particle" class="g-content g-particle news-items">
+                <div class="js-jlfiltergallery-1072 jl-child-width-1-1 jl-child-width-1-2@s jl-child-width-1-3@m jl-grid jl-flex-top jl-flex-wrap-top"
+                     jl-grid="masonry: pack;" jl-lightbox="toggle: a[data-type]"
+                     jl-scrollspy="target: [jl-scrollspy-class]; cls: jl-animation-slide-bottom-small; delay: false;">
+                    <?php
+                        foreach ($this->items as $i => $item) :
+                            $this->item = &$item;
+                            $video_img  = empty($item->image) ? 'no_image.jpg' : 'videos/'. $item->image;
+                        ?>
+                            <div class="jl-first-column" style="transform: translate(0px, 0px);">
+                                <a class="tm-item youtube-id jl-inline-clip jl-transition-toggle jl-link-toggle jl-scrollspy-inview"
+                                   href="javascript::void(0);" title="<?php echo $item->title; ?>" aria-label=""
+                                   jl-scrollspy-class="" style="display: flex; align-items: center; text-align: center;" data-id="<?php echo $item->youtube_id;?>">
+                                    <img src="<?php echo URI::root();?>/uploads/<?php echo $video_img;?>" width="1024" height="892"
+                                         class="tm-image jl-transition-scale-up jl-transition-opaque youtube-id" alt="" loading="lazy" data-id="<?php echo $item->youtube_id;?>">
+                                    <div class="jl-position-bottom-center jl-position-medium jl-tile-default jl-transition-slide-bottom-small">
+                                        <div class="jl-overlay jl-margin-remove-first-child">
+                                            <h3 class="tm-title jl-margin-remove-bottom jl-h5 jl-margin-top"><?php echo $item->title; ?></h3>
+                                        </div>
+                                    </div>
+                                    <span class="icon-youtube-play"><i class="far fa-play-circle"></i></span>
+                                </a>
+                            </div>
+                    <?php
+                        endforeach;
+                    ?>
+                </div>
+            </div>
+            <?php if (($this->params->def('show_pagination', 1) == 1 || ($this->params->get('show_pagination') == 2)) && ($this->pagination->pagesTotal > 1)) : ?>
+            <div id="" style="width: 100%; clear:both; padding: 10px; text-align: center;">
+                <div class="com-content-category-blog__pagination jl-clearfix">
+                    <?php echo $this->pagination->getPagesLinks(); ?>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
 
-					<th class=''>
-						<?php echo HTMLHelper::_('grid.sort',  'COM_VIDEOS_VIDEOS_TITLE', 'a.title', $listDirn, $listOrder); ?>
-					</th>
+    </div>
+    </div>
 
-					<th class=''>
-						<?php echo HTMLHelper::_('grid.sort',  'COM_VIDEOS_VIDEOS_YOUTUBE_ID', 'a.youtube_id', $listDirn, $listOrder); ?>
-					</th>
-
-					<th class=''>
-						<?php echo HTMLHelper::_('grid.sort',  'COM_VIDEOS_VIDEOS_IS_HOT', 'a.is_hot', $listDirn, $listOrder); ?>
-					</th>
-
-					<th class=''>
-						<?php echo HTMLHelper::_('grid.sort',  'COM_VIDEOS_VIDEOS_IMAGE', 'a.image', $listDirn, $listOrder); ?>
-					</th>
-
-					<th class=''>
-						<?php echo HTMLHelper::_('grid.sort',  'COM_VIDEOS_VIDEOS_CREATED_DATE', 'a.created_date', $listDirn, $listOrder); ?>
-					</th>
-
-						<?php if ($canEdit || $canDelete): ?>
-					<th class="center">
-						<?php echo Text::_('COM_VIDEOS_VIDEOS_ACTIONS'); ?>
-					</th>
-					<?php endif; ?>
-
-			</tr>
-			</thead>
-			<tfoot>
-			<tr>
-				<td colspan="<?php echo isset($this->items[0]) ? count(get_object_vars($this->items[0])) : 10; ?>">
-					<div class="pagination">
-						<?php echo $this->pagination->getPagesLinks(); ?>
-					</div>
-				</td>
-			</tr>
-			</tfoot>
-			<tbody>
-			<?php foreach ($this->items as $i => $item) : ?>
-				<?php $canEdit = $user->authorise('core.edit', 'com_videos'); ?>
-				
-				<tr class="row<?php echo $i % 2; ?>">
-					
-					<td>
-						<?php echo $item->id; ?>
-					</td>
-					<td>
-						<?php $class = ($canChange) ? 'active' : 'disabled'; ?>
-						<a class="btn btn-micro <?php echo $class; ?>" href="<?php echo ($canChange) ? Route::_('index.php?option=com_videos&task=detail.publish&id=' . $item->id . '&state=' . (($item->state + 1) % 2), false, 2) : '#'; ?>">
-						<?php if ($item->state == 1): ?>
-							<i class="icon-publish"></i>
-						<?php else: ?>
-							<i class="icon-unpublish"></i>
-						<?php endif; ?>
-						</a>
-					</td>
-					<td>
-						<?php $canCheckin = Factory::getApplication()->getIdentity()->authorise('core.manage', 'com_videos.' . $item->id) || $item->checked_out == Factory::getApplication()->getIdentity()->id; ?>
-						<?php if($canCheckin && $item->checked_out > 0) : ?>
-							<a href="<?php echo Route::_('index.php?option=com_videos&task=detail.checkin&id=' . $item->id .'&'. Session::getFormToken() .'=1'); ?>">
-							<?php echo HTMLHelper::_('jgrid.checkedout', $i, $item->uEditor, $item->checked_out_time, 'detail.', false); ?></a>
-						<?php endif; ?>
-						<a href="<?php echo Route::_('index.php?option=com_videos&view=detail&id='.(int) $item->id); ?>">
-							<?php echo $this->escape($item->title); ?></a>
-					</td>
-					<td>
-						<?php echo $item->youtube_id; ?>
-					</td>
-					<td>
-						<?php echo $item->is_hot; ?>
-					</td>
-					<td>
-						<?php
-							if (!empty($item->image)) :
-								$imageArr = (array) explode(',', $item->image);
-								foreach ($imageArr as $singleFile) : 
-									if (!is_array($singleFile)) :
-										$uploadPath = 'uploads/videos' . DIRECTORY_SEPARATOR . $singleFile;
-										echo '<a href="' . Route::_(Uri::root() . $uploadPath, false) . '" target="_blank" title="See the image">' . $singleFile . '</a> ';
-									endif;
-								endforeach;
-							else:
-								echo $item->image;
-							endif; ?>
-					</td>
-					<td>
-						<?php
-						$date = $item->created_date;
-						echo $date > 0 ? HTMLHelper::_('date', $date, Text::_('DATE_FORMAT_LC6')) : '-';
-						?>
-					</td>
-					<?php if ($canEdit || $canDelete): ?>
-						<td class="center">
-						</td>
-					<?php endif; ?>
-
-				</tr>
-			<?php endforeach; ?>
-			</tbody>
-		</table>
-	</div>
-	<?php if ($canCreate) : ?>
-		<a href="<?php echo Route::_('index.php?option=com_videos&task=detailform.edit&id=0', false, 0); ?>"
-		   class="btn btn-success btn-small"><i
-				class="icon-plus"></i>
-			<?php echo Text::_('COM_VIDEOS_ADD_ITEM'); ?></a>
-	<?php endif; ?>
-
-	<input type="hidden" name="task" value=""/>
-	<input type="hidden" name="boxchecked" value="0"/>
-	<input type="hidden" name="filter_order" value=""/>
-	<input type="hidden" name="filter_order_Dir" value=""/>
-	<?php echo HTMLHelper::_('form.token'); ?>
-</form>
-
-<?php
-	if($canDelete) {
-		$wa->addInlineScript("
-			jQuery(document).ready(function () {
-				jQuery('.delete-button').click(deleteItem);
-			});
-
-			function deleteItem() {
-
-				if (!confirm(\"" . Text::_('COM_VIDEOS_DELETE_MESSAGE') . "\")) {
-					return false;
-				}
-			}
-		", [], [], ["jquery"]);
-	}
-?>

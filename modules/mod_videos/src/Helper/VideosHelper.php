@@ -31,6 +31,7 @@ class VideosHelper
             ->select('c.images')
             ->select('cat.title AS cat_title')
             ->select('cat.alias AS cat_alias')
+            ->select('cat.id AS catid')
             ->from($db->quoteName('#__content', 'c'))
             ->leftJoin($db->quoteName('#__categories') . ' AS cat ON cat.id = c.catid')
             ->where($db->quoteName('c.state') . ' = 1')

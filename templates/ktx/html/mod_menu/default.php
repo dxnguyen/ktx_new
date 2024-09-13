@@ -15,7 +15,7 @@
     $app      = Factory::getApplication();
     $sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
     $dxn      = new Dxn();
-    $infoweb  = $dxn->getInfoweb();
+    $infoweb  = @$dxn->getInfoweb();
 
     /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
     $wa = $app->getDocument()->getWebAssetManager();
@@ -31,8 +31,8 @@
     // The menu class is deprecated. Use mod-menu instead
 ?>
 <nav class="jl-navbar navbar navbar-expand-lg">
-    <a class="jl-navbar-item jl-logo" href="/"
-       title="<?php echo $sitename; ?>>" aria-label="Back to the homepage" rel="home">
+    <a class="jl-navbar-item jl-logo" href="<?php echo JURI::root(); ?>"
+       title="<?php echo $sitename; ?>" aria-label="Back to the homepage" rel="home">
         <img src="<?php echo JURI::root().'uploads/infos/'.$infoweb->logo; ?>" />
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

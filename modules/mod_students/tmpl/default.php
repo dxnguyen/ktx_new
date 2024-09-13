@@ -9,6 +9,9 @@
 
 //No direct access
 defined('_JEXEC') or die('Restricted access');
+
+use Joomla\CMS\Uri\Uri;
+
 ?>
 <section id="g-feature" class="jl-section">
     <div class="jl-container">
@@ -31,7 +34,7 @@ defined('_JEXEC') or die('Restricted access');
                                                     <div class="jl-width-auto">
                                                         <div class="tm-author-container jl-text-center">
                                                             <div class="author-image">
-                                                                <img src="/uploads/students/<?php echo $item->image;?>"
+                                                                <img src="<?php echo URI::root();?>uploads/students/<?php echo $item->image;?>"
                                                                      width="90" height="90" loading="lazy"
                                                                      class="tm-image jl-margin-top jl-border-circle"
                                                                      alt="">
