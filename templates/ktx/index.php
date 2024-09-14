@@ -268,7 +268,7 @@ $infoweb = $dxn->getInfoweb();
     <div class="popup-content">
         <span class="close-btn">&times;</span>
         <div class="video-container">
-            <iframe id="youtube-video" src="https://www.youtube.com/embed/9tM68iMoxTE?autoplay=1" width="640" height="360" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe id="youtube-video" src="https://www.youtube.com/embed/9tM68iMoxTE" width="640" height="360" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
 </div>

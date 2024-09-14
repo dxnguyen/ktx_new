@@ -31,6 +31,7 @@
 
 <?php
     $imgs = json_decode($this->item->images);
+    $image_intro = !empty($imgs->image_intro) ? $imgs->image_intro : URI::root().'uploads/no_image.jpg';
     $menu = Factory::getApplication()->getMenu();
     $active = $menu->getActive();
     $itemId = $active->id;
@@ -42,7 +43,7 @@
     <a class="tm-item jl-inline-clip jl-transition-toggle jl-link-toggle jl-scrollspy-inview"
        href="<?php echo $link; ?>" title="<?php echo $this->item->title; ?>" aria-label="Improve Startup"
        jl-scrollspy-class="" style="">
-        <img src="<?php echo $imgs->image_intro; ?>" width="1024" height="892"
+        <img src="<?php echo $image_intro; ?>" width="1024" height="892"
              class="tm-image jl-transition-scale-up jl-transition-opaque" alt="" loading="lazy">
         <div class="jl-position-bottom-center jl-position-medium jl-tile-default jl-transition-slide-bottom-small">
             <div class="jl-overlay jl-margin-remove-first-child">

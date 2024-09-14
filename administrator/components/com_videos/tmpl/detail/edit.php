@@ -36,6 +36,13 @@ HTMLHelper::_('bootstrap.tooltip');
 				<?php echo $this->form->renderField('title'); ?>
 				<?php echo $this->form->renderField('youtube_id'); ?>
 				<?php echo $this->form->renderField('image'); ?>
+                <div class="control-group" style="margin-top: -25px;">
+                    <div class="control-label">
+                    </div>
+                    <div class="controls">
+                        <p><small><i>Kích thước mẫu: 500 x 426 (pixel)</i></small></p>
+                    </div>
+                </div>
 
 				<?php if (!empty($this->item->image)) : ?>
                     <div class="control-group">

@@ -961,6 +961,7 @@ a.plain {
 .searchItem .textDes .titleItem a:hover{ color: #ff0000;}
 .searchItem .imgBox img:hover{ scale: 1.05;}
 .searchItem .textDes {  border-bottom: 1px solid #0c2d66; }
+.blog-title{ width: 100%;}
 @media (min-width: 549px) {
     .pswp__top-bar {
         background-color: transparent !important;
