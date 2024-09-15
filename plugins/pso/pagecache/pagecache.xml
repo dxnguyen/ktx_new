@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="pso" method="upgrade">
+    <name>Page Speed Optimizer - Page Cache</name>
+    <version>1.4.1</version>
+    <creationDate>June 2024</creationDate>
+    <author>Mobile Joomla!</author>
+    <copyright>(C) 2022-2024 Denis Ryabov</copyright>
+    <authorEmail>hello@mobilejoomla.com</authorEmail>
+    <authorUrl>https://www.mobilejoomla.com/</authorUrl>
+    <license>GNU/GPL v2 - http://www.gnu.org/licenses/gpl-2.0.html</license>
+    <description>Page Speed Optimizer - Page Cache plugin for Page Speed Optimizer extension</description>
+    <scriptfile>install.script.php</scriptfile>
+    <files>
+        <filename plugin="pagecache">pagecache.php</filename>
+    </files>
+</extension>

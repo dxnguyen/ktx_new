@@ -1,0 +1,24 @@
+/* Page Speed Optimizer 1.4.2 | mobilejoomla.com/license.html */
+#mj a,
+#mj a.list-group-item {
+    color: var(--atum-link-color, #1757a1);
+}
+#mj a:hover {
+    color: var(--atum-link-hover-color, #0a2747);
+}
+/*
+#mj .input-group-text {
+    color: var(--white, #fff);
+    background-color: var(--atum-bg-dark, #133653);
+    border: 1px solid var(--atum-bg-dark, #133653);
+}
+*/
+#mj .list-group-item {
+    background-color: var(--white-offset, #fefefe);
+}
+#mj .custom-file-label::after {
+    background-color: var(--atum-bg-light, #e8e8e8);
+}
+#mj .form-range::-webkit-slider-thumb {
+    background-color: var(--primary, #132f53);
+}

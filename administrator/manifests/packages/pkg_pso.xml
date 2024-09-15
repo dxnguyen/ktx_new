@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="package" version="2.5" method="upgrade">
+    <name>Page Speed Optimizer</name>
+    <packagename>pso</packagename>
+    <version>1.4.2</version>
+    <creationDate>June 2024</creationDate>
+    <author>Mobile Joomla!</author>
+    <packager>Mobile Joomla!</packager>
+    <copyright>(C) 2022-2024 Denis Ryabov</copyright>
+    <authorEmail>hello@mobilejoomla.com</authorEmail>
+    <url>https://www.mobilejoomla.com/</url>
+    <authorUrl>https://www.mobilejoomla.com/</authorUrl>
+    <packagerurl>https://www.mobilejoomla.com/</packagerurl>
+    <license>GNU/GPL v2 - http://www.gnu.org/licenses/gpl-2.0.html</license>
+    <description>Page Speed Optimizer package</description>
+    <blockChildUninstall>true</blockChildUninstall>
+    <scriptfile>pkg_pso.install.script.php</scriptfile>
+    <files folder="packages">
+        <file type="component" id="com_pso">com_pso_1.4.2.tgz</file>
+        <file type="plugin" group="system" id="pso">plg_system_pso_1.4.1.tgz</file>
+        <file type="plugin" group="pso" id="pagecache">plg_pso_pagecache_1.4.1.tgz</file>
+    </files>
+    <updateservers>
+        <server type="extension" name="Page Speed Optimizer Updates">https://update.mobilejoomla.com/pso/pkg_pso.xml</server>
+    </updateservers>
+</extension>

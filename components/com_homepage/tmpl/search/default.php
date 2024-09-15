@@ -56,10 +56,10 @@
             <div class="searchItem g-grid">
                 <div class="g-block size-20 imgBox"><a href="<?php echo $link; ?>"><img
                                 src="<?php echo $imgs->image_intro; ?>" width="" height=""
-                                class="tm-image jl-transition-scale-up jl-transition-opaque" alt="" loading="lazy"></a>
+                                class="tm-image jl-transition-scale-up jl-transition-opaque" alt="<?php echo $item->title ?>" loading="lazy"></a>
                 </div>
                 <div class="g-block size-80 textDes">
-                    <h4 class="titleItem"><a href="<?php echo $link; ?>"><?php echo $item->title ?></a></h4>
+                    <h4 class="titleItem"><a title="<?php echo $item->title ?>" href="<?php echo $link; ?>"><?php echo $item->title ?></a></h4>
                     <p><?php echo $dxn->cutString(strip_tags($item->introtext), 300); ?></p>
                 </div>
             </div>

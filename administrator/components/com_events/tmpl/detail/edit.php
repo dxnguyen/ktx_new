@@ -35,6 +35,13 @@ HTMLHelper::_('bootstrap.tooltip');
 				<legend><?php echo Text::_('COM_EVENTS_FIELDSET_DETAIL'); ?></legend>
 				<?php echo $this->form->renderField('title'); ?>
 				<?php echo $this->form->renderField('image'); ?>
+                <div class="control-group" style="margin-top: -25px;">
+                    <div class="control-label">
+                    </div>
+                    <div class="controls">
+                        <p><smal><i>Kích thước mẫu: 1024 x 683 (Pixel)</i></smal></p>
+                    </div>
+                </div>
                 <div class="control-group">
                     <div class="control-label">
                     </div>

@@ -52,9 +52,9 @@ defined('_JEXEC') or die('Restricted access');
                                             <div class="box-image">
                                                 <div class="image-zoom image-cover" style="padding-top:63%;">
                                                     <img loading="lazy" decoding="async" width="1020" height="680"
-                                                         src="<?php echo URI::root();?>uploads/<?php echo $list[0]->image;?>"
-                                                         class="attachment-large size-large wp-post-image" alt=""
-                                                         sizes="(max-width: 1020px) 100vw, 1020px"></div>
+                                                         src="<?php echo URI::root();?>uploads/thumb/<?php echo $list[0]->image;?>"
+                                                         class="attachment-large size-large imgThumbnail" alt=""
+                                                         ></div>
                                             </div>
                                             <div class="box-text text-left">
                                                 <div class="box-text-inner blog-post-inner">
@@ -81,9 +81,9 @@ defined('_JEXEC') or die('Restricted access');
                                                     <div class="box-image" style="width:50%;">
                                                         <div class="image-zoom image-cover" style="padding-top:51%;">
                                                             <img loading="lazy" decoding="async" width="300" height="169"
-                                                                 src="<?php echo URI::root();?>uploads/<?php echo $item->image;?>"
-                                                                 class="attachment-medium size-medium wp-post-image" alt=""
-                                                                 sizes="(max-width: 300px) 100vw, 300px"></div>
+                                                                 src="<?php echo URI::root();?>uploads/thumb/<?php echo $item->image;?>"
+                                                                 class="attachment-medium size-medium imgThumbnail" alt="<?php echo $item->title;?>">
+                                                        </div>
                                                     </div>
                                                     <div class="box-text text-left">
                                                         <div class="box-text-inner blog-post-inner">
@@ -105,4 +105,57 @@ defined('_JEXEC') or die('Restricted access');
             </div>
         </div>
     </div>
+
+    <!-- Popup image event -->
+    <div id="popupEvent" class="popup-event">
+        <span id="closeEvent">&times;</span>
+        <img id="fullsizeEvent" class="popup-event-content" src="<?php echo URI::root();?>uploads/<?php echo $list[0]->image;?>" alt="<?php echo $list[0]->title;?>">
+    </div>
+
+    <style>
+        /* styles.css */
+        .popup-event {
+            display: none; /* Ẩn popup mặc định */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 9999;
+        }
+
+        .popup-event-content {
+            margin: 50px auto;
+            display: block;
+            width: 80%;
+            max-width: 1024px;
+        }
+
+        #closeEvent {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            color: #fff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $('.imgThumbnail').click(function() {
+               var imgSrc = $(this).attr('src');
+               $('#fullsizeEvent').attr('src', imgSrc);
+               $('#popupEvent').fadeIn();
+            });
+
+            $('#closeEvent').click(function() {
+                $('#popupEvent').fadeOut();
+            });
+        });
+    </script>
 </section>

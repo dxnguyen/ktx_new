@@ -1,0 +1,37 @@
+/* Page Speed Optimizer 1.4.2 | mobilejoomla.com/license.html */
+.mjpro {
+    opacity: .4;
+}
+
+#mjprobanner {
+    display: none;
+    position: absolute;
+    z-index: 3;
+    padding: 16px 20px;
+    color: #c52820;
+    background-color: #fffff8;
+    border: 1px solid #c52833;
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 2px;
+}
+
+#mjprobanner a {
+    color: #22c;
+    text-decoration: underline;
+}
+
+#mjprobanner:before {
+    content: '';
+    position: absolute;
+    clip-path: polygon(-55% 150%, 150% 150%, 150% -55%);
+    transform: rotate(45deg);
+    width: 1em;
+    height: 1em;
+    bottom: -.5em;
+    left: 3em;
+    border: inherit;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    background-color: inherit;
+    box-shadow: rgba(0, 0, 0, 0.2) 3px 1px 2px;
+}

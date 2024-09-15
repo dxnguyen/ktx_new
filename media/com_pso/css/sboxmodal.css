@@ -1,0 +1,74 @@
+/* Page Speed Optimizer 1.4.2 | mobilejoomla.com/license.html */
+#sbox-overlay {
+    position: fixed;
+    background-color: #000;
+    left: 0;
+    top: 0;
+}
+
+#sbox-window {
+    position: absolute;
+    background-color: #fff;
+    text-align: left;
+    overflow: visible;
+    padding: 10px;
+    /* invalid values, but looks smoother! */
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#sbox-window[aria-hidden=true],
+#sbox-overlay[aria-hidden=true] {
+    display: none;
+}
+
+#sbox-btn-close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: -15px;
+    top: -15px;
+    background: url(../images/closebox.png) no-repeat center;
+    border: none;
+}
+
+#sbox-content {
+    clear: both;
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    overflow: visible;
+    box-sizing: content-box;
+}
+
+/* Hides scrollbars */
+.body-overlayed {
+    overflow: hidden;
+}
+
+/* Hides flash (Firefox problem) and selects (IE) */
+.body-overlayed embed, .body-overlayed object, .body-overlayed select {
+    visibility: hidden;
+}
+
+/* Shadows */
+#sbox-window.shadow {
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 979px) {
+    #sbox-btn-close {
+        right: -10px;
+        top: -10px;
+    }
+}
+
+@media (max-device-width: 979px) {
+    #sbox-content {
+        -webkit-overflow-scrolling: touch;
+        overflow: scroll;
+    }
+}

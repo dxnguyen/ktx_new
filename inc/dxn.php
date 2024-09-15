@@ -374,7 +374,7 @@ class Dxn
 
         }
 
-        function makeThumbnail($sourcefile, $max_width, $max_height, $endfile, $type)
+        public function makeThumbnail($sourcefile, $max_width, $max_height, $endfile, $type)
         {
             // Takes the sourcefile (path/to/image.jpg) and makes a thumbnail from it
             // and places it at endfile (path/to/thumb.jpg).

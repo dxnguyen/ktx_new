@@ -68,9 +68,9 @@ $featureArticleLink = Route::_(RouteHelper::getArticleRoute($list[0]->id).'&Item
                                                     <div class="box-image">
                                                         <div class="image-zoom image-cover" style="">
                                                             <img id="open-popup" loading="lazy" decoding="async" width="1020"
-                                                                 height="680" src="<?php echo URI::root();?>/uploads/videos/<?php echo $videos[0]->image;?>"
+                                                                 height="680" src="<?php echo URI::root();?>/uploads/videos/thumb/<?php echo $videos[0]->image;?>"
                                                                  class="attachment-large size-large wp-post-image"
-                                                                 alt=""
+                                                                 alt="<?php echo $videos[0]->title;?>"
                                                                  sizes="(max-width: 1020px) 100vw, 1020px">
                                                         </div>
                                                     </div>
@@ -98,7 +98,7 @@ $featureArticleLink = Route::_(RouteHelper::getArticleRoute($list[0]->id).'&Item
                                                         <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
                                                             <div class="box-text text-left">
                                                                 <div class="box-text-inner blog-post-inner">
-                                                                    <h5 class="post-title is-large "><a href="#" class="youtube-id" data-id="<?php echo $value->youtube_id;?>"><?php echo $value->title;?></a></h5>
+                                                                    <h5 class="post-title is-large "><a href="#" class="youtube-id" title="<?php echo $value->title;?>" data-id="<?php echo $value->youtube_id;?>"><?php echo $value->title;?></a></h5>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -163,7 +163,7 @@ $featureArticleLink = Route::_(RouteHelper::getArticleRoute($list[0]->id).'&Item
                                                                 <img loading="lazy" decoding="async" width="1020"
                                                                      height="680" src="<?php echo $featureImage->image_intro; ?>"
                                                                      class="attachment-large size-large wp-post-image"
-                                                                     alt=""
+                                                                     alt="<?php echo $list[0]->title; ?>"
                                                                      sizes="(max-width: 1020px) 100vw, 1020px">
                                                             </a>
                                                         </div>
@@ -171,7 +171,7 @@ $featureArticleLink = Route::_(RouteHelper::getArticleRoute($list[0]->id).'&Item
                                                     <div class="box-text text-left">
                                                         <div class="box-text-inner blog-post-inner">
                                                             <h5 class="post-title is-large post-title-main ">
-                                                                <a href="<?php echo $featureArticleLink; ?>"><?php echo $list[0]->title; ?>"</a>
+                                                                <a href="<?php echo $featureArticleLink; ?>" title="<?php echo $list[0]->title; ?>"><?php echo $list[0]->title; ?>"</a>
                                                             </h5>
 
                                                         </div>
@@ -195,7 +195,7 @@ $featureArticleLink = Route::_(RouteHelper::getArticleRoute($list[0]->id).'&Item
                                                 <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
                                                     <div class="box-text text-left">
                                                         <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large "><a href="<?php echo $articleUrl; ?>"><?php echo $item->title; ?></a></h5>
+                                                            <h5 class="post-title is-large "><a title="<?php echo $item->title; ?>" href="<?php echo $articleUrl; ?>"><?php echo $item->title; ?></a></h5>
                                                         </div>
                                                     </div>
                                                 </div>

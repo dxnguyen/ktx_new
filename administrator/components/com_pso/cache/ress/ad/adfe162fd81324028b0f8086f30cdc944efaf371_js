@@ -1,0 +1,1 @@
+[{"tagName":"script","content":"\n    jQuery(function ($) {\n        $('.jlsimplecounter-5893 .tm-counter-number').appear(function () {\n            $('.jlsimplecounter-5893 .tm-counter-number').countTo(\n            );\n        });\n    });","attributes":[],"self_close_str":""}]

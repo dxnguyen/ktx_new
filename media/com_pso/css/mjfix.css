@@ -1,0 +1,413 @@
+/* Page Speed Optimizer 1.4.2 | mobilejoomla.com/license.html */
+#mj {
+    font-size: 1rem;
+    line-height: 1.5;
+    position: relative;
+}
+
+/* Preview */
+
+#mj .thumbnail {
+    text-align: center;
+    min-height: 190px;
+    display: inline-block;
+    width: 144px;
+    text-decoration: none;
+}
+
+#mj .thumbnail::before {
+    content: '';
+    display: inline-block;
+    height: 100px;
+    vertical-align: middle;
+}
+
+#mj .thumbnail > img {
+    display: inline-block;
+    max-height: 100px;
+    max-width: 100px;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+    float: none;
+    margin: 0;
+}
+
+#mj .thumbnail.mjpro {
+    position: relative;
+}
+
+#mj .thumbnail.mjpro > * {
+    opacity: .5;
+}
+
+#mj .thumbnail.mjpro > div.mjpro {
+    position: absolute;
+    display: none;
+    width: 100%;
+    top: 27px;
+    left: 0;
+    opacity: 1;
+}
+
+#mj .thumbnail.mjpro:hover > * {
+    opacity: .2;
+}
+
+#mj .thumbnail.mjpro:hover > div.mjpro {
+    display: block;
+}
+
+/* Dashboard */
+
+#domainalert {
+    display: none;
+}
+
+#mj .visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+#mj label {
+    font-size: inherit;
+}
+
+#mj input[type="text"],
+#mj input[type="number"],
+#mj input[type="time"],
+#mj select {
+    height: auto;
+}
+
+#mj input.form-range {
+    border: none;
+}
+
+#mj .list-group-item.disabled {
+    font-weight: initial;
+    opacity: 0.65;
+}
+
+#mj .tooltip .tooltip-arrow {
+    border: none;
+}
+
+#mj .collapse {
+    position: initial;
+    height: auto;
+    overflow: initial;
+}
+
+#mj .fade {
+    opacity: initial;
+}
+
+#mj .modal {
+    margin: 0;
+    background-color: initial;
+}
+
+#mj .btn-toolbar {
+    font-size: initial;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#mj .btn:not(:hover,.active,.btn-primary,.btn-secondary,.btn-success,.btn-danger,.btn-info,.btn-warning) {
+    background-color: #fff;
+}
+
+#mj .card-header {
+    border-bottom: none;
+}
+
+#mj .navbar .list-group-item {
+    border-color: #c2cbd6;
+}
+
+#mj .navbar .list-group-item.active {
+    border-color: #3d618f;
+}
+
+#mj .navbar .list-group-item > .btn {
+    border-radius: inherit;
+}
+
+#mj .navbar .list-group-item > a.btn:focus,
+#mj .navbar .list-group-item > a.btn:hover {
+    border-color: #3d618f;
+    z-index: 1;
+    text-decoration: underline;
+}
+
+#mj .navbar .list-group-item > a.btn:focus {
+    box-shadow: 0 0 0 .25rem rgba(61, 97, 143, .5);
+}
+
+#mj span.loading:empty {
+    display: inline-block;
+    background-image: url('../images/spin.svg');
+    width: 1rem;
+    height: 1rem;
+}
+
+#mj .badge {
+    padding: .3rem .4rem;
+    margin-top: -.15rem;
+    vertical-align: middle;
+}
+
+#mj .form-control-plaintext {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.mj-update-list > .indicator {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    content: '';
+    background: url(../images/ok.svg) no-repeat center;
+    width: 1rem;
+    height: 1rem;
+}
+
+.mj-update-list.mj-update-loading > .indicator {
+    background-image: url(../images/spin.svg);
+}
+
+.mj-update-list.mj-update-error > .indicator {
+    background-image: none;
+}
+
+.mj-update-list.mj-update-available > .indicator {
+    background-image: none;
+}
+
+.mj-update-list.mj-update-available > .indicator:before {
+    content: '→';
+    vertical-align: top;
+    line-height: 1;
+}
+
+#mj .mj-support > a > i[class^=icon-] {
+    width: auto;
+}
+
+/* Custom File component (from Bootstrap 4) */
+/* wrapper */
+#mj .custom-file {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: calc(1.5em + (1.2rem + 2px)); /* changed to match atum template */
+    margin-bottom: 0;
+}
+
+/* hidden input */
+#mj .custom-file-input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: calc(1.5em + (1.2rem + 2px)); /* changed to match atum template */
+    margin: 0;
+    opacity: 0;
+}
+
+/* label */
+#mj .custom-file-input:focus ~ .custom-file-label {
+    border-color: #2b6abb; /* changed to match atum template */
+    box-shadow: 0 0 0 0.2rem rgba(19, 47, 83, 0.25); /* changed to match atum template */
+}
+
+#mj .custom-file-input:disabled ~ .custom-file-label {
+    background-color: #e8e8e8; /* changed to match atum template */
+}
+
+#mj .custom-file-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    height: calc(1.5em + 1.2rem + 2px); /* changed to match atum template */
+    padding: 0.6rem 1rem; /* changed to match atum template */
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+#mj .custom-file-label::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: block;
+    height: calc(1.5em + 1.2rem); /* changed to match atum template */
+    padding: 0.6rem 1rem; /* changed to match atum template */
+    line-height: 1.5;
+    color: #495057;
+    content: "Browse";
+    border-left: inherit;
+    border-radius: 0 0.25rem 0.25rem 0;
+    background-color: #e9ecef;
+}
+
+#mj .custom-file-input ~ .custom-file-label[data-browse]::after {
+    content: attr(data-browse);
+}
+
+
+#mj .disabled-input-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+}
+
+#mj .input-group-append select.form-control:focus {
+    z-index: 1;
+}
+
+#mj .mj-message {
+    margin-top: 0;
+}
+
+/* Support icons/links */
+#mj .mj-support > a[target=_blank]::before {
+    display: none;
+}
+
+#mj .mj-support > a > i[class^=icon-]::before {
+    display: inline-block;
+    width: 3em;
+    margin-left: -1em;
+    overflow: visible;
+    text-align: center;
+    color: #666;
+    text-shadow: 1px 1px 2px #ddd;
+}
+
+#mj .mj-support > a > i.icon-file::before {
+    color: #399;
+}
+
+#mj .mj-support > a > i.icon-comments-2::before {
+    color: #06c;
+}
+
+#mj .mj-support > a > i.icon-support::before {
+    color: #c30;
+}
+
+#mj .mj-support > a > i.icon-calendar::before {
+    color: #939;
+}
+
+#mj .mj-support > a > i.icon-user::before {
+    color: #393;
+}
+
+#mj .mj-support > a > i.icon-mail::before {
+    color: #d70;
+}
+
+/* Switch */
+#mj .btn-group > label.btn {
+    min-width: 5rem;
+}
+
+#mj .btn-group > label.btn > input[type=radio] {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+#mj .btn-group > label.btn > input[type=radio]:focus + span {
+    text-decoration: underline;
+}
+
+#mj .btn-group > label.btn-outline-success:focus-within {
+    box-shadow: 0 0 0 .25rem rgba(69, 125, 84, .5);
+}
+
+#mj .btn-group > label.btn-outline-info:focus-within {
+    box-shadow: 0 0 0 .25rem rgba(42, 105, 184, .5);
+}
+
+#mj .btn-group > label.btn-outline-danger:focus-within {
+    box-shadow: 0 0 0 .25rem rgba(197, 40, 39, .5);
+}
+
+#mj .form-control {
+    box-shadow: none;
+}
+
+#mj .input-group > .form-select {
+    flex: 0 0 auto;
+    width: auto;
+}
+
+#mj .input-group-vertical > :not(:last-child) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#mj .input-group-vertical > :not(:first-child) {
+    margin-top: -1px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#mj .form-control-color {
+    max-width: none;
+}
+
+#mj .row,
+#mj .btn-toolbar {
+    row-gap: 0.25rem;
+}
+
+#mj .input-group:not(.mj-duration) {
+    max-width: calc(15rem - 2px);
+}
+
+/* Preloads */
+#getpreloadsmodal.modal {
+    z-index: 10000;
+}
+
+#mj textarea {
+    white-space: pre;
+}
+
+/* disabled textarea */
+#mj .disabled > textarea {
+    background-color: #cdcdcd;
+}
+
+#mj .mj-textarea-stats {
+    opacity: .5;
+}
+#mj .mj-textarea-overshoot {
+    opacity: 1;
+    font-weight: bold;
+    color: #e22;
+}

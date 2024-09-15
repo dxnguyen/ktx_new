@@ -1,0 +1,1 @@
+!function(e){setTimeout(function t(){e.querySelector("link[rel=stylesheet][media=print][onload]")?setTimeout(t,100):e.dispatchEvent(new Event("resize",{bubbles:!0,cancelable:!1}))},100)}(document);

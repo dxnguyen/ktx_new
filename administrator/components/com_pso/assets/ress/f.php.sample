@@ -1,0 +1,18 @@
+<?php
+/**
+ * Page Speed Optimizer extension
+ * https://www.mobilejoomla.com/
+ *
+ * @version    1.4.2
+ * @license    GNU/GPL v2 - http://www.gnu.org/licenses/gpl-2.0.html
+ * @copyright  (C) 2022-2024 Denis Ryabov
+ * @date       June 2024
+ */
+
+$static_dir = __DIR__;
+$root = dirname(dirname(dirname($static_dir)));
+
+define('RESSIO_STATICDIR', $static_dir);
+define('RESSIO_POWERED_BY', 'Mobile Joomla');
+
+require $root . '/administrator/components/com_pso/ress/fetch.php';

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5" method="upgrade">
+    <name>pso</name>
+    <version>1.4.2</version>
+    <creationDate>June 2024</creationDate>
+    <author>Mobile Joomla!</author>
+    <copyright>(C) 2022-2024 Denis Ryabov</copyright>
+    <authorEmail>hello@mobilejoomla.com</authorEmail>
+    <authorUrl>https://www.mobilejoomla.com/</authorUrl>
+    <license>GNU/GPL v2 - http://www.gnu.org/licenses/gpl-2.0.html</license>
+    <description>Page Speed Optimizer component</description>
+    <scriptfile>install.script.php</scriptfile>
+    <media folder="media">
+        <folder>com_pso</folder>
+    </media>
+    <administration>
+        <menu>PSO</menu>
+        <languages folder="administrator/language/en-GB">
+            <language tag="en-GB">en-GB.com_pso.ini</language>
+            <language tag="en-GB">en-GB.com_pso.sys.ini</language>
+        </languages>
+        <files folder="administrator/components/com_pso">
+            <filename>access.xml</filename>
+            <filename>CHANGELOG.php</filename>
+            <filename>config.xml</filename>
+            <filename>defconfig.json</filename>
+            <filename>LICENSE.txt</filename>
+            <filename>pso.php</filename>
+            <folder>assets</folder>
+            <folder>classes</folder>
+            <folder>cli</folder>
+            <folder>controllers</folder>
+            <folder>legacy</folder>
+            <folder>models</folder>
+            <folder>pagecache</folder>
+            <folder>ress</folder>
+            <folder>updates</folder>
+            <folder>views</folder>
+        </files>
+    </administration>
+</extension>
