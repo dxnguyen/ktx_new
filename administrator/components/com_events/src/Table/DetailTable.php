@@ -329,7 +329,7 @@ class DetailTable extends Table implements VersionableTableInterface, TaggableTa
 					$fileTemp = $singleFile['tmp_name'];
                     $uploadPathToThumbs = JPATH_ROOT.'/uploads/thumb/' . $filename;
                     ////**** Resize Image - Dxnguyen ****////////////////////////////
-                    $this->makeThumbnail($fileTemp, 550, 550, $uploadPathToThumbs, $singleFile['type']);
+                    @$this->makeThumbnail($fileTemp, 550, 550, $uploadPathToThumbs, $singleFile['type']);
                     ////********************/////////////////////////////
 
 					if (!File::exists($uploadPath))
@@ -442,6 +442,7 @@ class DetailTable extends Table implements VersionableTableInterface, TaggableTa
         // and places it at endfile (path/to/thumb.jpg).
         // Load image and get image size.
         //
+
         switch ($type) {
             case'image/png':
                 $img = imagecreatefrompng($sourcefile);
@@ -453,20 +454,17 @@ class DetailTable extends Table implements VersionableTableInterface, TaggableTa
                 $img = imagecreatefromgif($sourcefile);
                 break;
             default :
-                return 'Un supported format';
+                return 'Unsupported format';
         }
 
-        $width = imagesx($img);
-        $height = imagesy($img);
+        $width  = @imagesx($img);
+        $height = @imagesy($img);
 
         if ($width > $height) {
             if ($width < $max_width)
                 $newwidth = $width;
-
             else
-
                 $newwidth = $max_width;
-
 
             $divisor = $width / $newwidth;
             $newheight = floor($height / $divisor);

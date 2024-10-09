@@ -16,6 +16,7 @@ use \Joomla\CMS\Toolbar\ToolbarHelper;
 use \Joomla\CMS\Factory;
 use \Informations\Component\Informations\Administrator\Helper\InformationsHelper;
 use \Joomla\CMS\Language\Text;
+use Joomla\CMS\Uri\Uri;
 
 /**
  * View class for a single Detail.
@@ -107,7 +108,7 @@ class HtmlView extends BaseHtmlView
 
 		//ToolbarHelper::cancel('screen.cpanel', 'JTOOLBAR_CLOSE');
 
-        ToolbarHelper::link('/administrator', 'Quay lại', 'icon-class', '', true);
+        ToolbarHelper::link(URI::root().'administrator', 'Quay lại', 'icon-class', '', true);
 
 	}
 }

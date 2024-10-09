@@ -51,8 +51,8 @@ defined('_JEXEC') or die('Restricted access');
                                         <div class="box box-normal box-text-bottom box-blog-post has-hover">
                                             <div class="box-image">
                                                 <div class="image-zoom image-cover" style="padding-top:63%;">
-                                                    <img loading="lazy" decoding="async" width="1020" height="680"
-                                                         src="<?php echo URI::root();?>uploads/thumb/<?php echo $list[0]->image;?>"
+                                                    <img loading="lazy" decoding="async" width="1020" height="680" data-src="<?php echo $list[0]->image;?>"
+                                                         src="<?php echo URI::root();?>uploads/<?php echo $list[0]->image;?>"
                                                          class="attachment-large size-large imgThumbnail" alt=""
                                                          ></div>
                                             </div>
@@ -80,8 +80,8 @@ defined('_JEXEC') or die('Restricted access');
                                                 <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
                                                     <div class="box-image" style="width:50%;">
                                                         <div class="image-zoom image-cover" style="padding-top:51%;">
-                                                            <img loading="lazy" decoding="async" width="300" height="169"
-                                                                 src="<?php echo URI::root();?>uploads/thumb/<?php echo $item->image;?>"
+                                                            <img loading="lazy" decoding="async" width="300" height="169" data-src="<?php echo $item->image;?>"
+                                                                 src="<?php echo URI::root();?>uploads/<?php echo $item->image;?>"
                                                                  class="attachment-medium size-medium imgThumbnail" alt="<?php echo $item->title;?>">
                                                         </div>
                                                     </div>
@@ -90,6 +90,9 @@ defined('_JEXEC') or die('Restricted access');
                                                             <h5 class="post-title is-large"><?php echo $item->title;?></h5>
                                                             <div class="is-divider"></div>
                                                             <div class="post-meta">Thời gian diễn ra: <?php echo date('d/m/Y H:i', strtotime($item->start_date));?></div>
+                                                            <?php if (!empty($item->end_date)) : ?>
+                                                            <div class="post-meta">Thời gian kết thúc: <?php echo date('d/m/Y H:i', strtotime($item->end_date));?></div>
+                                                            <?php endif; ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -148,7 +151,8 @@ defined('_JEXEC') or die('Restricted access');
     <script>
         $(document).ready(function() {
             $('.imgThumbnail').click(function() {
-               var imgSrc = $(this).attr('src');
+               var img_name = $(this).attr('data-src');
+               var imgSrc = "<?php echo URI::root();?>uploads/" + img_name;
                $('#fullsizeEvent').attr('src', imgSrc);
                $('#popupEvent').fadeIn();
             });

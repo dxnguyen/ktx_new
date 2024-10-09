@@ -43,7 +43,6 @@
     $infoImage = json_decode($this->item->images);
     $itemid = $activeMenuItem->id;
     $subMenus = $menu->getItems('parent_id', $itemid);
-
 ?>
 <div class="jl-container com-content-article item-page<?php echo $this->pageclass_sfx; ?>" itemscope
      itemtype="https://schema.org/Article">
@@ -56,23 +55,27 @@
         <div class="param-title jl-margin-bottom">
             <span style="font-style: italic; margin-right: 20px;"><i
                         class="far fa-clock"></i> <?php echo date('d/m/Y', strtotime($this->item->publish_up)); ?></span>
-            <span style="font-style: italic;"><i
+            <span style="font-style: italic; margin-right: 20px;"><i
                         class="fas fa-tags"></i> <?php echo $this->item->category_title; ?></span>
-            <span style="padding-left: 20px;"><?php echo $dxn->showModule('share');?></span>
+            <?php if ($params->get('show_hits')) : ?>
+                <span style="font-style: italic;"><i
+                            class="fas fa-eye"></i> <?php echo $this->item->hits; ?></span>
+            <?php endif; ?>
+            <span style="margin-left: 20px;"><?php echo $dxn->showModule('share');?></span>
         </div>
     <?php endif; ?>
 
     <div itemprop="articleBody" class="com-content-article__body jl-margin-medium-bottom">
-        <?php /*if (!empty($infoImage->image_fulltext)) : */?><!--
-            <p class="image_fulltext text-center"><img src="<?php /*echo $infoImage->image_fulltext; */?>"
-                                           alt="<?php /*echo $infoImage->image_fulltext_alt; */?>" loading="lazy"></p>
-        --><?php /*endif; */?>
+        <?php if (!empty($infoImage->image_fulltext)) : ?>
+            <p class="image_fulltext text-center"><img src="<?php echo $infoImage->image_fulltext; ?>"
+                                           alt="<?php echo $infoImage->image_fulltext_alt; ?>" loading="lazy"></p>
+        <?php endif; ?>
 
         <?php echo $this->item->text; ?>
 
     </div>
     <div class="submenu-list-box jl-text-center">
-        <?php if ($subMenus) : ?>
+        <?php if ($subMenus) : ?>01
             <div class="child-menu jl-margin jl-margin-auto">
                 <?php foreach ($subMenus as $key => $item) : ?>
                     <?php   $menuitem   = $menu->getItem($item->id);

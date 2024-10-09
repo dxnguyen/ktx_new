@@ -12,6 +12,9 @@ namespace Joomla\Module\News\Site\Helper;
 // No direct access
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\Table\Table;
+use Joomla\Component\Content\Site\Helper\QueryHelper;
+use Joomla\Utilities\ArrayHelper;
 
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
