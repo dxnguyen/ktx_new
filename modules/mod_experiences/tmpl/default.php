@@ -38,7 +38,7 @@ defined('_JEXEC') or die('Restricted access');
                                       class="button secondary lowercase" rel="noopener">
                                         <span>360° Virtual Tour  <i class="fas fa-arrow-right"></i></span>
                                     </a>
-                                    <a href="#" target="_blank" class="button secondary lowercase" rel="noopener">
+                                    <a href="https://sv.ktxhcm.edu.vn/" target="_blank" class="button secondary lowercase" rel="noopener">
                                         <span>Hỗ trợ đăng ký phòng ở <i class="fas fa-arrow-right"></i></span>
                                     </a>
                                 </p>

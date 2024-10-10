@@ -58,7 +58,8 @@ defined('_JEXEC') or die('Restricted access');
                                             </div>
                                             <div class="box-text text-left">
                                                 <div class="box-text-inner blog-post-inner">
-                                                    <h5 class="post-title is-large post-title-main "><?php echo $list[0]->title;?></h5>
+                                                    <?php $eventLink1 = !empty($list[0]->image_link) ? 'href="'.$list[0]->image_link.'" target="_blank"' : 'href="javascript:void(0);"'; ?>
+                                                    <h5 class="post-title is-large post-title-main "><a <?php echo $eventLink1;?>> <?php echo $list[0]->title;?></a></h5>
                                                     <div class="is-divider"></div>
                                                     <div class="post-meta post-meta-primary">Thời gian diễn ra: <?php echo date('d/m/Y H:i', strtotime($list[0]->start_date));?></div>
                                                 </div>
@@ -75,6 +76,7 @@ defined('_JEXEC') or die('Restricted access');
                                 <?php if ($list) :  ?>
                                     <?php foreach($list as $key=>$item) : ?>
                                         <?php if ($key == 0) continue;  ?>
+                                        <?php $eventLink = !empty($item->image_link) ? 'href="'.$item->image_link.'" target="_blank"' : 'href="javascript:void(0);"'; ?>
                                         <div class="col post-item" data-animate="fadeInRight" data-animated="true">
                                             <div class="col-inner">
                                                 <div class="box box-vertical box-text-bottom box-blog-post has-hover col-inner-box">
@@ -87,7 +89,7 @@ defined('_JEXEC') or die('Restricted access');
                                                     </div>
                                                     <div class="box-text text-left">
                                                         <div class="box-text-inner blog-post-inner">
-                                                            <h5 class="post-title is-large"><?php echo $item->title;?></h5>
+                                                            <h5 class="post-title is-large"><a <?php echo $eventLink; ?>><?php echo $item->title;?></a></h5>
                                                             <div class="is-divider"></div>
                                                             <div class="post-meta">Thời gian diễn ra: <?php echo date('d/m/Y H:i', strtotime($item->start_date));?></div>
                                                             <?php if (!empty($item->end_date)) : ?>

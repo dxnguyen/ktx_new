@@ -16,4 +16,4 @@ $dxn = new Dxn();
     $dxn->showModule('comments');
     $dxn->showModule('partner');
     $dxn->showModule('campus');
-    $dxn->showModule('menubottom');
+

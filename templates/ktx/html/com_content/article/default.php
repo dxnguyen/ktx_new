@@ -47,7 +47,7 @@
 <div class="jl-container com-content-article item-page<?php echo $this->pageclass_sfx; ?>" itemscope
      itemtype="https://schema.org/Article">
     <?php if ($params->get('show_title')) : ?>
-        <h2 class="jl-margin-top"><?php echo $this->escape($this->item->title); ?></h2>
+        <h2 class="jl-margin-top articleTitle"><?php echo $this->escape($this->item->title); ?></h2>
     <?php endif; ?>
 
     <?php $useDefList = $params->get('show_publish_date') || $params->get('show_category'); ?>

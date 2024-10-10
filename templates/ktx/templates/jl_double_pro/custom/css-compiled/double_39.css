@@ -382,17 +382,17 @@ a:hover {
 }
 
 body {
-    font-family: "roboto";
+    font-family: "Noto Sans", sans-serif;;
     font-weight: 400
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: "roboto";
+    font-family: "Noto Sans", sans-serif;;
     color: #27272f
 }
 
 .jl-h1, .jl-h2, .jl-h3, .jl-h4, .jl-h5, .jl-h6, .jl-heading-2xlarge, .jl-heading-large, .jl-heading-medium, .jl-heading-small, .jl-heading-xlarge {
-    font-family: "roboto"
+    font-family: "Noto Sans", sans-serif;
 }
 
 .tm-secondary-font:not(.tm-title) {

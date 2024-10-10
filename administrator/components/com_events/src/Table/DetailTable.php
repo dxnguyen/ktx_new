@@ -445,16 +445,25 @@ class DetailTable extends Table implements VersionableTableInterface, TaggableTa
 
         switch ($type) {
             case'image/png':
-                $img = imagecreatefrompng($sourcefile);
+                $img = @imagecreatefrompng($sourcefile);
                 break;
             case'image/jpeg':
-                $img = imagecreatefromjpeg($sourcefile);
+                $img = @imagecreatefromjpeg($sourcefile);
                 break;
             case'image/gif':
-                $img = imagecreatefromgif($sourcefile);
+                $img = @imagecreatefromgif($sourcefile);
                 break;
             default :
                 return 'Unsupported format';
+        }
+
+        if ($img === false) {
+            error_log("Failed to create image from source: $sourcefile");
+        }
+
+        // Kiểm tra và xóa file cũ nếu tồn tại
+        if (file_exists($endfile)) {
+            unlink($endfile);
         }
 
         $width  = @imagesx($img);
@@ -480,13 +489,13 @@ class DetailTable extends Table implements VersionableTableInterface, TaggableTa
         }
 
         // Create a new temporary image.
-        $tmpimg = imagecreatetruecolor($newwidth, $newheight);
+        $tmpimg = @imagecreatetruecolor($newwidth, $newheight);
 
-        imagealphablending($tmpimg, false);
-        imagesavealpha($tmpimg, true);
+        @imagealphablending($tmpimg, false);
+        @imagesavealpha($tmpimg, true);
 
         // Copy and resize old image into new image.
-        imagecopyresampled($tmpimg, $img, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+        @imagecopyresampled($tmpimg, $img, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 
         // Save thumbnail into a file.
 
@@ -507,7 +516,7 @@ class DetailTable extends Table implements VersionableTableInterface, TaggableTa
         }
 
         // release the memory
-        imagedestroy($tmpimg);
-        imagedestroy($img);
+        @imagedestroy($tmpimg);
+        //imagedestroy($img);
     }
 }

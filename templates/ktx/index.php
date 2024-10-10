@@ -137,6 +137,9 @@ $infoweb = $dxn->getInfoweb();
     <meta name="description" content="<?php echo $app->getConfig()->get('MetaDesc');?>">
     <jdoc:include type="head" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="<?php echo $template_path;?>media/com_convertforms/css/convertformsa7fc.css?2f978bcf04dcc23579c9dffe3871c4e8" rel="stylesheet"/>
     <link href="<?php echo $template_path;?>templates/jl_double_pro/css/jluikit.min.css" rel="stylesheet"/>
     <link href="<?php echo $template_path;?>media/gantry5/engines/nucleus/css-compiled/nucleus.css" rel="stylesheet"/>
@@ -208,6 +211,9 @@ $infoweb = $dxn->getInfoweb();
 
     <div id="componentBox" class="jl-section-xsmall">
     <jdoc:include type="component"/>
+
+    <!-- show menu bottom -->
+    <?php $dxn->showModule('menubottom'); ?>
     </div>
 
     <section id="g-copyright">
@@ -268,7 +274,7 @@ $infoweb = $dxn->getInfoweb();
     <div class="popup-content">
         <span class="close-btn">&times;</span>
         <div class="video-container">
-            <iframe id="youtube-video" src="https://www.youtube.com/embed/9tM68iMoxTE" width="640" height="360" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe id="youtube-video" src="https://www.youtube.com/embed/9tM68iMoxTE" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
 </div>
@@ -314,7 +320,7 @@ $infoweb = $dxn->getInfoweb();
     // script.js
     document.addEventListener('DOMContentLoaded', function() {
         $('a.youtube-id').click(function(e) {
-            e.preventDefault();
+            //e.preventDefault();
             let videoId  = $(this).attr('data-id');
             $('#youtube-video').attr('src', 'https://www.youtube.com/embed/'+videoId+'?autoplay=1');
 
