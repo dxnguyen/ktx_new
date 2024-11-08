@@ -108,6 +108,26 @@
 
            $('a.cat-title-box').removeClass('active');
            $(this).addClass('active');
+           var ajaxUrl = 'index.php?option=com_homepage&task=Details.filterNewsPost';
+
+
+           $('#loadDataBtn').on('click', function() {
+               $.ajax({
+                   url: '<?php echo $ajaxUrl; ?>',
+                   type: 'GET',
+                   dataType: 'json',
+                   success: function(response) {
+                       if (response.status == 'success') {
+                           $('#responseContainer').html(response.data);
+                       } else {
+                           $('#responseContainer').html('Có lỗi xảy ra!');
+                       }
+                   },
+                   error: function() {
+                       $('#responseContainer').html('Không thể kết nối tới máy chủ.');
+                   }
+               });
+           });
 
        });
     });

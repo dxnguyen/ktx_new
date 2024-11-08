@@ -18,6 +18,7 @@ $document = Factory::getDocument();
 $document->addStyleSheet('modules/mod_menubottom/css/default.css');
 
 $listMenuAbout      = MenubottomHelper::getListMenuAbout();
+$listMenuDoanthe    = MenubottomHelper::getListMenuDoanthe();
 $listMenuDepartment = MenubottomHelper::getListMenuDepartment();
 $listMenuBql = MenubottomHelper::getListMenuBql();
 $sInfoweb    = MenubottomHelper::getInfos();

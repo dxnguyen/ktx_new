@@ -54,6 +54,24 @@ use Joomla\CMS\Factory;
                                 <?php endif; ?>
                             </ul>
                         </div>
+
+                        <h3 class="g5-title jl-h3 jl-text-uppercase" style="margin-top: 27px;">Tổ chức đoàn thể</h3>
+                        <div class="jllist-3285">
+                            <ul class="jl-list">
+                                <?php if ($listMenuDoanthe) : ?>
+                                    <?php foreach ($listMenuDoanthe as $item) : ?>
+                                        <?php   $attributes = ($item->browserNav == 1) ? ' target="_blank"' : ''; ?>
+                                        <li class="tm-item">
+                                            <div class="tm-content jl-panel">
+                                                <a href="<?php echo Route::_($item->link);?>" <?php echo $attributes;?> jl-scroll>
+                                                    <?php echo $item->title;?>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="g-block size-25">

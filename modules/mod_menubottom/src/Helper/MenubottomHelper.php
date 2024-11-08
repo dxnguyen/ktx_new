@@ -23,18 +23,15 @@ class MenubottomHelper
         $menuItems   = $menuManager->getItems('menutype', $menuType);
 
         return $menuItems;
-        /*$db    = Factory::getDbo();
-        $query = $db->getQuery(true)
-            ->select('m.title')
-            ->select('m.link')
-            ->select('m.browserNav')
-            ->from($db->quoteName('#__menu', 'm'))
-            ->where($db->quoteName('m.published') . ' = 1')
-            ->where($db->quoteName('m.menutype') . ' = "menu-about"');
-            //->order($db->quoteName('m.ordering'));
-        $db->setQuery($query);
+    }
 
-        return $db->loadObjectList();*/
+    public static function getListMenuDoanthe() {
+        $app         = Factory::getApplication();
+        $menuManager = $app->getMenu();
+        $menuType    = 'menu-doanthe';
+        $menuItems   = $menuManager->getItems('menutype', $menuType);
+
+        return $menuItems;
     }
 
     public static function getListMenuDepartment() {
@@ -44,18 +41,6 @@ class MenubottomHelper
         $menuItems   = $menuManager->getItems('menutype', $menuType);
 
         return $menuItems;
-
-
-        /*$db    = Factory::getDbo();
-        $query = $db->getQuery(true)
-            ->select('m.title')
-            ->select('m.link')
-            ->from($db->quoteName('#__menu', 'm'))
-            ->where($db->quoteName('m.published') . ' = 1')
-            ->where($db->quoteName('m.menutype') . ' = "menu-department"');
-        $db->setQuery($query);
-
-        return $db->loadObjectList();*/
     }
 
     public static function getListMenuBql() {
@@ -65,17 +50,6 @@ class MenubottomHelper
         $menuItems   = $menuManager->getItems('menutype', $menuType);
 
         return $menuItems;
-
-        /*$db    = Factory::getDbo();
-        $query = $db->getQuery(true)
-            ->select('m.title')
-            ->select('m.link')
-            ->from($db->quoteName('#__menu', 'm'))
-            ->where($db->quoteName('m.published') . ' = 1')
-            ->where($db->quoteName('m.menutype') . ' = "menu-bqlcn"');
-        $db->setQuery($query);
-
-        return $db->loadObjectList();*/
     }
 
     public static function getInfos() {

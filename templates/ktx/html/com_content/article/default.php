@@ -43,6 +43,8 @@
     $infoImage = json_decode($this->item->images);
     $itemid = $activeMenuItem->id;
     $subMenus = $menu->getItems('parent_id', $itemid);
+    $isImportantNewsMod = JModuleHelper::getModules('important_news');
+    $sidebar_style = !empty($isImportantNewsMod) ? '' : ' style="width:100%"';
 ?>
 <div class="jl-container com-content-article item-page<?php echo $this->pageclass_sfx; ?>" itemscope
      itemtype="https://schema.org/Article">
@@ -65,21 +67,27 @@
         </div>
     <?php endif; ?>
 
-    <div itemprop="articleBody" class="com-content-article__body jl-margin-medium-bottom">
+    <div itemprop="articleBody" class="com-content-article__body jl-margin-medium-bottom" style="display: flex; align-content: center">
+        <div class="leftContent" <?php echo $sidebar_style;?>>
         <?php if (!empty($infoImage->image_fulltext)) : ?>
             <p class="image_fulltext text-center"><img src="<?php echo $infoImage->image_fulltext; ?>"
                                            alt="<?php echo $infoImage->image_fulltext_alt; ?>" loading="lazy"></p>
         <?php endif; ?>
+            <?php echo $this->item->text; ?>
+        </div>
+        <?php if (!empty($isImportantNewsMod)) : ?>
+            <?php echo $dxn->showModule('important_news');?>
 
-        <?php echo $this->item->text; ?>
+        <?php endif; ?>
 
     </div>
     <div class="submenu-list-box jl-text-center">
-        <?php if ($subMenus) : ?>01
+        <?php if ($subMenus) : ?>
             <div class="child-menu jl-margin jl-margin-auto">
                 <?php foreach ($subMenus as $key => $item) : ?>
-                    <?php   $menuitem   = $menu->getItem($item->id);
-                    $paramsItem = $item->getParams();
+                    <?php
+                        $menuitem   = $menu->getItem($item->id);
+                        $paramsItem = $item->getParams();
                     ?>
                     <div class="child-item size-20">
                         <a href="<?php echo Route::_('index.php?Itemid=' . $item->id); ?>">
@@ -94,7 +102,7 @@
 
     <?php if ($relateProducts): ?>
         <div class="relate-articles jl-margin-medium-bottom">
-            <div class="blog-title jl-margin-small-bottom"><h2 class="jl-text-uppercase">Bài viết cùng thể loại</h2>
+            <div class="blog-title jl-margin-small-bottom"><h2 class="jl-text-uppercase">Bài viết cùng chuyên mục</h2>
             </div>
             <div class="js-jlfiltergallery-1072 jl-child-width-1-1 jl-child-width-1-2@s jl-child-width-1-3@m jl-grid jl-flex-top jl-flex-wrap-top"
                  jl-grid="masonry: pack;" jl-lightbox="toggle: a[data-type]"

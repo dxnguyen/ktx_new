@@ -80,7 +80,18 @@ ul.dropdown-menu li:hover a{ background: none; }
 .view-all { position: absolute; right: 0; }
 
 /** article **/
+.com-content-article__body { line-height: 30px;display: flex; align-content: center}
+.com-content-article__body p { margin: 1em 0 !important; }
 .image_fulltext { padding-bottom: 20px; padding-top: 20px; }
+
+/* module sidebar */
+.leftContent { width: 70%; padding-right: 20px; }
+.sidebar-right { width: 30%; padding: 5px; position: relative; }
+.sidebar-right .modBox { width: 100%; position: relative; overflow: hidden;}
+.sidebar-right .modBox h2 { text-align: center; background-color: #0c2d66; color: #f0f0f0; font-weight:  bold; padding: 10px 0; margin-bottom: 0; border-radius: 10px 10px 0 0; }
+.sidebar-right .modBox ul { list-style: none; position: relative; margin: 0; padding: 5px; border: 1px solid #cccccc;  }
+.sidebar-right .modBox ul li { padding: 5px; }
+.sidebar-right .modBox ul li a:hover { color: #0c2d66 !important; }
 
 @media screen and (min-width:769px) {
     .dropend:hover>.dropdown-menu {
@@ -962,6 +973,11 @@ a.plain {
 .searchItem .imgBox img:hover{ scale: 1.05;}
 .searchItem .textDes {  border-bottom: 1px solid #0c2d66; }
 .blog-title{ width: 100%;}
+
+.pagination {
+    display: inline-flex !important;
+}
+
 @media (min-width: 549px) {
     .pswp__top-bar {
         background-color: transparent !important;
@@ -1003,6 +1019,8 @@ a.plain {
     .post-item h5.post-title {
         margin-top: 5px !important;
     }
+
+    .leftContent { width: 100%; }
 }
 
 @media screen and (max-width: 600px) {
